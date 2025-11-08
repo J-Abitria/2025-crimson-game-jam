@@ -5,9 +5,11 @@ enum MOVE_DIRECTION { LEFT, RIGHT, UP, DOWN }
 @export var speed: int = 400
 var screenSize
 var currentDirection: MOVE_DIRECTION = MOVE_DIRECTION.UP
+var interactionHitbox: Node2D
 
 func _ready():
 	screenSize = get_viewport_rect().size
+	interactionHitbox = get_node("InteractionHitbox")
 
 func _input(event):
 	if event is InputEventKey and not event.echo and event.is_pressed():
@@ -26,6 +28,20 @@ func _input(event):
 				print("The new direction is right.")
 			_:
 				print("No valid direction for this input.")
+
+func updateInteractionPosition():
+	match currentDirection:
+		MOVE_DIRECTION.UP:
+			interactionHitbox.position = Vector2(position.x, position.y - 1)
+		MOVE_DIRECTION.DOWN:
+			interactionHitbox.position = Vector2(position.x, position.y + 1)
+		MOVE_DIRECTION.LEFT:
+			interactionHitbox.position = Vector2(position.x - 1, position.y)
+		_:
+			interactionHitbox.position = Vector2(position.x + 1, position.y)
+
+func _process(_delta):
+	updateInteractionPosition()
 
 func _physics_process(_delta):
 	velocity = Vector2.ZERO

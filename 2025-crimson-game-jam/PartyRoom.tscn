@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=11 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="Script" uid="uid://141yoj501ngr" path="res://Scripts/Player.gd" id="1_in1t5"]
 
@@ -10,6 +10,15 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_in1t5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxfrn"]
+
+[sub_resource type="Gradient" id="Gradient_hxfrn"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uxlj3"]
+gradient = SubResource("Gradient_hxfrn")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_in1t5"]
 
 [sub_resource type="Gradient" id="Gradient_udgup"]
 offsets = PackedFloat32Array(1)
@@ -32,6 +41,15 @@ texture = SubResource("GradientTexture2D_udgup")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 scale = Vector2(3.25, 3.25)
 shape = SubResource("RectangleShape2D_hxfrn")
+
+[node name="InteractionHitbox" type="Area2D" parent="Player"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/InteractionHitbox"]
+texture = SubResource("GradientTexture2D_uxlj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractionHitbox"]
+shape = SubResource("CircleShape2D_in1t5")
+debug_color = Color(0.97437733, 0, 0.43065646, 0.41960785)
 
 [node name="LongWall1" type="StaticBody2D" parent="."]
 position = Vector2(584, -34)
