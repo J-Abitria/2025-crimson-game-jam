@@ -1,4 +1,4 @@
-extends Area2D
+class_name Player extends CharacterBody2D
 
 @export var speed: int = 400
 var screenSize
@@ -6,8 +6,9 @@ var screenSize
 func _ready():
 	screenSize = get_viewport_rect().size
 
-func _process(delta):
-	var velocity = Vector2.ZERO
+func _physics_process(delta):
+	velocity = Vector2.ZERO
+	
 	if Input.is_action_pressed("moveRight"):
 		velocity.x += 1
 	if Input.is_action_pressed("moveLeft"):
@@ -19,6 +20,4 @@ func _process(delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-	
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screenSize)
+		move_and_slide()
