@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=19 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="Script" uid="uid://141yoj501ngr" path="res://Scripts/Player.gd" id="1_in1t5"]
 [ext_resource type="Script" uid="uid://cmbvptrqdaqep" path="res://Scripts/InteractionHitbox.gd" id="2_udgup"]
 [ext_resource type="Script" uid="uid://dwbqxmhd5c6u" path="res://Scripts/NPCMovement.gd" id="3_hxfrn"]
 [ext_resource type="Script" uid="uid://on1ncpjvpnpi" path="res://Scripts/LineOfSight.gd" id="4_uxlj3"]
+[ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="5_8tyn0"]
 
 [sub_resource type="Gradient" id="Gradient_in1t5"]
 offsets = PackedFloat32Array(1)
@@ -143,3 +144,5 @@ script = ExtResource("4_uxlj3")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path2D/PathFollow2D/NPC/LineOfSight"]
 position = Vector2(52, 0)
 polygon = PackedVector2Array(140, -136, 140, 139, 0, 2)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_8tyn0")]
