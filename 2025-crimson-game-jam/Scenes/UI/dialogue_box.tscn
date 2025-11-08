@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://b28pd02fha6bk"]
+
+[ext_resource type="Script" uid="uid://ct4rustx0mb5e" path="res://Scripts/DialogueDisplay/dialogue_box.gd" id="1_obhul"]
+[ext_resource type="Resource" uid="uid://kt6jd8n1w1el" path="res://Resources/master_chief_dialogue.tres" id="2_8610a"]
+[ext_resource type="Texture2D" uid="uid://4rs1yl64xbr7" path="res://icon.svg" id="3_0df3s"]
+[ext_resource type="Script" uid="uid://gye0y8pycho8" path="res://Scripts/DialogueDisplay/typewriter.gd" id="4_1spsb"]
+
+[node name="DialogueBox" type="Control" node_paths=PackedStringArray("dialogue_text_label", "option_container")]
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_obhul")
+dialogue = ExtResource("2_8610a")
+dialogue_text_label = NodePath("HBoxContainer/VBoxContainer/DialogueTextLabel")
+option_container = NodePath("HBoxContainer/VBoxContainer/OptionContainer")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("3_0df3s")
+expand_mode = 2
+
+[node name="VBoxContainer" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DialogueTextLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Hello"
+autowrap_mode = 2
+script = ExtResource("4_1spsb")
+
+[node name="OptionContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1

@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8vl1f1vaytom"]
+
+[ext_resource type="Script" uid="uid://ct4rustx0mb5e" path="res://Scripts/DialogueDisplay/dialogue_box.gd" id="2_ia1lp"]
+[ext_resource type="Texture2D" uid="uid://4rs1yl64xbr7" path="res://icon.svg" id="3_2nij2"]
+[ext_resource type="Script" uid="uid://gye0y8pycho8" path="res://Scripts/DialogueDisplay/typewriter.gd" id="3_coq8p"]
+[ext_resource type="Resource" uid="uid://kt6jd8n1w1el" path="res://Resources/master_chief.tres" id="3_sasra"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="DialogueBox" type="Control" parent="CanvasLayer/Control/MarginContainer" node_paths=PackedStringArray("next_button", "dialogue_text_label")]
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("2_ia1lp")
+dialogue = ExtResource("3_sasra")
+next_button = NodePath("")
+dialogue_text_label = NodePath("HBoxContainer/DialogueTextLabel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/DialogueBox/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("3_2nij2")
+
+[node name="DialogueTextLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/DialogueBox/HBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Hello"
+autowrap_mode = 2
+script = ExtResource("3_coq8p")
