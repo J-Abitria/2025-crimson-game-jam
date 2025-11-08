@@ -1,34 +1,47 @@
 class_name Player extends CharacterBody2D
 
+enum MOVE_DIRECTION { LEFT, RIGHT, UP, DOWN }
+
 @export var speed: int = 400
-var interactionHitbox: InteractionHitbox
+var screenSize
+var currentDirection: MOVE_DIRECTION = MOVE_DIRECTION.UP
+var interactionHitbox: Node2D
 
 func _ready():
+	screenSize = get_viewport_rect().size
 	interactionHitbox = get_node("InteractionHitbox")
-	interactionHitbox.visible = false
-	print("Interaction Hitbox Pos - X: %d Y: %d" % [interactionHitbox.position.x, interactionHitbox.position.y])
+
+func _input(event):
+	if event is InputEventKey and not event.echo and event.is_pressed():
+		match event.keycode:
+			KEY_W:
+				currentDirection = MOVE_DIRECTION.UP
+				print("The new direction is up.")
+			KEY_A:
+				currentDirection = MOVE_DIRECTION.LEFT
+				print("The new direction is left.")
+			KEY_S:
+				currentDirection = MOVE_DIRECTION.DOWN
+				print("The new direction is down.")
+			KEY_D:
+				currentDirection = MOVE_DIRECTION.RIGHT
+				print("The new direction is right.")
+			_:
+				print("No valid direction for this input.")
 
 func updateInteractionPosition():
-	if velocity.x < 0:
-		interactionHitbox.position = Vector2(-70, 0)
-	elif velocity.x > 0:
-		interactionHitbox.position = Vector2(70, 0)
-	elif velocity.y < 0:
-		interactionHitbox.position = Vector2(0, -70)
-	elif velocity.y > 0:
-		interactionHitbox.position = Vector2(0, 70)
-
-func promptInteraction():
-	print("Interact Attempt")
-	interactionHitbox.visible = true
-	interactionHitbox.enable()
-	await get_tree().create_timer(0.1).timeout
-	interactionHitbox.visible = false
-	interactionHitbox.disable()
+	match currentDirection:
+		MOVE_DIRECTION.UP:
+			interactionHitbox.position = Vector2(position.x, position.y - 1)
+		MOVE_DIRECTION.DOWN:
+			interactionHitbox.position = Vector2(position.x, position.y + 1)
+		MOVE_DIRECTION.LEFT:
+			interactionHitbox.position = Vector2(position.x - 1, position.y)
+		_:
+			interactionHitbox.position = Vector2(position.x + 1, position.y)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("interact"):
-		promptInteraction()
+	updateInteractionPosition()
 
 func _physics_process(_delta):
 	velocity = Vector2.ZERO
@@ -45,5 +58,3 @@ func _physics_process(_delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		move_and_slide()
-	
-	updateInteractionPosition()
