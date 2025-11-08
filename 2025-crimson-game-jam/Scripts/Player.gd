@@ -3,13 +3,14 @@ class_name Player extends CharacterBody2D
 enum MOVE_DIRECTION { LEFT, RIGHT, UP, DOWN }
 
 @export var speed: int = 400
-var screenSize
-var currentDirection: MOVE_DIRECTION = MOVE_DIRECTION.UP
+
+var currentDirection: MOVE_DIRECTION
 var interactionHitbox: Node2D
 
 func _ready():
-	screenSize = get_viewport_rect().size
+	currentDirection = MOVE_DIRECTION.UP
 	interactionHitbox = get_node("InteractionHitbox")
+	print("Interaction Hitbox Pos - X: %d Y: %d" % [interactionHitbox.position.x, interactionHitbox.position.y])
 
 func _input(event):
 	if event is InputEventKey and not event.echo and event.is_pressed():
@@ -30,18 +31,14 @@ func _input(event):
 				print("No valid direction for this input.")
 
 func updateInteractionPosition():
-	match currentDirection:
-		MOVE_DIRECTION.UP:
-			interactionHitbox.position = Vector2(position.x, position.y - 1)
-		MOVE_DIRECTION.DOWN:
-			interactionHitbox.position = Vector2(position.x, position.y + 1)
-		MOVE_DIRECTION.LEFT:
-			interactionHitbox.position = Vector2(position.x - 1, position.y)
-		_:
-			interactionHitbox.position = Vector2(position.x + 1, position.y)
-
-func _process(_delta):
-	updateInteractionPosition()
+	if velocity.x < 0:
+		interactionHitbox.position = Vector2(-70, 0)
+	elif velocity.x > 0:
+		interactionHitbox.position = Vector2(70, 0)
+	elif velocity.y < 0:
+		interactionHitbox.position = Vector2(0, -70)
+	elif velocity.y > 0:
+		interactionHitbox.position = Vector2(0, 70)
 
 func _physics_process(_delta):
 	velocity = Vector2.ZERO
@@ -58,3 +55,5 @@ func _physics_process(_delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		move_and_slide()
+	
+	updateInteractionPosition()
