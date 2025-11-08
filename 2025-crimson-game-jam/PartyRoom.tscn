@@ -30,7 +30,7 @@ script = ExtResource("1_in1t5")
 texture = SubResource("GradientTexture2D_udgup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-scale = Vector2(3, 3)
+scale = Vector2(3.25, 3.25)
 shape = SubResource("RectangleShape2D_hxfrn")
 
 [node name="LongWall1" type="StaticBody2D" parent="."]
