@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://kt6jd8n1w1el"]
+
+[ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="1_00s1u"]
+[ext_resource type="Script" uid="uid://behe0uh46otj5" path="res://Scripts/Dialogue System/dialogue_type.gd" id="2_k2wg2"]
+[ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="3_5wfc1"]
+[ext_resource type="Script" uid="uid://dk6ucly77kk0h" path="res://Scripts/Dialogue System/response_dialogue.gd" id="4_ea4og"]
+[ext_resource type="Script" uid="uid://cvs5pisxmvodb" path="res://Scripts/Dialogue System/response_option.gd" id="4_k2wg2"]
+[ext_resource type="Script" uid="uid://c8wa8mk28h4ff" path="res://Scripts/Dialogue System/dialogue_system.gd" id="5_5kq7j"]
+
+[sub_resource type="Resource" id="Resource_2kgi5"]
+script = ExtResource("3_5wfc1")
+text = "Cortana, who the hell is this guy?"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_i5ux8"]
+script = ExtResource("3_5wfc1")
+text = "Sorry, just talking to my robot about some taxes or something, so what's up?"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_k2wg2"]
+script = ExtResource("4_k2wg2")
+response = "Your moustache"
+jealousy_value = 10
+state_transition_index = 1
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_5wfc1"]
+script = ExtResource("4_k2wg2")
+response = "Your dick"
+jealousy_value = 100
+state_transition_index = 2
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_5kq7j"]
+script = ExtResource("4_k2wg2")
+response = "Cortana"
+jealousy_value = -10
+state_transition_index = 3
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_ea4og"]
+script = ExtResource("4_ea4og")
+responses = Array[ExtResource("4_k2wg2")]([SubResource("Resource_k2wg2"), SubResource("Resource_5wfc1"), SubResource("Resource_5kq7j")])
+text = "What are you looking at?"
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_w22vx"]
+script = ExtResource("1_00s1u")
+dialogue = Array[ExtResource("2_k2wg2")]([SubResource("Resource_2kgi5"), SubResource("Resource_i5ux8"), SubResource("Resource_ea4og")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_0khax"]
+script = ExtResource("3_5wfc1")
+text = "Oh... I didn't know you could see that..."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_40vew"]
+script = ExtResource("1_00s1u")
+dialogue = Array[ExtResource("2_k2wg2")]([SubResource("Resource_0khax")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_hphxb"]
+script = ExtResource("3_5wfc1")
+text = "Damn, thought I told Cortana to remind me to zip up..."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_m0tuq"]
+script = ExtResource("1_00s1u")
+dialogue = Array[ExtResource("2_k2wg2")]([SubResource("Resource_hphxb")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_q8eja"]
+script = ExtResource("3_5wfc1")
+text = "Fuck you"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_hwu8f"]
+script = ExtResource("1_00s1u")
+dialogue = Array[ExtResource("2_k2wg2")]([SubResource("Resource_q8eja")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[resource]
+script = ExtResource("5_5kq7j")
+dialogue_states = Array[ExtResource("1_00s1u")]([SubResource("Resource_w22vx"), SubResource("Resource_40vew"), SubResource("Resource_m0tuq"), SubResource("Resource_hwu8f")])
+metadata/_custom_type_script = "uid://c8wa8mk28h4ff"
