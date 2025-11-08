@@ -5,6 +5,8 @@ var interactionHitbox: Node2D
 
 func _ready():
 	interactionHitbox = get_node("InteractionHitbox")
+	interactionHitbox.process_mode = Node.PROCESS_MODE_DISABLED
+	interactionHitbox.visible = false
 	print("Interaction Hitbox Pos - X: %d Y: %d" % [interactionHitbox.position.x, interactionHitbox.position.y])
 
 func updateInteractionPosition():
@@ -18,7 +20,11 @@ func updateInteractionPosition():
 		interactionHitbox.position = Vector2(0, 70)
 
 func promptInteraction():
-	pass
+	interactionHitbox.process_mode = Node.PROCESS_MODE_ALWAYS
+	interactionHitbox.visible = true
+	await get_tree().create_timer(0.5).timeout
+	interactionHitbox.process_mode = Node.PROCESS_MODE_DISABLED
+	interactionHitbox.visible = false
 
 func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
