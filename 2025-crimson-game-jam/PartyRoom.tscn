@@ -125,7 +125,6 @@ curve = SubResource("Curve2D_udgup")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(4, 2)
-rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
 texture = SubResource("GradientTexture2D_2o3f8")
