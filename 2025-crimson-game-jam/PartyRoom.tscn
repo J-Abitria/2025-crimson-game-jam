@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=17 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="Script" uid="uid://141yoj501ngr" path="res://Scripts/Player.gd" id="1_in1t5"]
 [ext_resource type="Script" uid="uid://cmbvptrqdaqep" path="res://Scripts/InteractionHitbox.gd" id="2_udgup"]
@@ -45,8 +45,6 @@ colors = PackedColorArray(0, 1, 1, 1)
 gradient = SubResource("Gradient_8tyn0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udgup"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxlj3"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -138,10 +136,3 @@ script = ExtResource("3_hxfrn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/NPC"]
 scale = Vector2(3.25, 3.25)
 shape = SubResource("RectangleShape2D_udgup")
-
-[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D/NPC"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/NPC/Area2D"]
-scale = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_uxlj3")
-debug_color = Color(0.71689725, 0.2551662, 0.99999994, 0.41960785)
