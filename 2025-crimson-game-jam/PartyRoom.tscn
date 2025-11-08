@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://yoieidt4msl4"]
+
+[ext_resource type="Script" uid="uid://141yoj501ngr" path="res://Scripts/Player.gd" id="1_in1t5"]
+
+[sub_resource type="Gradient" id="Gradient_bbb8d"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_in1t5"]
+gradient = SubResource("Gradient_bbb8d")
+
+[sub_resource type="Gradient" id="Gradient_in1t5"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_udgup"]
+gradient = SubResource("Gradient_in1t5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxfrn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LongWall1" type="Sprite2D" parent="."]
+position = Vector2(577, 32)
+scale = Vector2(17.953125, 1)
+texture = SubResource("GradientTexture2D_in1t5")
+
+[node name="LongWall2" type="Sprite2D" parent="."]
+position = Vector2(577, 617)
+scale = Vector2(17.953125, 1)
+texture = SubResource("GradientTexture2D_in1t5")
+
+[node name="ShortWall1" type="Sprite2D" parent="."]
+position = Vector2(34, 320.29233)
+rotation = 1.5707964
+scale = Vector2(8.287143, 1)
+texture = SubResource("GradientTexture2D_in1t5")
+
+[node name="ShortWall2" type="Sprite2D" parent="."]
+position = Vector2(1120, 325)
+rotation = 1.5707964
+scale = Vector2(8.287, 1.018)
+texture = SubResource("GradientTexture2D_in1t5")
+
+[node name="Player" type="Area2D" parent="."]
+position = Vector2(227, 145)
+script = ExtResource("1_in1t5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("GradientTexture2D_udgup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_hxfrn")
