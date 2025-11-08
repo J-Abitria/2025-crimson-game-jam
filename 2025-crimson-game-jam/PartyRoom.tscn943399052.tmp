@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=17 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="Script" uid="uid://141yoj501ngr" path="res://Scripts/Player.gd" id="1_in1t5"]
-[ext_resource type="Script" uid="uid://cmbvptrqdaqep" path="res://Scripts/InteractionHitbox.gd" id="2_hxfrn"]
 [ext_resource type="Script" uid="uid://dwbqxmhd5c6u" path="res://Scripts/NPCMovement.gd" id="2_udgup"]
 
 [sub_resource type="Gradient" id="Gradient_in1t5"]
@@ -31,6 +30,12 @@ gradient = SubResource("Gradient_udgup")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_in1t5"]
 
+[sub_resource type="Curve2D" id="Curve2D_dp8mp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4, 2, 0, 0, 0, 0, 1010, 2, 0, 0, 0, 0, 4, 2)
+}
+point_count = 3
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o3f8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfhhg"]
@@ -41,12 +46,6 @@ colors = PackedColorArray(0.16862746, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8tyn0"]
 gradient = SubResource("Gradient_uxlj3")
-
-[sub_resource type="Curve2D" id="Curve2D_dp8mp"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 4, 2, 0, 0, 0, 0, 1010, 2, 0, 0, 0, 0, 4, 2)
-}
-point_count = 3
 
 [node name="Node2D" type="Node2D"]
 
@@ -62,7 +61,6 @@ scale = Vector2(3.25, 3.25)
 shape = SubResource("RectangleShape2D_hxfrn")
 
 [node name="InteractionHitbox" type="Area2D" parent="Player"]
-script = ExtResource("2_hxfrn")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/InteractionHitbox"]
 texture = SubResource("GradientTexture2D_uxlj3")
@@ -119,27 +117,28 @@ texture = SubResource("GradientTexture2D_hxfrn")
 scale = Vector2(3.2033918, 3.2799997)
 shape = SubResource("RectangleShape2D_in1t5")
 
-[node name="NPC" type="CharacterBody2D" parent="."]
+[node name="Path2D" type="Path2D" parent="."]
 position = Vector2(64, 593)
+curve = SubResource("Curve2D_dp8mp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(4, 2)
+rotates = false
+
+[node name="NPC" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
+position = Vector2(-4, -2)
 script = ExtResource("2_udgup")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/NPC"]
 scale = Vector2(3.25, 3.25)
 shape = SubResource("RectangleShape2D_2o3f8")
 
-[node name="Area2D" type="Area2D" parent="NPC"]
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D/NPC"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/NPC/Area2D"]
 scale = Vector2(4.5, 4.5)
 shape = SubResource("RectangleShape2D_qfhhg")
 debug_color = Color(0.8224145, 0.0017196154, 0.96264964, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="NPC"]
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/NPC"]
 texture = SubResource("GradientTexture2D_8tyn0")
-
-[node name="Path2D" type="Path2D" parent="NPC"]
-curve = SubResource("Curve2D_dp8mp")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="NPC/Path2D"]
-position = Vector2(4, 2)
-rotates = false
