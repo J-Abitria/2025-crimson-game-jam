@@ -17,6 +17,14 @@ func updateInteractionPosition():
 	elif velocity.y > 0:
 		interactionHitbox.position = Vector2(0, 70)
 
+func promptInteraction():
+	pass
+
+func _process(_delta):
+	if Input.is_action_just_pressed("interact"):
+		promptInteraction()
+		print("Interact Attempt")
+
 func _physics_process(_delta):
 	velocity = Vector2.ZERO
 	
