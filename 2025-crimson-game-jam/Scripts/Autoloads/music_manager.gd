@@ -4,13 +4,17 @@ extends Node
 var music_player: AudioStreamPlayer
 var theme_player: AudioStreamPlayer
 
-#preload music file
 var tracks: Dictionary[int, AudioStreamOggVorbis] = {
-	1: preload("res://Assets/Music/DatingDubstep.ogg")
+	1: preload("res://Assets/Music/dating_dubstep.ogg"),
+	2: preload("res://Assets/Music/frog_rave.ogg")
 }
 
 var themes: Dictionary[String, AudioStreamOggVorbis] = {
-	
+	"johnny_silver": preload("res://Assets/Themes/johhny_silver.ogg"),
+	"lara_croft": preload("res://Assets/Themes/lara_croft.ogg"),
+	"master_chief": preload("res://Assets/Themes/master_chief.ogg"),
+	"peppino": preload("res://Assets/Themes/peppino.ogg"),
+	"zelda": preload("res://Assets/Themes/zelda.ogg")
 }
 
 func _ready() -> void:
@@ -27,7 +31,7 @@ func play_track(track_index: int) -> void:
 func play_theme(character_name: String) -> void:
 	# turn down music
 	var tween := create_tween()
-	tween.tween_property(music_player, "volume_db", -10, 1)
+	tween.tween_property(music_player, "volume_db", -15, 1)
 	await tween.finished
 	if themes.has(character_name):
 		theme_player.stream = themes[character_name]
