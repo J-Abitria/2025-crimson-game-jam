@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://yoieidt4msl4"]
+
+[ext_resource type="Script" uid="uid://141yoj501ngr" path="res://Scripts/Player.gd" id="1_in1t5"]
+
+[sub_resource type="Gradient" id="Gradient_in1t5"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_udgup"]
+gradient = SubResource("Gradient_in1t5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxfrn"]
+
+[sub_resource type="Gradient" id="Gradient_udgup"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hxfrn"]
+gradient = SubResource("Gradient_udgup")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in1t5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(227, 145)
+script = ExtResource("1_in1t5")
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("GradientTexture2D_udgup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(3.25, 3.25)
+shape = SubResource("RectangleShape2D_hxfrn")
+
+[node name="LongWall1" type="StaticBody2D" parent="."]
+position = Vector2(584, -34)
+scale = Vector2(18.359999, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="LongWall1"]
+texture = SubResource("GradientTexture2D_hxfrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LongWall1"]
+scale = Vector2(3.203392, 3.28)
+shape = SubResource("RectangleShape2D_in1t5")
+
+[node name="LongWall2" type="StaticBody2D" parent="."]
+position = Vector2(584.00006, 683)
+scale = Vector2(18.359999, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="LongWall2"]
+texture = SubResource("GradientTexture2D_hxfrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LongWall2"]
+scale = Vector2(3.203392, 3.28)
+shape = SubResource("RectangleShape2D_in1t5")
+
+[node name="ShortWall1" type="StaticBody2D" parent="."]
+position = Vector2(-34.000004, 328.00003)
+rotation = 1.5707964
+scale = Vector2(12.279999, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ShortWall1"]
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_hxfrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShortWall1"]
+scale = Vector2(3.2033918, 3.2799997)
+shape = SubResource("RectangleShape2D_in1t5")
+
+[node name="ShortWall2" type="StaticBody2D" parent="."]
+position = Vector2(1187.9999, 328.00003)
+rotation = 1.5707964
+scale = Vector2(12.279999, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ShortWall2"]
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("GradientTexture2D_hxfrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShortWall2"]
+scale = Vector2(3.2033918, 3.2799997)
+shape = SubResource("RectangleShape2D_in1t5")
