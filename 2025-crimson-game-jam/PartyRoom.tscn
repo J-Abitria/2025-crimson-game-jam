@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=12 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="Script" uid="uid://141yoj501ngr" path="res://Scripts/Player.gd" id="1_in1t5"]
+[ext_resource type="Script" uid="uid://cmbvptrqdaqep" path="res://Scripts/InteractionHitbox.gd" id="2_udgup"]
 
 [sub_resource type="Gradient" id="Gradient_in1t5"]
 offsets = PackedFloat32Array(1)
@@ -34,6 +35,7 @@ gradient = SubResource("Gradient_udgup")
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(227, 145)
 script = ExtResource("1_in1t5")
+speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = SubResource("GradientTexture2D_udgup")
@@ -43,6 +45,7 @@ scale = Vector2(3.25, 3.25)
 shape = SubResource("RectangleShape2D_hxfrn")
 
 [node name="InteractionHitbox" type="Area2D" parent="Player"]
+script = ExtResource("2_udgup")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/InteractionHitbox"]
 texture = SubResource("GradientTexture2D_uxlj3")
