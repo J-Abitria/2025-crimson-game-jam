@@ -1,11 +1,10 @@
 class_name Player extends CharacterBody2D
 
 @export var speed: int = 400
-var interactionHitbox: Node2D
+var interactionHitbox: InteractionHitbox
 
 func _ready():
 	interactionHitbox = get_node("InteractionHitbox")
-	interactionHitbox.process_mode = Node.PROCESS_MODE_DISABLED
 	interactionHitbox.visible = false
 	print("Interaction Hitbox Pos - X: %d Y: %d" % [interactionHitbox.position.x, interactionHitbox.position.y])
 
@@ -20,16 +19,16 @@ func updateInteractionPosition():
 		interactionHitbox.position = Vector2(0, 70)
 
 func promptInteraction():
-	interactionHitbox.process_mode = Node.PROCESS_MODE_ALWAYS
+	print("Interact Attempt")
 	interactionHitbox.visible = true
-	await get_tree().create_timer(0.5).timeout
-	interactionHitbox.process_mode = Node.PROCESS_MODE_DISABLED
+	interactionHitbox.enable()
+	await get_tree().create_timer(0.1).timeout
 	interactionHitbox.visible = false
+	interactionHitbox.disable()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		promptInteraction()
-		print("Interact Attempt")
 
 func _physics_process(_delta):
 	velocity = Vector2.ZERO
