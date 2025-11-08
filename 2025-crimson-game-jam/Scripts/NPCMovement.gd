@@ -4,7 +4,7 @@ class_name NPC extends CharacterBody2D
 var pathData: PathFollow2D
 
 func _ready():
-	pathData = get_node("Path2D/PathFollow2D")
+	pathData = get_parent()
 	CustomSignals.promptNPC.connect(_on_prompted)
 
 func _physics_process(delta):
