@@ -6,6 +6,7 @@ var current_state_index: int = 0
 
 func get_next() -> DialogueType:
 	if current_state_index < dialogue_states.size():
+		print("printing dialogue from the " + str(current_state_index) + "th state")
 		var dialogue_type: DialogueType = dialogue_states[current_state_index].get_next()
 		if !dialogue_type:
 			update_state()
