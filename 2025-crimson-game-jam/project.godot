@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 MusicManager="*res://Scripts/Autoloads/music_manager.gd"
 EventTrigger="*res://Scripts/Autoloads/event_trigger.gd"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [input]
 
 moveRight={
