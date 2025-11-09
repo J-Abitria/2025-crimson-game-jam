@@ -48,12 +48,11 @@ func _physics_process(delta):
 		else:
 			spriteData.flip_h = false
 
-func _on_prompted():
-	print("Interaction Received")
-	isInteracting = true
-	AudioManager.play_theme(npc_data.theme)
-	
-	dialogueBox.start_dialogue(self)
+func _on_prompted(npcName: String):
+	if self.name == npcName:
+		isInteracting = true
+		AudioManager.play_theme(npc_data.theme)
+		dialogueBox.start_dialogue(self)
 
 func start_cooldown() -> void:
 	await dialogueBox.completedDialogue

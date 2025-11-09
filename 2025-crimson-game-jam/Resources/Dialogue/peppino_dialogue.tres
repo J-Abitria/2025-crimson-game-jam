@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://bqlcn8vtgu0dh"]
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://dxstxl7qxe476"]
 
 [ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="1_iw2ep"]
 [ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="2_a0iod"]
@@ -12,16 +12,6 @@ script = ExtResource("1_iw2ep")
 text = "Thank-a you for your kind-a words!"
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
-[sub_resource type="Resource" id="Resource_f0quy"]
-script = ExtResource("5_jy8iq")
-text = "EH?! You wanna ask-a me somethin’?!"
-metadata/_custom_type_script = "uid://dk6ucly77kk0h"
-
-[sub_resource type="Resource" id="Resource_xef50"]
-script = ExtResource("2_a0iod")
-dialogue = Array[ExtResource("3_aqfuc")]([SubResource("Resource_f0quy")])
-metadata/_custom_type_script = "uid://byu3y2b647a13"
-
 [sub_resource type="Resource" id="Resource_1cgco"]
 script = ExtResource("5_jy8iq")
 text = "*Shrieks* Not-a you again! Don’t-a touch-a my pizzas!"
@@ -30,6 +20,16 @@ metadata/_custom_type_script = "uid://dk6ucly77kk0h"
 [sub_resource type="Resource" id="Resource_4tami"]
 script = ExtResource("2_a0iod")
 dialogue = Array[ExtResource("3_aqfuc")]([SubResource("Resource_1cgco")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_f0quy"]
+script = ExtResource("5_jy8iq")
+text = "EH?! You wanna ask-a me somethin’?!"
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_xef50"]
+script = ExtResource("2_a0iod")
+dialogue = Array[ExtResource("3_aqfuc")]([SubResource("Resource_f0quy")])
 metadata/_custom_type_script = "uid://byu3y2b647a13"
 
 [sub_resource type="Resource" id="Resource_w2nlw"]

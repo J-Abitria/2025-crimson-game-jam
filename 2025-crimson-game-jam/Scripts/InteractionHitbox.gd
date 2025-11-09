@@ -19,6 +19,6 @@ func _physics_process(_delta):
 		if overlappingBodies.size() > 0:
 			for body in overlappingBodies:
 				if body is NPC and not playerInfo.isInteracting: 
-					CustomSignals.promptNPC.emit()
+					CustomSignals.promptNPC.emit(body.name)
 					disable()
 					break

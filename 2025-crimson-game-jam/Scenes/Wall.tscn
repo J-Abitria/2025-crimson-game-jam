@@ -8,6 +8,7 @@ colors = PackedColorArray(0, 0, 0, 1)
 gradient = SubResource("Gradient_udgup")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2p0br"]
+size = Vector2(19.992002, 20)
 
 [node name="Wall" type="StaticBody2D"]
 
