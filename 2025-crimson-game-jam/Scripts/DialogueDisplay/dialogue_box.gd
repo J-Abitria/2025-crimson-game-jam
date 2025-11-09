@@ -19,16 +19,7 @@ func start_dialogue(character: NPC) -> void:
 	self.npc = character
 	love_meter.value = npc.loveMeter
 	
-	match npc.current_mood:
-		NPC.NPC_MOOD.HAPPY:
-			portrait.texture = npc.npc_data.get_happy()
-			love_meter.modulate = Color.PINK
-		NPC.NPC_MOOD.NEUTRAL:
-			portrait.texture = npc.npc_data.get_neutral()
-			love_meter.modulate = Color.WHITE
-		NPC.NPC_MOOD.ANGRY:
-			portrait.texture = npc.npc_data.get_angry()
-			love_meter.modulate = Color.DARK_RED
+	update_mood_display()
 	
 	self.visible = true
 	proceed_dialogue()
@@ -82,6 +73,20 @@ func select_response(choice: ResponseDialogue.RESPONSE_TYPES) -> void:
 			AudioManager.play_choice_effect("angry")
 			portrait.texture = npc.npc_data.get_angry()
 			npc.start_cooldown()
+	love_meter.value = npc.loveMeter
+	update_mood_display()
+
+func update_mood_display() -> void:
+	match npc.current_mood:
+		NPC.NPC_MOOD.HAPPY:
+			portrait.texture = npc.npc_data.get_happy()
+			love_meter.modulate = Color.PINK
+		NPC.NPC_MOOD.NEUTRAL:
+			portrait.texture = npc.npc_data.get_neutral()
+			love_meter.modulate = Color.WHITE
+		NPC.NPC_MOOD.ANGRY:
+			portrait.texture = npc.npc_data.get_angry()
+			love_meter.modulate = Color.DARK_RED
 
 func exit_dialogue_box() -> void:
 	self.visible = false

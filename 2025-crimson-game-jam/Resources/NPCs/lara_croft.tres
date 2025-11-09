@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=7 format=3 uid="uid://y07bhxoq5jwi"]
+
+[ext_resource type="Script" uid="uid://5l0kobmeylp0" path="res://Scripts/npc_data.gd" id="1_3ov58"]
+[ext_resource type="Resource" uid="uid://dfvboqimpx0tb" path="res://Resources/Dialogue/lara_croft_dialogue.tres" id="1_u7p3u"]
+[ext_resource type="Texture2D" uid="uid://dsqhf7gwhnuo0" path="res://Assets/Portraits/Lara Croft/lara_croft_happy.png" id="2_2cyas"]
+[ext_resource type="Texture2D" uid="uid://b6urgd2umi61d" path="res://Assets/Portraits/Lara Croft/lara_croft_neutral.png" id="3_st1qq"]
+[ext_resource type="Texture2D" uid="uid://1v163g8irm65" path="res://Assets/Portraits/Lara Croft/lara_croft_angry.png" id="4_eup5u"]
+[ext_resource type="AudioStream" uid="uid://bw6806ge7abl5" path="res://Assets/Themes/lara_croft.ogg" id="6_2cyas"]
+
+[resource]
+script = ExtResource("1_3ov58")
+theme = ExtResource("6_2cyas")
+mood_portraits = Dictionary[int, CompressedTexture2D]({
+0: ExtResource("2_2cyas"),
+1: ExtResource("3_st1qq"),
+2: ExtResource("4_eup5u")
+})
+dialogue = ExtResource("1_u7p3u")
+starting_love = 50
+metadata/_custom_type_script = "uid://5l0kobmeylp0"
