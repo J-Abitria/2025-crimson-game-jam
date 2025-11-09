@@ -1,6 +1,8 @@
 class_name Player extends CharacterBody2D
 
-@onready var dialogueBox: DialogueBox = get_node("../CanvasLayer/Game UI/MarginContainer/DialogueBox")
+signal finished_interaction()
+
+@export var dialogueBox: DialogueBox
 @export var speed: int = 400
 var interactionHitbox: InteractionHitbox
 var heldDrink: String = ""
@@ -11,7 +13,8 @@ func _ready():
 	interactionHitbox = get_node("InteractionHitbox")
 	interactionHitbox.visible = false
 	isInteracting = false
-	dialogueBox.completedDialogue.connect(_on_leave_interaction)
+	if dialogueBox:
+		dialogueBox.completedDialogue.connect(_on_leave_interaction)
 
 func updateInteractionPosition():
 	if velocity.x < 0:
