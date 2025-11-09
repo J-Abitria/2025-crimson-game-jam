@@ -26,5 +26,4 @@ debug_color = Color(0.70744437, 0.33136448, 0.89836586, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_g6unj")
-animation = &"walk_up"
-frame_progress = 0.56273955
+animation = &"idle_left"
