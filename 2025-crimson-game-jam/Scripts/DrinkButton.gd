@@ -1,5 +1,7 @@
 class_name DrinkButton extends Button
 
+signal whenClicked(drinkType: int)
+
 @export var drinkValue: int = 1
 
 func _ready():
@@ -7,4 +9,4 @@ func _ready():
 
 func _on_button_pressed(newButtonState: bool):
 	if newButtonState:
-		CustomSignals.drinkRequested.emit(drinkValue)
+		whenClicked.emit(drinkValue)

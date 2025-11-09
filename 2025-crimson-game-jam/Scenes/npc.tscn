@@ -22,9 +22,11 @@ shape = SubResource("RectangleShape2D_xxsvc")
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_1ig1v")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(46, 0)
-polygon = PackedVector2Array(224, -81, 224, 86, 0, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 0)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_g6unj")
+debug_color = Color(0.70744437, 0.33136448, 0.89836586, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_1ig1v")

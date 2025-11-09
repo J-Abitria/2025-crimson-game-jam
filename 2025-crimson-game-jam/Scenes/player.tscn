@@ -42,4 +42,3 @@ shape = SubResource("CircleShape2D_in1t5")
 debug_color = Color(0.97437733, 0, 0.43065646, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.65, 0.65)
