@@ -9,7 +9,7 @@ enum NPC_MOOD {
 signal insulted()
 
 @onready var pathData: PathFollow2D = get_node("..")
-@onready var spriteData: Sprite2D = get_node("Sprite2D")
+@export var sprite: AnimatedSprite2D
 var enemy: NPC
 
 @export var npc_data: NPCData
@@ -22,6 +22,7 @@ var current_mood: NPC_MOOD
 
 func _ready():
 	GameData.register_npc(self)
+	sprite.sprite_frames = npc_data.sprite_sheet
 	isInteracting = false
 	dialogueBox.completedDialogue.connect(_on_interaction_complete)
 	loveMeter = npc_data.starting_love
@@ -33,10 +34,12 @@ func _ready():
 
 func _physics_process(delta):
 	if not isInteracting:
+		var previous_position = global_position
+		
 		pathData.progress += npcSpeed * delta
 		
-		var movementStep = pathData.global_position - global_position
-		var collision = move_and_collide(movementStep)
+		var movement_step = pathData.global_position - previous_position
+		var collision = move_and_collide(movement_step)
 		
 		if collision:
 			pathData.progress -= npcSpeed * delta
@@ -48,9 +51,10 @@ func _physics_process(delta):
 				pathData.progress = attemptedProgress
 		
 		if pathData.progress > 0.5:
-			spriteData.flip_h = true
+			sprite.play("walk_left")
+			sprite.flip_h = true
 		else:
-			spriteData.flip_h = false
+			sprite.flip_h = false
 
 func interact() -> void:
 	isInteracting = true
@@ -77,7 +81,6 @@ func loveDecay():
 	while loveMeter != 0:
 		await get_tree().create_timer(5).timeout
 		change_love(-1)
-	print("L romantic partner")
 
 func update_mood() -> void:
 	if loveMeter >= 70:

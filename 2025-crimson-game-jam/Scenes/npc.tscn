@@ -6,10 +6,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udgup"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6unj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1ryf"]
+size = Vector2(80, 80)
 
-[node name="Npc" type="CharacterBody2D"]
+[node name="Npc" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_g6unj")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.25, 3.25)
@@ -18,13 +20,16 @@ shape = SubResource("RectangleShape2D_udgup")
 [node name="LineOfSight" type="Area2D" parent="."]
 script = ExtResource("3_1ig1v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3, 0)
-scale = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_g6unj")
-debug_color = Color(0.70744437, 0.33136448, 0.89836586, 0.41960785)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LineOfSight"]
+polygon = PackedVector2Array(-82, -123, 0, 1, 72, -124)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
 sprite_frames = ExtResource("3_g6unj")
-animation = &"walk_up"
-frame_progress = 0.56273955
+animation = &"walk_left"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_h1ryf")
