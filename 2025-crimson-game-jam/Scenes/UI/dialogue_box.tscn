@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b28pd02fha6bk"]
+[gd_scene load_steps=5 format=3 uid="uid://b28pd02fha6bk"]
 
 [ext_resource type="Script" uid="uid://ct4rustx0mb5e" path="res://Scripts/DialogueDisplay/dialogue_box.gd" id="1_obhul"]
-[ext_resource type="Resource" uid="uid://kt6jd8n1w1el" path="res://Resources/master_chief_dialogue.tres" id="2_8610a"]
-[ext_resource type="Texture2D" uid="uid://4rs1yl64xbr7" path="res://icon.svg" id="3_0df3s"]
 [ext_resource type="Script" uid="uid://gye0y8pycho8" path="res://Scripts/DialogueDisplay/typewriter.gd" id="4_1spsb"]
 [ext_resource type="FontFile" uid="uid://5yomvwki5k8u" path="res://Assets/Fonts/zelda.ttf" id="4_8610a"]
 
-[node name="DialogueBox" type="Control" node_paths=PackedStringArray("dialogue_text_label", "option_container")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c67c5"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="DialogueBox" type="Control" node_paths=PackedStringArray("dialogue_text_label", "portrait", "option_container", "love_meter")]
 custom_minimum_size = Vector2(800, 200)
 layout_mode = 3
 anchors_preset = 10
@@ -14,9 +15,10 @@ anchor_right = 1.0
 grow_horizontal = 2
 size_flags_vertical = 8
 script = ExtResource("1_obhul")
-dialogue = ExtResource("2_8610a")
 dialogue_text_label = NodePath("HBoxContainer/VBoxContainer/DialogueTextLabel")
+portrait = NodePath("HBoxContainer/PanelContainer/Portrait")
 option_container = NodePath("HBoxContainer/VBoxContainer/OptionContainer")
+love_meter = NodePath("HBoxContainer/ProgressBar")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -31,13 +33,16 @@ theme_override_constants/separation = 20
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_c67c5")
 fill_mode = 3
 show_percentage = false
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="HBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("3_0df3s")
 expand_mode = 2
 
 [node name="VBoxContainer" type="Control" parent="HBoxContainer"]

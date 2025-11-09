@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=7 format=3 uid="uid://d3jauypcolr11"]
+
+[ext_resource type="Script" uid="uid://5l0kobmeylp0" path="res://Scripts/npc_data.gd" id="1_0skuk"]
+[ext_resource type="Resource" uid="uid://tp82od0e6m2k" path="res://Resources/Dialogue/zelda_dialogue.tres" id="1_l410h"]
+[ext_resource type="Texture2D" uid="uid://td0otby621o8" path="res://Assets/Portraits/Zelda/zelda_happy.png" id="1_vlxm4"]
+[ext_resource type="Texture2D" uid="uid://gbnuwd7j1t88" path="res://Assets/Portraits/Zelda/zelda_neutral.png" id="2_l410h"]
+[ext_resource type="Texture2D" uid="uid://uass3kosjgtb" path="res://Assets/Portraits/Zelda/zelda_angry.png" id="3_axqb7"]
+[ext_resource type="AudioStream" uid="uid://b0ckcuyc63oi1" path="res://Assets/Themes/zelda.ogg" id="5_78g1a"]
+
+[resource]
+script = ExtResource("1_0skuk")
+theme = ExtResource("5_78g1a")
+mood_portraits = Dictionary[int, CompressedTexture2D]({
+0: ExtResource("1_vlxm4"),
+1: ExtResource("2_l410h"),
+2: ExtResource("3_axqb7")
+})
+dialogue = ExtResource("1_l410h")
+starting_love = 50
+metadata/_custom_type_script = "uid://5l0kobmeylp0"

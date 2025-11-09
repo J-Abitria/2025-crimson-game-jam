@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/master_chief.ogg-759870f4bf7ab422007a38546d58
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

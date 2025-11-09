@@ -2,16 +2,20 @@
 class_name DialogueState extends Resource
 
 @export var dialogue: Array[DialogueType]
-@export var transition_state_index: int
-var current_dialogue_index: int = 0
+var current_index: int = 0
 
+# Need to load responses from playerData somewhere in here or in dialogue box
 func get_next() -> DialogueType:
-	if current_dialogue_index < dialogue.size():
-		print("printing the " + str(current_dialogue_index) + "th dialogue string in this state")
-		current_dialogue_index += 1
-		if dialogue[current_dialogue_index - 1] is ResponseDialogue:
-			current_dialogue_index = 0
-		return dialogue[current_dialogue_index - 1]
+	var index: int = current_index
+	current_index += 1
+	if index < dialogue.size():
+		if dialogue[index] is ResponseDialogue:
+			dialogue[index].responses[ResponseDialogue.RESPONSE_TYPES.COMPLIMENTED] = PlayerData.get_random_compliment()
+			dialogue[index].responses[ResponseDialogue.RESPONSE_TYPES.QUESTIONED] = PlayerData.get_random_question()
+			dialogue[index].responses[ResponseDialogue.RESPONSE_TYPES.INSULTED] = PlayerData.get_random_insult()
+		return dialogue[index]
 	else:
-		current_dialogue_index = 0
 		return null
+
+func reset() -> void:
+	current_index = 0
