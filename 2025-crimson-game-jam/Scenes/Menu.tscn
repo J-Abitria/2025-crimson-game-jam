@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://doyohfe0kdcnc"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 648.0
+grow_horizontal = 2
+
+[node name="TitleText" type="Control" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/TitleText"]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 200.0
+theme_override_font_sizes/normal_font_size = 128
+text = "All Or Nothing"
+horizontal_alignment = 1
+
+[node name="Buttons" type="Control" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Control/MarginContainer/Buttons"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 193.0
+offset_right = 672.0
+offset_bottom = 289.0
+theme_override_font_sizes/font_size = 48
+text = "Begin"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/Control/MarginContainer/Buttons"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 300.0
+offset_right = 672.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 48
+text = "Credits"
+
+[node name="AboutButton" type="Button" parent="CanvasLayer/Control/MarginContainer/Buttons"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 407.0
+offset_right = 672.0
+offset_bottom = 503.0
+theme_override_font_sizes/font_size = 48
+text = "Help"

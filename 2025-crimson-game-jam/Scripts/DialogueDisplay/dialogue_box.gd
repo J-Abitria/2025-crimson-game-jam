@@ -7,7 +7,8 @@ class_name DialogueBox extends Control
 @export var option_container: Control
 
 func _ready() -> void:
-	proceed_dialogue()
+	self.visible = false
+	# proceed_dialogue()
 	# connect to player signal that emits when interacting with an NPC, passes NPC interacted with
 
 func _input(event: InputEvent) -> void:
@@ -46,6 +47,6 @@ func select_response(choice: ResponseOption) -> void:
 # Testing mode currently
 func exit_dialogue_box() -> void:
 	self.visible = false
-	await get_tree().create_timer(1).timeout
-	self.visible = true
-	proceed_dialogue()
+	# await get_tree().create_timer(1).timeout
+	# self.visible = true
+	# proceed_dialogue()
