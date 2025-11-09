@@ -24,6 +24,8 @@ func _physics_process(delta):
 		var collision = move_and_collide(movementStep)
 		
 		if collision:
+			pathData.progress -= npcSpeed * delta
+			
 			var path = pathData.get_parent()
 			var attemptedProgress = lerp(pathData.progress, path.curve.get_closest_offset(to_local(global_position)), 0.2)
 			
