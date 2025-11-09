@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSystem" load_steps=21 format=3 uid="uid://dmai8ma58vsxn"]
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://bpofj82u0dpth"]
 
 [ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="1_6yo78"]
 [ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="2_46agl"]
@@ -43,9 +43,9 @@ dialogue = Array[ExtResource("3_ktxvw")]([SubResource("Resource_ktxvw")])
 metadata/_custom_type_script = "uid://byu3y2b647a13"
 
 [sub_resource type="Resource" id="Resource_4pvsl"]
-script = ExtResource("5_4pvsl")
+script = ExtResource("1_6yo78")
 text = "This party sure has good lighting."
-metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_krxq3"]
 script = ExtResource("2_46agl")
@@ -69,12 +69,7 @@ metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_bg8o6"]
 script = ExtResource("1_6yo78")
-text = "It is… acceptable, but I am not getting good vibes from {npc}. The party would likely be better without them."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_k3f5o"]
-script = ExtResource("1_6yo78")
-text = "… It is good."
+text = "Question"
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [resource]
@@ -87,10 +82,7 @@ dialogue_states = Dictionary[int, ExtResource("2_46agl")]({
 4: SubResource("Resource_mm6ih")
 })
 compliment_responses = Array[ExtResource("1_6yo78")]([SubResource("Resource_7vi1u")])
-question_responses = Dictionary[int, ExtResource("1_6yo78")]({
-0: SubResource("Resource_bg8o6"),
-3: SubResource("Resource_k3f5o")
-})
+question_responses = Array[ExtResource("1_6yo78")]([SubResource("Resource_bg8o6")])
 insult_responses = Array[ExtResource("1_6yo78")]([SubResource("Resource_ssyb5")])
 current_state = 1
 metadata/_custom_type_script = "uid://c8wa8mk28h4ff"

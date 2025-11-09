@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSystem" load_steps=21 format=3 uid="uid://dfvboqimpx0tb"]
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://dfvboqimpx0tb"]
 
 [ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="1_gusuq"]
 [ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="2_t628e"]
@@ -43,9 +43,9 @@ dialogue = Array[ExtResource("3_6qx1g")]([SubResource("Resource_428w0")])
 metadata/_custom_type_script = "uid://byu3y2b647a13"
 
 [sub_resource type="Resource" id="Resource_gequ5"]
-script = ExtResource("5_ti0kw")
+script = ExtResource("1_gusuq")
 text = "I wonder if I can uncover the secret of this house before the party ends…"
-metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_u7wk2"]
 script = ExtResource("2_t628e")
@@ -69,12 +69,7 @@ metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_nlwh2"]
 script = ExtResource("1_gusuq")
-text = "I’m really preoccupied right now, I have to keep making sure {npc} is not trying to take any of my treasure."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_ftm67"]
-script = ExtResource("1_gusuq")
-text = "I’m doing quite nicely, but I’m only resting up for my next big adventure!"
+text = "Question"
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [resource]
@@ -87,10 +82,7 @@ dialogue_states = Dictionary[int, ExtResource("2_t628e")]({
 4: SubResource("Resource_w71xj")
 })
 compliment_responses = Array[ExtResource("1_gusuq")]([SubResource("Resource_6qx1g")])
-question_responses = Dictionary[int, ExtResource("1_gusuq")]({
-0: SubResource("Resource_nlwh2"),
-3: SubResource("Resource_ftm67")
-})
+question_responses = Array[ExtResource("1_gusuq")]([SubResource("Resource_nlwh2")])
 insult_responses = Array[ExtResource("1_gusuq")]([SubResource("Resource_ti0kw")])
 current_state = 1
 metadata/_custom_type_script = "uid://c8wa8mk28h4ff"

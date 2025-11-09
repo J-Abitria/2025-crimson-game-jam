@@ -15,9 +15,9 @@ anchor_right = 1.0
 grow_horizontal = 2
 size_flags_vertical = 8
 script = ExtResource("1_obhul")
-dialogue_text_label = NodePath("HBoxContainer/VBoxContainer/PanelContainer/DialogueTextLabel")
+dialogue_text_label = NodePath("HBoxContainer/VBoxContainer/DialogueTextLabel")
 portrait = NodePath("HBoxContainer/PanelContainer/Portrait")
-option_container = NodePath("HBoxContainer/VBoxContainer/PanelContainer/OptionContainer")
+option_container = NodePath("HBoxContainer/VBoxContainer/OptionContainer")
 love_meter = NodePath("HBoxContainer/ProgressBar")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -49,26 +49,28 @@ expand_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DialogueTextLabel" type="Label" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+[node name="DialogueTextLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("4_8610a")
 theme_override_font_sizes/font_size = 32
 text = "Hello"
 autowrap_mode = 3
 script = ExtResource("4_1spsb")
 
-[node name="OptionContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer"]
-layout_mode = 2
-size_flags_vertical = 8
+[node name="OptionContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 1

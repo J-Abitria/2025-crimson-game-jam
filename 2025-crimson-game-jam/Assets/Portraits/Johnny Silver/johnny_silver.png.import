@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6pi43noajl2l"
-path="res://.godot/imported/johnny_silver_angry.png-2236247e601e331e0240e75d12f46a68.ctex"
+uid="uid://bi78dg2r1us3"
+path="res://.godot/imported/johnny_silver.png-e9f8a5998561464ccf40aad6569befff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/Johnny Silver/johnny_silver_angry.png"
-dest_files=["res://.godot/imported/johnny_silver_angry.png-2236247e601e331e0240e75d12f46a68.ctex"]
+source_file="res://Assets/Portraits/Johnny Silver/johnny_silver.png"
+dest_files=["res://.godot/imported/johnny_silver.png-e9f8a5998561464ccf40aad6569befff.ctex"]
 
 [params]
 

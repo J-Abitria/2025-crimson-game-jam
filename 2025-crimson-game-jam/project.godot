@@ -17,19 +17,14 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-MusicManager="*res://Scripts/Autoloads/music_manager.gd"
-EventTrigger="*res://Scripts/Autoloads/event_trigger.gd"
-PlayerData="*res://Scripts/Autoloads/player_data.gd"
-GameData="*res://Scripts/Autoloads/game_data.gd"
 AudioManager="*res://Scripts/Autoloads/audio_manager.gd"
+EventTrigger="*res://Scripts/Autoloads/event_trigger.gd"
+CustomSignals="*res://Scripts/GlobalSignals.gd"
+PlayerData="*res://Scripts/Autoloads/player_data.gd"
 
 [debug]
 
 gdscript/warnings/integer_division=0
-
-[global_group]
-
-NPC=""
 
 [input]
 
@@ -67,4 +62,3 @@ interact={
 [rendering]
 
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
-textures/canvas_textures/default_texture_filter=3

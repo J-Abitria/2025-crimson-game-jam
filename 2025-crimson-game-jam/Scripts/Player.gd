@@ -11,6 +11,7 @@ func _ready():
 	interactionHitbox = get_node("InteractionHitbox")
 	interactionHitbox.visible = false
 	isInteracting = false
+	CustomSignals.promptNPC.connect(_on_enter_interaction)
 	CustomSignals.drinkRequested.connect(_on_receive_drink)
 	dialogueBox.completedDialogue.connect(_on_leave_interaction)
 

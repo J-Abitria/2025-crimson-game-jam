@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSystem" load_steps=21 format=3 uid="uid://b4tghootladns"]
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://b4tghootladns"]
 
 [ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="1_7fneo"]
 [ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="2_apaj6"]
@@ -42,14 +42,14 @@ script = ExtResource("2_apaj6")
 dialogue = Array[ExtResource("3_cp5yf")]([SubResource("Resource_dugn6")])
 metadata/_custom_type_script = "uid://byu3y2b647a13"
 
-[sub_resource type="Resource" id="Resource_j1a3k"]
-script = ExtResource("5_dugn6")
+[sub_resource type="Resource" id="Resource_11wmv"]
+script = ExtResource("1_7fneo")
 text = "We just finished talking, go chat up some other gonk at the party for a bit."
-metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_2gtpb"]
 script = ExtResource("2_apaj6")
-dialogue = Array[ExtResource("3_cp5yf")]([SubResource("Resource_j1a3k")])
+dialogue = Array[ExtResource("3_cp5yf")]([SubResource("Resource_11wmv")])
 metadata/_custom_type_script = "uid://byu3y2b647a13"
 
 [sub_resource type="Resource" id="Resource_5ar7r"]
@@ -67,14 +67,9 @@ script = ExtResource("1_7fneo")
 text = "Go fuck yourself."
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
-[sub_resource type="Resource" id="Resource_po2l7"]
+[sub_resource type="Resource" id="Resource_eoykw"]
 script = ExtResource("1_7fneo")
-text = "I’d love to talk right now, but unfortunately, I’m allergic to asshole corpos, and {npc} is really making me sneeze."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_6odxg"]
-script = ExtResource("1_7fneo")
-text = "I've declared war not because capitalism's a thorn in my side or outta nostalgia for an America gone by. This war's a people's war against a system that's spiralled outta our control. It's a war against the fuckin' forces of entropy, understand? Do whatever it takes to stop 'em, defeat 'em, gut 'em."
+text = "Question response"
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [resource]
@@ -87,10 +82,7 @@ dialogue_states = Dictionary[int, ExtResource("2_apaj6")]({
 4: SubResource("Resource_cpnwr")
 })
 compliment_responses = Array[ExtResource("1_7fneo")]([SubResource("Resource_3jfvj")])
-question_responses = Dictionary[int, ExtResource("1_7fneo")]({
-0: SubResource("Resource_po2l7"),
-3: SubResource("Resource_6odxg")
-})
+question_responses = Array[ExtResource("1_7fneo")]([SubResource("Resource_eoykw")])
 insult_responses = Array[ExtResource("1_7fneo")]([SubResource("Resource_qdxxy")])
 current_state = 1
 metadata/_custom_type_script = "uid://c8wa8mk28h4ff"

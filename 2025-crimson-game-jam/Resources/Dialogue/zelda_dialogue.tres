@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSystem" load_steps=21 format=3 uid="uid://tp82od0e6m2k"]
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://tp82od0e6m2k"]
 
 [ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="1_05moc"]
 [ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="2_cfgpv"]
@@ -42,14 +42,14 @@ script = ExtResource("2_cfgpv")
 dialogue = Array[ExtResource("3_klkve")]([SubResource("Resource_uxsxk")])
 metadata/_custom_type_script = "uid://byu3y2b647a13"
 
-[sub_resource type="Resource" id="Resource_qydpx"]
-script = ExtResource("5_uxsxk")
+[sub_resource type="Resource" id="Resource_jv3uq"]
+script = ExtResource("1_05moc")
 text = "The weather here is not nearly as good as back in Hyrule."
-metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_6qtxo"]
 script = ExtResource("2_cfgpv")
-dialogue = Array[ExtResource("3_klkve")]([SubResource("Resource_qydpx")])
+dialogue = Array[ExtResource("3_klkve")]([SubResource("Resource_jv3uq")])
 metadata/_custom_type_script = "uid://byu3y2b647a13"
 
 [sub_resource type="Resource" id="Resource_m2i6v"]
@@ -67,14 +67,9 @@ script = ExtResource("1_05moc")
 text = "You waste your breath; save it for when Ganon comes for you, for I shall not protect you."
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
-[sub_resource type="Resource" id="Resource_f4bwh"]
+[sub_resource type="Resource" id="Resource_hhpki"]
 script = ExtResource("1_05moc")
-text = "It is quite enjoyable, but I do not like the company of {npc} at all. They are too drunk and are making rash decisions."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_5ydw0"]
-script = ExtResource("1_05moc")
-text = "The party is very fun! I wish some of the other people from Hyrule were here to enjoy it with me, though."
+text = "Neutral response"
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [resource]
@@ -87,10 +82,7 @@ dialogue_states = Dictionary[int, ExtResource("2_cfgpv")]({
 4: SubResource("Resource_7qp7i")
 })
 compliment_responses = Array[ExtResource("1_05moc")]([SubResource("Resource_fkajq")])
-question_responses = Dictionary[int, ExtResource("1_05moc")]({
-0: SubResource("Resource_f4bwh"),
-3: SubResource("Resource_5ydw0")
-})
+question_responses = Array[ExtResource("1_05moc")]([SubResource("Resource_hhpki")])
 insult_responses = Array[ExtResource("1_05moc")]([SubResource("Resource_6udr7")])
 current_state = 1
 metadata/_custom_type_script = "uid://c8wa8mk28h4ff"

@@ -9,6 +9,7 @@ var npc: NPC
 @export var option_container: Control
 @export var love_meter: ProgressBar
 signal completedDialogue()
+signal modify_love(amount: int)
 
 func _ready() -> void:
 	self.visible = false
@@ -48,13 +49,8 @@ func run_response_dialogue(response_dialogue: ResponseDialogue) -> void:
 	for response_type: ResponseDialogue.RESPONSE_TYPES in response_dialogue.responses.keys():
 		var button: Button = Button.new()
 		button.text = response_dialogue.responses[response_type].response
-		if npc.is_on_cooldown:
-			if response_type == ResponseDialogue.RESPONSE_TYPES.QUESTIONED:
-				button.pressed.connect(Callable(self, "select_response").bind(response_type))
-				option_container.add_child(button)
-		else:
-			button.pressed.connect(Callable(self, "select_response").bind(response_type))
-			option_container.add_child(button)
+		button.pressed.connect(Callable(self, "select_response").bind(response_type))
+		option_container.add_child(button)
 		set_process_input(false)
 
 func select_response(choice: ResponseDialogue.RESPONSE_TYPES) -> void:
@@ -64,26 +60,19 @@ func select_response(choice: ResponseDialogue.RESPONSE_TYPES) -> void:
 	match choice:
 		ResponseDialogue.RESPONSE_TYPES.COMPLIMENTED:
 			run_display_dialogue(dialogue.compliment_responses.pick_random())
-			npc.change_love(30)
+			modify_love.emit(30)
 			AudioManager.play_choice_effect("happy")
 			portrait.texture = npc.npc_data.get_happy()
 			npc.start_cooldown()
 		ResponseDialogue.RESPONSE_TYPES.QUESTIONED:
+			run_display_dialogue(dialogue.question_responses.pick_random())
 			portrait.texture = npc.npc_data.get_neutral()
-			var question_type: DialogueSystem.QUESTION_TYPE = dialogue.question_responses.keys().pick_random()
-			match question_type:
-				DialogueSystem.QUESTION_TYPE.ENEMY:
-					if !npc.enemy.insulted.is_connected(Callable(npc, "enemy_insulted")):
-						npc.enemy.insulted.connect(Callable(npc, "enemy_insulted"))
-			run_display_dialogue(dialogue.question_responses[question_type])
-			# when question is answered, get signal to subscribe npc to
 		ResponseDialogue.RESPONSE_TYPES.INSULTED:
 			run_display_dialogue(dialogue.insult_responses.pick_random())
-			npc.change_love(-30)
+			modify_love.emit(-30)
 			AudioManager.play_choice_effect("angry")
 			portrait.texture = npc.npc_data.get_angry()
 			npc.start_cooldown()
-			npc.insult()
 	love_meter.value = npc.loveMeter
 	update_mood_display()
 

@@ -1,35 +1,30 @@
 class_name NPC extends CharacterBody2D
 
+@onready var pathData: PathFollow2D = get_node("..")
+@onready var spriteData: Sprite2D = get_node("Sprite2D")
 enum NPC_MOOD {
 	HAPPY,
 	NEUTRAL,
 	ANGRY
 }
 
-signal insulted()
-
-@onready var pathData: PathFollow2D = get_node("..")
-@onready var spriteData: Sprite2D = get_node("Sprite2D")
-var enemy: NPC
-
 @export var npc_data: NPCData
 @onready var dialogueBox: DialogueBox = get_node("../../../CanvasLayer/Game UI/MarginContainer/DialogueBox")
 @export var npcSpeed: int = 200
+@export var dialogue_system: DialogueSystem
 var isInteracting: bool
 var loveMeter: int
 var is_on_cooldown: bool
 var current_mood: NPC_MOOD
 
 func _ready():
-	GameData.register_npc(self)
 	isInteracting = false
+	CustomSignals.promptNPC.connect(_on_prompted)
 	dialogueBox.completedDialogue.connect(_on_interaction_complete)
+	dialogueBox.modify_love.connect(Callable(self, "change_love"))
 	loveMeter = npc_data.starting_love
 	update_mood()
 	loveDecay()
-	
-	await get_tree().process_frame
-	npc_data.dialogue.initialize(self)
 
 func _physics_process(delta):
 	if not isInteracting:
@@ -53,18 +48,16 @@ func _physics_process(delta):
 		else:
 			spriteData.flip_h = false
 
-func interact() -> void:
-	isInteracting = true
-	AudioManager.play_theme(npc_data.theme)
-	
-	dialogueBox.start_dialogue(self)
+func _on_prompted(npcName: String):
+	if self.name == npcName:
+		isInteracting = true
+		AudioManager.play_theme(npc_data.theme)
+		dialogueBox.start_dialogue(self)
 
 func start_cooldown() -> void:
 	await dialogueBox.completedDialogue
-	is_on_cooldown = true
 	npc_data.dialogue.current_state = DialogueSystem.NPC_STATES.COOLDOWN
 	await get_tree().create_timer(30).timeout
-	is_on_cooldown = false
 	update_dialogue_state()
 
 func _on_interaction_complete():
@@ -96,9 +89,3 @@ func update_dialogue_state() -> void:
 			npc_data.dialogue.current_state = DialogueSystem.NPC_STATES.NEUTRAL
 		NPC_MOOD.ANGRY:
 			npc_data.dialogue.current_state = DialogueSystem.NPC_STATES.HATED
-
-func enemy_insulted() -> void:
-	change_love(30)
-
-func insult() -> void:
-	insulted.emit()
