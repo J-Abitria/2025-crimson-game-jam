@@ -19,6 +19,8 @@ func _physics_process(_delta):
 		if overlappingBodies.size() > 0:
 			for body in overlappingBodies:
 				if body is NPC and not playerInfo.isInteracting: 
+					playerInfo.isInteracting = true
 					body.interact()
+					playerInfo._on_enter_interaction()
 					disable()
 					break

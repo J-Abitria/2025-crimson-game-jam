@@ -4,6 +4,7 @@ class_name DialogueBox extends Control
 # get this which will be attached to the NPC
 var dialogue: DialogueSystem
 var npc: NPC
+@export var dialogue_theme: Theme
 @export var dialogue_text_label: Typewriter
 @export var portrait: TextureRect
 @export var option_container: Control
@@ -47,6 +48,8 @@ func run_response_dialogue(response_dialogue: ResponseDialogue) -> void:
 	await dialogue_text_label.finished_typing
 	for response_type: ResponseDialogue.RESPONSE_TYPES in response_dialogue.responses.keys():
 		var button: Button = Button.new()
+		button.theme = dialogue_theme
+		button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		button.text = response_dialogue.responses[response_type].response
 		if npc.is_on_cooldown:
 			if response_type == ResponseDialogue.RESPONSE_TYPES.QUESTIONED:

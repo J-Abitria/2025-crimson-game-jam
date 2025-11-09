@@ -49,5 +49,20 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="MiniPortraitBox" type="Control" parent="Game UI/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Game UI/MarginContainer/MiniPortraitBox"]
+layout_mode = 0
+offset_left = 70.00001
+offset_top = 302.0
+offset_right = 110.00001
+offset_bottom = 342.0
+scale = Vector2(2.3676043, 2.3676043)
+
+[node name="EnemyNPCPortrait" type="TextureRect" parent="Game UI/MarginContainer/MiniPortraitBox/PanelContainer"]
+layout_mode = 2
+expand_mode = 2
+
 [node name="DialogueBox" parent="Game UI/MarginContainer" instance=ExtResource("2_fvidj")]
 layout_mode = 2

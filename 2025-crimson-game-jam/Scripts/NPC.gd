@@ -15,6 +15,7 @@ var enemy: NPC
 
 @export var npc_data: NPCData
 @onready var dialogueBox: DialogueBox = get_node("../../../CanvasLayer/Game UI/MarginContainer/DialogueBox")
+@onready var miniPortraitBox: Control = get_node("../../../CanvasLayer/Game UI/MarginContainer/MiniPortraitBox")
 @export var npcSpeed: int = 100
 var isInteracting: bool
 var loveMeter: int
@@ -27,12 +28,14 @@ func _ready():
 	sprite.sprite_frames = npc_data.sprite_sheet
 	isInteracting = false
 	dialogueBox.completedDialogue.connect(_on_interaction_complete)
+	miniPortraitBox.visible = false
 	loveMeter = npc_data.starting_love
 	update_mood()
 	loveDecay()
 	
 	await get_tree().process_frame
 	npc_data.dialogue.initialize(self)
+	enemy.insulted.connect(enemy_insulted)
 
 func _physics_process(delta):
 	if not isInteracting:
@@ -99,6 +102,7 @@ func start_cooldown() -> void:
 
 func _on_interaction_complete():
 	isInteracting = false
+	miniPortraitBox.visible = false
 
 func change_love(amount: int) -> void:
 	self.loveMeter += amount
@@ -128,6 +132,8 @@ func update_dialogue_state() -> void:
 
 func enemy_insulted() -> void:
 	change_love(30)
+	miniPortraitBox.visible = true
+	miniPortraitBox.get_node("PanelContainer/EnemyNPCPortrait").texture = npc_data.get_neutral()
 
 func insult() -> void:
 	insulted.emit()
