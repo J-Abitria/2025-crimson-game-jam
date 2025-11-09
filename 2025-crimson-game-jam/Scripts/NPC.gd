@@ -69,7 +69,7 @@ func change_love(amount: int) -> void:
 
 func loveDecay():
 	while loveMeter != 0:
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(3).timeout
 		change_love(-1)
 	print("L romantic partner")
 

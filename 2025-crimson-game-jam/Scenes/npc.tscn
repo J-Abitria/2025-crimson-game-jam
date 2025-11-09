@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dukyvndldjp0m"]
+[gd_scene load_steps=6 format=3 uid="uid://dukyvndldjp0m"]
 
 [ext_resource type="Script" uid="uid://dwbqxmhd5c6u" path="res://Scripts/NPC.gd" id="1_g6unj"]
 [ext_resource type="Script" uid="uid://on1ncpjvpnpi" path="res://Scripts/LineOfSight.gd" id="3_1ig1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxsvc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6unj"]
 
 [sub_resource type="Gradient" id="Gradient_h1ryf"]
 offsets = PackedFloat32Array(1)
@@ -24,10 +22,9 @@ shape = SubResource("RectangleShape2D_xxsvc")
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_1ig1v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_g6unj")
-debug_color = Color(0.70744437, 0.33136448, 0.89836586, 0.41960785)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(46, 0)
+polygon = PackedVector2Array(224, -81, 224, 86, 0, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_1ig1v")
