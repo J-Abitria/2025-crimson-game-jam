@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cwl3rthtndnms"]
 
 [ext_resource type="Script" uid="uid://141yoj501ngr" path="res://Scripts/Player.gd" id="1_cvnsp"]
-[ext_resource type="Script" path="res://Scripts/InteractionHitbox.gd" id="2_6t5aa"]
+[ext_resource type="Script" uid="uid://cmbvptrqdaqep" path="res://Scripts/InteractionHitbox.gd" id="2_6t5aa"]
 
 [sub_resource type="Gradient" id="Gradient_in1t5"]
 offsets = PackedFloat32Array(1)
