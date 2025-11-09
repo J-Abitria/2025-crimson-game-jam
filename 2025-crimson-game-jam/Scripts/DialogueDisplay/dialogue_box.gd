@@ -6,6 +6,8 @@ class_name DialogueBox extends Control
 @export var dialogue_text_label: Typewriter
 @export var option_container: Control
 
+signal completedDialogue()
+
 func _ready() -> void:
 	self.visible = false
 	# proceed_dialogue()
@@ -47,6 +49,7 @@ func select_response(choice: ResponseOption) -> void:
 # Testing mode currently
 func exit_dialogue_box() -> void:
 	self.visible = false
+	completedDialogue.emit()
 	# await get_tree().create_timer(1).timeout
 	# self.visible = true
 	# proceed_dialogue()

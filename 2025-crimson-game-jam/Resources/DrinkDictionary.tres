@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DrinkDictionary" load_steps=2 format=3 uid="uid://3tyurucklmi"]
+
+[ext_resource type="Script" uid="uid://b5qlxxpyh5spl" path="res://Scripts/Autoloads/DrinkDictionary.gd" id="1_lwul4"]
+
+[resource]
+script = ExtResource("1_lwul4")
+metadata/_custom_type_script = "uid://b5qlxxpyh5spl"

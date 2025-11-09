@@ -8,5 +8,8 @@ func _process(_delta):
 	
 	for body in overlappingBodies:
 		if body is Player:
-			print("I see you!")
+			if body.heldDrink != "":
+				print("The player is currently holding a %s" % [body.heldDrink])
+			if body.heldItem != "":
+				print("The player is current holding a %s" % [body.heldItem])
 			break

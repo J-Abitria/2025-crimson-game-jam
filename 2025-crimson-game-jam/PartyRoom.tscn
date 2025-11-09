@@ -53,7 +53,6 @@ gradient = SubResource("Gradient_8tyn0")
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(227, 145)
 script = ExtResource("1_in1t5")
-speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = SubResource("GradientTexture2D_udgup")
