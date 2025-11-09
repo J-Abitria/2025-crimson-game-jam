@@ -1,28 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=12 format=3 uid="uid://yoieidt4msl4"]
 
-[ext_resource type="Script" uid="uid://141yoj501ngr" path="res://Scripts/Player.gd" id="1_in1t5"]
-[ext_resource type="Script" uid="uid://cmbvptrqdaqep" path="res://Scripts/InteractionHitbox.gd" id="2_udgup"]
-[ext_resource type="Script" uid="uid://dwbqxmhd5c6u" path="res://Scripts/NPC.gd" id="3_hxfrn"]
+[ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="1_uxlj3"]
+[ext_resource type="Script" path="res://Scripts/NPC.gd" id="2_uxlj3"]
 [ext_resource type="Script" uid="uid://on1ncpjvpnpi" path="res://Scripts/LineOfSight.gd" id="4_uxlj3"]
 [ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="5_8tyn0"]
-
-[sub_resource type="Gradient" id="Gradient_in1t5"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_udgup"]
-gradient = SubResource("Gradient_in1t5")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxfrn"]
-
-[sub_resource type="Gradient" id="Gradient_hxfrn"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uxlj3"]
-gradient = SubResource("Gradient_hxfrn")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_in1t5"]
 
 [sub_resource type="Gradient" id="Gradient_udgup"]
 offsets = PackedFloat32Array(1)
@@ -50,29 +31,8 @@ gradient = SubResource("Gradient_8tyn0")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_uxlj3")]
 position = Vector2(227, 145)
-script = ExtResource("1_in1t5")
-speed = null
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = SubResource("GradientTexture2D_udgup")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-scale = Vector2(3.25, 3.25)
-shape = SubResource("RectangleShape2D_hxfrn")
-
-[node name="InteractionHitbox" type="Area2D" parent="Player"]
-script = ExtResource("2_udgup")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/InteractionHitbox"]
-texture = SubResource("GradientTexture2D_uxlj3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractionHitbox"]
-shape = SubResource("CircleShape2D_in1t5")
-debug_color = Color(0.97437733, 0, 0.43065646, 0.41960785)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="LongWall1" type="StaticBody2D" parent="."]
 position = Vector2(584.00006, -526)
@@ -134,7 +94,7 @@ texture = SubResource("GradientTexture2D_2o3f8")
 
 [node name="NPC" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
 position = Vector2(-4, -2)
-script = ExtResource("3_hxfrn")
+script = ExtResource("2_uxlj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/NPC"]
 scale = Vector2(3.25, 3.25)

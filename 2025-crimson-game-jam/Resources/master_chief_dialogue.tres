@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSystem" load_steps=40 format=3 uid="uid://kt6jd8n1w1el"]
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=19 format=3 uid="uid://kt6jd8n1w1el"]
 
 [ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="1_00s1u"]
 [ext_resource type="Script" uid="uid://behe0uh46otj5" path="res://Scripts/Dialogue System/dialogue_type.gd" id="2_bxduw"]
@@ -7,182 +7,74 @@
 [ext_resource type="Script" uid="uid://c8wa8mk28h4ff" path="res://Scripts/Dialogue System/dialogue_system.gd" id="5_5kq7j"]
 [ext_resource type="Script" uid="uid://dk6ucly77kk0h" path="res://Scripts/Dialogue System/response_dialogue.gd" id="5_5wfc1"]
 
-[sub_resource type="Resource" id="Resource_k2wg2"]
+[sub_resource type="Resource" id="Resource_pfta0"]
 script = ExtResource("3_00s1u")
-text = "Testing some dialogue."
+text = "Omg thanks!"
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
-[sub_resource type="Resource" id="Resource_5wfc1"]
+[sub_resource type="Resource" id="Resource_hphxb"]
 script = ExtResource("3_00s1u")
-text = "I am Zelda."
+text = "That's so sweet"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_k2wg2"]
+script = ExtResource("3_00s1u")
+text = "Hi."
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_5kq7j"]
 script = ExtResource("4_k2wg2")
-response = "Yes"
-state_transition_index = 1
 metadata/_custom_type_script = "uid://cvs5pisxmvodb"
 
 [sub_resource type="Resource" id="Resource_0khax"]
 script = ExtResource("4_k2wg2")
-response = "No"
-state_transition_index = 2
 metadata/_custom_type_script = "uid://cvs5pisxmvodb"
 
 [sub_resource type="Resource" id="Resource_40vew"]
+script = ExtResource("4_k2wg2")
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_5wfc1"]
 script = ExtResource("5_5wfc1")
-responses = Array[ExtResource("4_k2wg2")]([SubResource("Resource_5kq7j"), SubResource("Resource_0khax")])
-text = "Do you think my dialogue system is cool?"
+responses = Dictionary[int, ExtResource("4_k2wg2")]({
+0: SubResource("Resource_5kq7j"),
+1: SubResource("Resource_0khax"),
+2: SubResource("Resource_40vew")
+})
+text = "Hope all is well."
 metadata/_custom_type_script = "uid://dk6ucly77kk0h"
 
 [sub_resource type="Resource" id="Resource_ea4og"]
 script = ExtResource("1_00s1u")
-dialogue = Array[ExtResource("2_bxduw")]([SubResource("Resource_k2wg2"), SubResource("Resource_5wfc1"), SubResource("Resource_40vew")])
+dialogue = Array[ExtResource("2_bxduw")]([SubResource("Resource_k2wg2"), SubResource("Resource_5wfc1")])
 metadata/_custom_type_script = "uid://byu3y2b647a13"
 
-[sub_resource type="Resource" id="Resource_hphxb"]
+[sub_resource type="Resource" id="Resource_bxduw"]
 script = ExtResource("3_00s1u")
-text = "Thanks! It is pretty neat, isn't it."
+text = "Wow, that's so rude"
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_m0tuq"]
 script = ExtResource("3_00s1u")
-text = "I feel like you can do a lot of stuff with it but it can get hard to keep track of."
+text = "I'm calling your mom"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_00s1u"]
+script = ExtResource("3_00s1u")
+text = "I like soup."
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_q8eja"]
-script = ExtResource("1_00s1u")
-dialogue = Array[ExtResource("2_bxduw")]([SubResource("Resource_hphxb"), SubResource("Resource_m0tuq")])
-metadata/_custom_type_script = "uid://byu3y2b647a13"
-
-[sub_resource type="Resource" id="Resource_hwu8f"]
 script = ExtResource("3_00s1u")
-text = "Oh."
+text = "I think the Earth is flat too!"
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_xurlt"]
-script = ExtResource("3_00s1u")
-text = "Well."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_yxtka"]
-script = ExtResource("3_00s1u")
-text = "That's disappointing. "
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_cnqdr"]
-script = ExtResource("4_k2wg2")
-response = "Yes, it's cool"
-state_transition_index = 1
-metadata/_custom_type_script = "uid://cvs5pisxmvodb"
-
-[sub_resource type="Resource" id="Resource_y75hy"]
-script = ExtResource("4_k2wg2")
-response = "Meh"
-state_transition_index = 3
-metadata/_custom_type_script = "uid://cvs5pisxmvodb"
-
-[sub_resource type="Resource" id="Resource_nmsgf"]
-script = ExtResource("5_5wfc1")
-responses = Array[ExtResource("4_k2wg2")]([SubResource("Resource_cnqdr"), SubResource("Resource_y75hy")])
-text = "How about now?"
-metadata/_custom_type_script = "uid://dk6ucly77kk0h"
-
-[sub_resource type="Resource" id="Resource_kmwg4"]
-script = ExtResource("1_00s1u")
-dialogue = Array[ExtResource("2_bxduw")]([SubResource("Resource_hwu8f"), SubResource("Resource_xurlt"), SubResource("Resource_yxtka"), SubResource("Resource_nmsgf")])
-metadata/_custom_type_script = "uid://byu3y2b647a13"
-
-[sub_resource type="Resource" id="Resource_g1hpv"]
-script = ExtResource("3_00s1u")
-text = "Dude. Really? You can't even give me this? I worked all night on this damn system and you wouldn't even know the half of it. I HAVEN'T SLEPT."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_7pkab"]
-script = ExtResource("4_k2wg2")
-response = "Stick it to the man"
-state_transition_index = 4
-metadata/_custom_type_script = "uid://cvs5pisxmvodb"
-
-[sub_resource type="Resource" id="Resource_kcclg"]
-script = ExtResource("4_k2wg2")
-response = "Okay dude it's cool"
-state_transition_index = 5
-metadata/_custom_type_script = "uid://cvs5pisxmvodb"
-
-[sub_resource type="Resource" id="Resource_ihrw4"]
-script = ExtResource("5_5wfc1")
-responses = Array[ExtResource("4_k2wg2")]([SubResource("Resource_7pkab"), SubResource("Resource_kcclg")])
-text = "JUST SAY IT'S COOL"
-metadata/_custom_type_script = "uid://dk6ucly77kk0h"
-
-[sub_resource type="Resource" id="Resource_xxgss"]
-script = ExtResource("1_00s1u")
-dialogue = Array[ExtResource("2_bxduw")]([SubResource("Resource_g1hpv"), SubResource("Resource_ihrw4")])
-metadata/_custom_type_script = "uid://byu3y2b647a13"
-
-[sub_resource type="Resource" id="Resource_ws5yc"]
-script = ExtResource("3_00s1u")
-text = "I AGREE. I STICK IT TO THE MAN EVERY DAY. I STICK IT TO EVERY MAN."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_dpssf"]
-script = ExtResource("3_00s1u")
-text = "..."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_1tllk"]
-script = ExtResource("3_00s1u")
-text = "..."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_pxvbu"]
-script = ExtResource("3_00s1u")
-text = "..."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_07nrd"]
-script = ExtResource("4_k2wg2")
-response = "Help me"
-metadata/_custom_type_script = "uid://cvs5pisxmvodb"
-
-[sub_resource type="Resource" id="Resource_keam0"]
-script = ExtResource("4_k2wg2")
-response = "Help me"
-metadata/_custom_type_script = "uid://cvs5pisxmvodb"
-
-[sub_resource type="Resource" id="Resource_mlfux"]
-script = ExtResource("4_k2wg2")
-response = "Help me"
-metadata/_custom_type_script = "uid://cvs5pisxmvodb"
-
-[sub_resource type="Resource" id="Resource_jaatr"]
-script = ExtResource("4_k2wg2")
-response = "Help me"
-metadata/_custom_type_script = "uid://cvs5pisxmvodb"
-
-[sub_resource type="Resource" id="Resource_o544b"]
-script = ExtResource("5_5wfc1")
-responses = Array[ExtResource("4_k2wg2")]([SubResource("Resource_07nrd"), SubResource("Resource_keam0"), SubResource("Resource_mlfux"), SubResource("Resource_jaatr")])
-text = "..."
-metadata/_custom_type_script = "uid://dk6ucly77kk0h"
-
-[sub_resource type="Resource" id="Resource_lukf3"]
-script = ExtResource("1_00s1u")
-dialogue = Array[ExtResource("2_bxduw")]([SubResource("Resource_ws5yc"), SubResource("Resource_dpssf"), SubResource("Resource_1tllk"), SubResource("Resource_pxvbu"), SubResource("Resource_o544b")])
-metadata/_custom_type_script = "uid://byu3y2b647a13"
-
-[sub_resource type="Resource" id="Resource_mi8b3"]
-script = ExtResource("3_00s1u")
-text = "Haha yeah lol thanks"
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_se0u3"]
-script = ExtResource("1_00s1u")
-dialogue = Array[ExtResource("2_bxduw")]([SubResource("Resource_mi8b3")])
-metadata/_custom_type_script = "uid://byu3y2b647a13"
 
 [resource]
 script = ExtResource("5_5kq7j")
-dialogue_states = Array[ExtResource("1_00s1u")]([SubResource("Resource_ea4og"), SubResource("Resource_q8eja"), SubResource("Resource_kmwg4"), SubResource("Resource_xxgss"), SubResource("Resource_lukf3"), SubResource("Resource_se0u3")])
+dialogue_states = Dictionary[int, ExtResource("1_00s1u")]({
+2: SubResource("Resource_ea4og")
+})
+compliment_responses = Array[ExtResource("3_00s1u")]([SubResource("Resource_pfta0"), SubResource("Resource_hphxb")])
+question_responses = Array[ExtResource("3_00s1u")]([SubResource("Resource_00s1u"), SubResource("Resource_q8eja")])
+insult_responses = Array[ExtResource("3_00s1u")]([SubResource("Resource_bxduw"), SubResource("Resource_m0tuq")])
 metadata/_custom_type_script = "uid://c8wa8mk28h4ff"
