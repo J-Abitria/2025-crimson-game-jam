@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NPCData" load_steps=7 format=3 uid="uid://b1dmpdm7yibb5"]
+[gd_resource type="Resource" script_class="NPCData" load_steps=8 format=3 uid="uid://b1dmpdm7yibb5"]
 
 [ext_resource type="Resource" uid="uid://dmai8ma58vsxn" path="res://Resources/Dialogue/master_chief_dialogue.tres" id="1_forax"]
 [ext_resource type="Script" uid="uid://5l0kobmeylp0" path="res://Scripts/npc_data.gd" id="1_n6hi3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://i6bpdo7g8wlu" path="res://Assets/Portraits/Master Chief/master_chief_neutral.png" id="3_t5red"]
 [ext_resource type="Texture2D" uid="uid://cmmnorqlvx8o7" path="res://Assets/Portraits/Master Chief/master_chief_angry.png" id="4_w2ahk"]
 [ext_resource type="AudioStream" uid="uid://dxint0cgadwpp" path="res://Assets/Themes/master_chief.ogg" id="6_t5red"]
+[ext_resource type="SpriteFrames" uid="uid://doi5i0invqhgb" path="res://spriteframes/chief_frames.tres" id="6_w2ahk"]
 
 [resource]
 script = ExtResource("1_n6hi3")
@@ -17,4 +18,5 @@ mood_portraits = Dictionary[int, CompressedTexture2D]({
 })
 dialogue = ExtResource("1_forax")
 starting_love = 50
+sprite_sheet = ExtResource("6_w2ahk")
 metadata/_custom_type_script = "uid://5l0kobmeylp0"

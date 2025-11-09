@@ -24,7 +24,6 @@ func updateInteractionPosition():
 		interactionHitbox.position = Vector2(0, 70)
 
 func promptInteraction():
-	print("Interact Attempt")
 	interactionHitbox.visible = true
 	interactionHitbox.enable()
 	await get_tree().create_timer(0.1).timeout

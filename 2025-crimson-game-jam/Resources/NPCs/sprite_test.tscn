@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://5a6qnqweghkm"]
+
+[ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="1_7ia35"]
+[ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="2_ykqli"]
+[ext_resource type="PackedScene" uid="uid://bhb15negspr3l" path="res://Scenes/npc.tscn" id="3_1so8o"]
+[ext_resource type="Resource" uid="uid://d3jauypcolr11" path="res://Resources/NPCs/zelda.tres" id="4_qntim"]
+
+[sub_resource type="Curve2D" id="Curve2D_ak35i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 468, 2, 0, 0, 0, 0, 4, 2)
+}
+point_count = 3
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_7ia35")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_ykqli")]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-108, -91)
+curve = SubResource("Curve2D_ak35i")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, 2)
+rotates = false
+
+[node name="Zelda" parent="Path2D/PathFollow2D" groups=["NPC"] instance=ExtResource("3_1so8o")]
+position = Vector2(-4, -2)
+npc_data = ExtResource("4_qntim")
