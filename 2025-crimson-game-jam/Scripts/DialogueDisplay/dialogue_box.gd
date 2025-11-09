@@ -7,6 +7,7 @@ class_name DialogueBox extends Control
 @export var option_container: Control
 
 signal completedDialogue()
+signal change_love(amount: int)
 
 func _ready() -> void:
 	self.visible = true
@@ -45,10 +46,12 @@ func select_response(choice: ResponseDialogue.RESPONSE_TYPES) -> void:
 	match choice:
 		ResponseDialogue.RESPONSE_TYPES.COMPLIMENTED:
 			self.dialogue_text_label.play(dialogue.compliment_responses.pick_random().text)
+			self.change_love.emit(5)
 		ResponseDialogue.RESPONSE_TYPES.QUESTIONED:
 			self.dialogue_text_label.play(dialogue.question_responses.pick_random().text)
 		ResponseDialogue.RESPONSE_TYPES.INSULTED:
 			self.dialogue_text_label.play(dialogue.insult_responses.pick_random().text)
+			self.change_love.emit(-5)
 	self.set_process_input(true)
 
 # Testing mode currently
