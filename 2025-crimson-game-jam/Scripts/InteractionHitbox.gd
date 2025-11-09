@@ -1,5 +1,6 @@
 class_name InteractionHitbox extends Area2D
 
+@onready var playerInfo: Player = get_parent()
 var isEnabled: bool
 
 func enable():
@@ -17,7 +18,7 @@ func _physics_process(_delta):
 		
 		if overlappingBodies.size() > 0:
 			for body in overlappingBodies:
-				if body is NPC:
+				if body is NPC and not playerInfo.isInteracting: 
 					CustomSignals.promptNPC.emit()
 					disable()
 					break

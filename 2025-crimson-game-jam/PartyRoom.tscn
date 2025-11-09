@@ -3,18 +3,12 @@
 [ext_resource type="Script" path="res://party_room.gd" id="1_8tyn0"]
 [ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="1_uxlj3"]
 [ext_resource type="PackedScene" path="res://Scenes/npc.tscn" id="2_hxfrn"]
+[ext_resource type="Texture2D" uid="uid://bacdt3sao3ml0" path="res://Assets/PixelArt/TileFloor.png" id="3_4pbey"]
 [ext_resource type="Resource" uid="uid://d3jauypcolr11" path="res://Resources/NPCs/zelda.tres" id="4_8tyn0"]
 [ext_resource type="Resource" uid="uid://tp82od0e6m2k" path="res://Resources/Dialogue/zelda_dialogue.tres" id="5_2o3f8"]
 [ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="5_8tyn0"]
-
-[sub_resource type="Gradient" id="Gradient_udgup"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hxfrn"]
-gradient = SubResource("Gradient_udgup")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_in1t5"]
+[ext_resource type="PackedScene" uid="uid://c8midatyvxw4j" path="res://Scenes/Wall.tscn" id="7_qfhhg"]
+[ext_resource type="Texture2D" uid="uid://buc3mwgolyn06" path="res://Assets/PixelArt/WoodFloor.png" id="8_dp8mp"]
 
 [sub_resource type="Curve2D" id="Curve2D_udgup"]
 _data = {
@@ -25,57 +19,29 @@ point_count = 3
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("canvas")]
 script = ExtResource("1_8tyn0")
 canvas = NodePath("CanvasLayer")
+metadata/_edit_horizontal_guides_ = [-1195.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -521.0
+offset_top = -2612.0
+offset_right = 940.0
+offset_bottom = -1765.25
+scale = Vector2(4, 4)
+texture = ExtResource("8_dp8mp")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 1931.497
+offset_top = -2633.0
+offset_right = 2383.2598
+offset_bottom = -1711.5651
+rotation = 1.5707964
+scale = Vector2(2.66, 2.66)
+texture = ExtResource("3_4pbey")
+stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_uxlj3")]
 position = Vector2(370, 405)
-
-[node name="LongWall1" type="StaticBody2D" parent="."]
-position = Vector2(584.00006, -526)
-scale = Vector2(36, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="LongWall1"]
-texture = SubResource("GradientTexture2D_hxfrn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LongWall1"]
-scale = Vector2(3.203392, 3.28)
-shape = SubResource("RectangleShape2D_in1t5")
-
-[node name="LongWall2" type="StaticBody2D" parent="."]
-position = Vector2(584, 1041)
-scale = Vector2(37.079998, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="LongWall2"]
-texture = SubResource("GradientTexture2D_hxfrn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LongWall2"]
-scale = Vector2(3.203392, 3.28)
-shape = SubResource("RectangleShape2D_in1t5")
-
-[node name="ShortWall1" type="StaticBody2D" parent="."]
-position = Vector2(-575.99994, 333.00003)
-rotation = 1.5707964
-scale = Vector2(27.400002, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="ShortWall1"]
-scale = Vector2(0.99999994, 0.99999994)
-texture = SubResource("GradientTexture2D_hxfrn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShortWall1"]
-scale = Vector2(3.2033918, 3.2799997)
-shape = SubResource("RectangleShape2D_in1t5")
-
-[node name="ShortWall2" type="StaticBody2D" parent="."]
-position = Vector2(1689, 319.00003)
-rotation = 1.5707964
-scale = Vector2(26.36, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="ShortWall2"]
-scale = Vector2(0.99999994, 0.99999994)
-texture = SubResource("GradientTexture2D_hxfrn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShortWall2"]
-scale = Vector2(3.2033918, 3.2799997)
-shape = SubResource("RectangleShape2D_in1t5")
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(52, 299)
@@ -92,3 +58,58 @@ dialogue_system = ExtResource("5_2o3f8")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_8tyn0")]
 visible = false
+
+[node name="--- Walls ---" type="Node2D" parent="."]
+
+[node name="Wall" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(584, -526)
+scale = Vector2(36, 1)
+
+[node name="Wall2" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(584, 800)
+scale = Vector2(36, 1)
+
+[node name="Wall3" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(-536, 136)
+rotation = 1.5707964
+scale = Vector2(21.44, 1)
+
+[node name="Wall4" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(1702, -180)
+rotation = 1.5707964
+scale = Vector2(11.68, 1)
+
+[node name="Wall5" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(2572, 162)
+scale = Vector2(28, 1)
+
+[node name="Wall6" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(2572, 800)
+scale = Vector2(28, 1)
+
+[node name="Wall7" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(4404, 800)
+scale = Vector2(30, 1)
+
+[node name="Wall8" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(5339.9995, -927.99994)
+rotation = 1.5707964
+scale = Vector2(55, 1)
+
+[node name="Wall9" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(2398, -2657)
+scale = Vector2(92.4, 1)
+
+[node name="Wall10" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(-536, -2036)
+rotation = 1.5707964
+scale = Vector2(20, 1)
+
+[node name="Wall11" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(1475, -1426)
+scale = Vector2(62.24, 1)
+
+[node name="Wall12" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
+position = Vector2(3436, -617)
+rotation = 1.5707964
+scale = Vector2(25, 1)
