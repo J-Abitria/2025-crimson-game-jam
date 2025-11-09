@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://dmai8ma58vsxn"]
+
+[ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="1_6yo78"]
+[ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="2_46agl"]
+[ext_resource type="Script" uid="uid://behe0uh46otj5" path="res://Scripts/Dialogue System/dialogue_type.gd" id="3_ktxvw"]
+[ext_resource type="Script" uid="uid://c8wa8mk28h4ff" path="res://Scripts/Dialogue System/dialogue_system.gd" id="3_sx3ex"]
+[ext_resource type="Script" uid="uid://cvs5pisxmvodb" path="res://Scripts/Dialogue System/response_option.gd" id="4_pxhyo"]
+[ext_resource type="Script" uid="uid://dk6ucly77kk0h" path="res://Scripts/Dialogue System/response_dialogue.gd" id="5_4pvsl"]
+
+[sub_resource type="Resource" id="Resource_7vi1u"]
+script = ExtResource("1_6yo78")
+text = "… Thanks. <3"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_piho6"]
+script = ExtResource("5_4pvsl")
+text = "Go waste your time elsewhere."
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_i2t60"]
+script = ExtResource("2_46agl")
+dialogue = Array[ExtResource("3_ktxvw")]([SubResource("Resource_piho6")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_fm12g"]
+script = ExtResource("5_4pvsl")
+text = "You had a question for me?"
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_rg527"]
+script = ExtResource("2_46agl")
+dialogue = Array[ExtResource("3_ktxvw")]([SubResource("Resource_fm12g")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_ktxvw"]
+script = ExtResource("5_4pvsl")
+text = "What would you like to talk about?"
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_pxhyo"]
+script = ExtResource("2_46agl")
+dialogue = Array[ExtResource("3_ktxvw")]([SubResource("Resource_ktxvw")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_4pvsl"]
+script = ExtResource("1_6yo78")
+text = "This party sure has good lighting."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_krxq3"]
+script = ExtResource("2_46agl")
+dialogue = Array[ExtResource("3_ktxvw")]([SubResource("Resource_4pvsl")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_2xoys"]
+script = ExtResource("1_6yo78")
+text = "Hey, I'm glad you got my invite, thanks for coming to the party."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_mm6ih"]
+script = ExtResource("2_46agl")
+dialogue = Array[ExtResource("3_ktxvw")]([SubResource("Resource_2xoys")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_ssyb5"]
+script = ExtResource("1_6yo78")
+text = "… You’re a waste of time."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_bg8o6"]
+script = ExtResource("1_6yo78")
+text = "Question"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[resource]
+script = ExtResource("3_sx3ex")
+dialogue_states = Dictionary[int, ExtResource("2_46agl")]({
+0: SubResource("Resource_i2t60"),
+1: SubResource("Resource_rg527"),
+2: SubResource("Resource_pxhyo"),
+3: SubResource("Resource_krxq3"),
+4: SubResource("Resource_mm6ih")
+})
+compliment_responses = Array[ExtResource("1_6yo78")]([SubResource("Resource_7vi1u")])
+question_responses = Array[ExtResource("1_6yo78")]([SubResource("Resource_bg8o6")])
+insult_responses = Array[ExtResource("1_6yo78")]([SubResource("Resource_ssyb5")])
+current_state = 1
+metadata/_custom_type_script = "uid://c8wa8mk28h4ff"

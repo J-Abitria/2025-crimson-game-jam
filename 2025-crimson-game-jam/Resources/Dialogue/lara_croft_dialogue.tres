@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://dfvboqimpx0tb"]
+
+[ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="1_gusuq"]
+[ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="2_t628e"]
+[ext_resource type="Script" uid="uid://behe0uh46otj5" path="res://Scripts/Dialogue System/dialogue_type.gd" id="3_6qx1g"]
+[ext_resource type="Script" uid="uid://c8wa8mk28h4ff" path="res://Scripts/Dialogue System/dialogue_system.gd" id="3_un627"]
+[ext_resource type="Script" uid="uid://cvs5pisxmvodb" path="res://Scripts/Dialogue System/response_option.gd" id="4_nlwh2"]
+[ext_resource type="Script" uid="uid://dk6ucly77kk0h" path="res://Scripts/Dialogue System/response_dialogue.gd" id="5_ti0kw"]
+
+[sub_resource type="Resource" id="Resource_6qx1g"]
+script = ExtResource("1_gusuq")
+text = "Thanks, pal! You aren’t so bad yourself!"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_gc2uj"]
+script = ExtResource("5_ti0kw")
+text = "Get out of here, you asshole."
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_sjno0"]
+script = ExtResource("2_t628e")
+dialogue = Array[ExtResource("3_6qx1g")]([SubResource("Resource_gc2uj")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_hbr3t"]
+script = ExtResource("5_ti0kw")
+text = "You look like you’ve got a question for me."
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_f1u37"]
+script = ExtResource("2_t628e")
+dialogue = Array[ExtResource("3_6qx1g")]([SubResource("Resource_hbr3t")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_428w0"]
+script = ExtResource("5_ti0kw")
+text = "Hey Babe, what’s up?"
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_6sbb6"]
+script = ExtResource("2_t628e")
+dialogue = Array[ExtResource("3_6qx1g")]([SubResource("Resource_428w0")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_gequ5"]
+script = ExtResource("1_gusuq")
+text = "I wonder if I can uncover the secret of this house before the party ends…"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_u7wk2"]
+script = ExtResource("2_t628e")
+dialogue = Array[ExtResource("3_6qx1g")]([SubResource("Resource_gequ5")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_fvjtd"]
+script = ExtResource("1_gusuq")
+text = "Hey, I'm glad you got my invite, thanks for coming to the party."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_w71xj"]
+script = ExtResource("2_t628e")
+dialogue = Array[ExtResource("3_6qx1g")]([SubResource("Resource_fvjtd")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_ti0kw"]
+script = ExtResource("1_gusuq")
+text = "I’d like to see you try to do what I do. You’d crumble against the first challenge."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_nlwh2"]
+script = ExtResource("1_gusuq")
+text = "Question"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[resource]
+script = ExtResource("3_un627")
+dialogue_states = Dictionary[int, ExtResource("2_t628e")]({
+0: SubResource("Resource_sjno0"),
+1: SubResource("Resource_f1u37"),
+2: SubResource("Resource_6sbb6"),
+3: SubResource("Resource_u7wk2"),
+4: SubResource("Resource_w71xj")
+})
+compliment_responses = Array[ExtResource("1_gusuq")]([SubResource("Resource_6qx1g")])
+question_responses = Array[ExtResource("1_gusuq")]([SubResource("Resource_nlwh2")])
+insult_responses = Array[ExtResource("1_gusuq")]([SubResource("Resource_ti0kw")])
+current_state = 1
+metadata/_custom_type_script = "uid://c8wa8mk28h4ff"

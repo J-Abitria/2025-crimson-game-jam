@@ -22,7 +22,7 @@ func _ready():
 	CustomSignals.promptNPC.connect(_on_prompted)
 	dialogueBox.completedDialogue.connect(_on_interaction_complete)
 	dialogueBox.modify_love.connect(Callable(self, "change_love"))
-	loveMeter = 50
+	loveMeter = npc_data.starting_love
 	update_mood()
 	loveDecay()
 
