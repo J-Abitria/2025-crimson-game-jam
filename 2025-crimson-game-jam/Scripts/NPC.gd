@@ -7,6 +7,7 @@ enum NPC_MOOD {
 }
 
 signal insulted()
+signal direction_change(direction : Vector2i)
 
 @onready var pathData: PathFollow2D = get_node("..")
 @export var sprite: AnimatedSprite2D
@@ -19,6 +20,7 @@ var isInteracting: bool
 var loveMeter: int
 var is_on_cooldown: bool
 var current_mood: NPC_MOOD
+var direction : Vector2i
 
 func _ready():
 	GameData.register_npc(self)
@@ -34,7 +36,9 @@ func _ready():
 
 func _physics_process(delta):
 	if not isInteracting:
+		var prev_direction = direction
 		var previous_position = global_position
+		#var prev_path_progress = pathData.progress_ratio
 		
 		pathData.progress += npcSpeed * delta
 		
@@ -42,7 +46,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(movement_step)
 		
 		if collision:
-			pathData.progress -= npcSpeed * delta
+			pathData.progress -= npcSpeed * delta * 8
 			
 			var path = pathData.get_parent()
 			var attemptedProgress = lerp(pathData.progress, path.curve.get_closest_offset(to_local(global_position)), 0.2)
@@ -50,11 +54,34 @@ func _physics_process(delta):
 			if attemptedProgress > pathData.progress:
 				pathData.progress = attemptedProgress
 		
-		if pathData.progress > 0.5:
-			sprite.play("walk_left")
-			sprite.flip_h = true
+		if abs(global_position.x - previous_position.x) >= (global_position.y - previous_position.y):
+			#moving r/l
+			direction.y = 0
+			if global_position.x > previous_position.x:
+				direction.x = 1
+				sprite.play("walk_left") # walking right
+				sprite.flip_h = true
+			elif global_position.x < previous_position.x:
+				direction.x = -1
+				sprite.play("walk_left") #walking left
+				sprite.flip_h = false
 		else:
-			sprite.flip_h = false
+			#moving up/down
+			direction.x = 0
+			if global_position.y < previous_position.y:
+				direction.y = 1
+				sprite.play("walk_up") # walking up
+			elif global_position.y > previous_position.y:
+				direction.y = -1
+				sprite.play("walk_down") #walking down
+				sprite.flip_h = false
+			else:
+				#no change in their pos
+				direction.x = 0
+				direction.y = -1
+				sprite.play("idle_down")
+		if direction != prev_direction:
+			direction_change.emit(direction)
 
 func interact() -> void:
 	isInteracting = true
