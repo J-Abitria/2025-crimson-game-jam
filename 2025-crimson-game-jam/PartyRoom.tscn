@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=12 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="Script" path="res://party_room.gd" id="1_8tyn0"]
 [ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="1_uxlj3"]
@@ -14,6 +14,13 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 468, 2, 0, 0, 0, 0, 4, 2)
 }
 point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_dp8mp"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4pbey"]
+gradient = SubResource("Gradient_dp8mp")
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("canvas")]
 script = ExtResource("1_8tyn0")
@@ -57,7 +64,7 @@ npc_data = ExtResource("4_8tyn0")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_8tyn0")]
 
-[node name="DialogueBox" parent="CanvasLayer/Game UI/MarginContainer" index="2"]
+[node name="DialogueBox" parent="CanvasLayer/Game UI/MarginContainer" index="3"]
 visible = false
 
 [node name="--- Walls ---" type="Node2D" parent="."]
@@ -114,5 +121,17 @@ scale = Vector2(62.24, 1)
 position = Vector2(3436, -617)
 rotation = 1.5707964
 scale = Vector2(25, 1)
+
+[node name="--- Background ---" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="--- Background ---"]
+position = Vector2(1438.9999, -975.5)
+scale = Vector2(62.031254, 13.734377)
+texture = SubResource("GradientTexture2D_4pbey")
+
+[node name="Sprite2D2" type="Sprite2D" parent="--- Background ---"]
+position = Vector2(2575, -289.99988)
+scale = Vector2(26.531248, 13.734375)
+texture = SubResource("GradientTexture2D_4pbey")
 
 [editable path="CanvasLayer"]
