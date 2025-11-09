@@ -11,5 +11,5 @@ func _process(_delta):
 			if body.heldDrink != "":
 				print("The player is currently holding a %s" % [body.heldDrink])
 			if body.heldItem != "":
-				print("The player is current holding a %s" % [body.heldItem])
+				print("The player is currently holding a %s" % [body.heldItem])
 			break

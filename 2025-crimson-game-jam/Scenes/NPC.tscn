@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://2m5v5nv2qb5o"]
+
+[ext_resource type="Script" uid="uid://dwbqxmhd5c6u" path="res://Scripts/NPC.gd" id="1_tdvfm"]
+[ext_resource type="Script" uid="uid://on1ncpjvpnpi" path="res://Scripts/LineOfSight.gd" id="2_fo5tq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs5w8"]
+
+[sub_resource type="Gradient" id="Gradient_fo5tq"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xs5w8"]
+gradient = SubResource("Gradient_fo5tq")
+
+[node name="Npc" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_tdvfm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+scale = Vector2(3.25, 3.25)
+shape = SubResource("RectangleShape2D_xs5w8")
+
+[node name="LineOfSight" type="Area2D" parent="CharacterBody2D"]
+script = ExtResource("2_fo5tq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D/LineOfSight"]
+position = Vector2(52, 0)
+polygon = PackedVector2Array(140, -136, 140, 139, 0, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = SubResource("GradientTexture2D_xs5w8")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=9 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="Script" uid="uid://d0a622gq4ofuu" path="res://party_room.gd" id="1_8tyn0"]
 [ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="1_uxlj3"]
@@ -33,7 +33,7 @@ script = ExtResource("1_8tyn0")
 canvas = NodePath("CanvasLayer")
 
 [node name="Player" parent="." instance=ExtResource("1_uxlj3")]
-position = Vector2(227, 145)
+position = Vector2(370, 405)
 
 [node name="LongWall1" type="StaticBody2D" parent="."]
 position = Vector2(584.00006, -526)
@@ -89,9 +89,9 @@ curve = SubResource("Curve2D_udgup")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(4, 2)
+rotates = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
-texture = SubResource("GradientTexture2D_2o3f8")
+[node name="Npc" parent="Path2D/PathFollow2D" instance=ExtResource("2_hxfrn")]
 
 [node name="zelda" parent="Path2D/PathFollow2D" instance=ExtResource("2_hxfrn")]
 position = Vector2(-4, -2)
