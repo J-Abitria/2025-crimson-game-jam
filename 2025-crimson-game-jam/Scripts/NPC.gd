@@ -14,6 +14,8 @@ enum NPC_MOOD {
 @export var dialogue_system: DialogueSystem
 var isInteracting: bool
 var loveMeter: int
+var is_on_cooldown: bool
+var current_mood: NPC_MOOD
 
 func _ready():
 	isInteracting = false

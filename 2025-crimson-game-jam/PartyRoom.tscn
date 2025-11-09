@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=10 format=3 uid="uid://yoieidt4msl4"]
 
-[ext_resource type="Script" uid="uid://d0a622gq4ofuu" path="res://party_room.gd" id="1_8tyn0"]
+[ext_resource type="Script" path="res://party_room.gd" id="1_8tyn0"]
 [ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="1_uxlj3"]
 [ext_resource type="PackedScene" uid="uid://b5hy3pdjq8uuy" path="res://Scenes/npc.tscn" id="2_hxfrn"]
 [ext_resource type="Resource" uid="uid://d3jauypcolr11" path="res://Resources/NPCs/zelda.tres" id="4_8tyn0"]
@@ -20,13 +20,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 4, 2, 0, 0, 0, 0, 1010, 2, 0, 0, 0, 0, 4, 2)
 }
 point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_8tyn0"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2o3f8"]
-gradient = SubResource("Gradient_8tyn0")
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("canvas")]
 script = ExtResource("1_8tyn0")
