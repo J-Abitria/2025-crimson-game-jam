@@ -1,19 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj6wic066iomy"]
+[gd_scene load_steps=2 format=3 uid="uid://bj6wic066iomy"]
 
 [ext_resource type="Script" uid="uid://bo8x2gccv54ig" path="res://Scripts/DrinkButton.gd" id="1_op7jc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_op7jc"]
-
 [node name="Bar" type="Node2D"]
 
-[node name="BarArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BarArea"]
-scale = Vector2(20, 5)
-shape = SubResource("RectangleShape2D_op7jc")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -34,7 +25,7 @@ layout_mode = 2
 layout_mode = 0
 offset_top = 80.0
 offset_right = 475.0
-offset_bottom = 130.0
+offset_bottom = 120.0
 scale = Vector2(1, 0.99287486)
 theme_override_font_sizes/normal_font_size = 32
 text = "\"What's good, need a drink?\""
@@ -51,7 +42,6 @@ offset_bottom = 212.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 1"
 script = ExtResource("1_op7jc")
-drinkValue = 0
 
 [node name="DrinkButton2" type="Button" parent="CanvasLayer/Control/MarginContainer/DrinkButtons"]
 layout_mode = 0
@@ -62,6 +52,7 @@ offset_bottom = 283.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 2"
 script = ExtResource("1_op7jc")
+drinkValue = 2
 
 [node name="DrinkButton3" type="Button" parent="CanvasLayer/Control/MarginContainer/DrinkButtons"]
 layout_mode = 0
@@ -72,7 +63,7 @@ offset_bottom = 354.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 3"
 script = ExtResource("1_op7jc")
-drinkValue = 2
+drinkValue = 3
 
 [node name="DrinkButton4" type="Button" parent="CanvasLayer/Control/MarginContainer/DrinkButtons"]
 layout_mode = 0
@@ -83,7 +74,7 @@ offset_bottom = 425.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 4"
 script = ExtResource("1_op7jc")
-drinkValue = 3
+drinkValue = 4
 
 [node name="DrinkButton5" type="Button" parent="CanvasLayer/Control/MarginContainer/DrinkButtons"]
 layout_mode = 0
@@ -94,4 +85,4 @@ offset_bottom = 496.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 5"
 script = ExtResource("1_op7jc")
-drinkValue = 4
+drinkValue = 5

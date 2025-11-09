@@ -14,7 +14,7 @@ var enemy: NPC
 
 @export var npc_data: NPCData
 @onready var dialogueBox: DialogueBox = get_node("../../../CanvasLayer/Game UI/MarginContainer/DialogueBox")
-@export var npcSpeed: int = 200
+@export var npcSpeed: int = 100
 var isInteracting: bool
 var loveMeter: int
 var is_on_cooldown: bool
@@ -33,14 +33,13 @@ func _ready():
 
 func _physics_process(delta):
 	if not isInteracting:
-		var progressIncrement = (npcSpeed * (float(loveMeter) / 100)) * delta
-		pathData.progress += progressIncrement
+		pathData.progress += npcSpeed * delta
 		
 		var movementStep = pathData.global_position - global_position
 		var collision = move_and_collide(movementStep)
 		
 		if collision:
-			pathData.progress -= progressIncrement
+			pathData.progress -= npcSpeed * delta
 			
 			var path = pathData.get_parent()
 			var attemptedProgress = lerp(pathData.progress, path.curve.get_closest_offset(to_local(global_position)), 0.2)
@@ -76,7 +75,7 @@ func change_love(amount: int) -> void:
 
 func loveDecay():
 	while loveMeter != 0:
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(5).timeout
 		change_love(-1)
 	print("L romantic partner")
 

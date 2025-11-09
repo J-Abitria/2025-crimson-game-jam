@@ -4,5 +4,4 @@
 
 [resource]
 script = ExtResource("1_lwul4")
-drinkList = Array[String](["Club Soda", "Beer", "Jungle Juice", "Vodka", "Margarita"])
 metadata/_custom_type_script = "uid://b5qlxxpyh5spl"

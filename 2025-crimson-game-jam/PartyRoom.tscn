@@ -15,13 +15,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_udgup"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 4, 2, 0, 0, 0, 0, 1700, 2, 0, 0, 0, 0, 4, 2)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_oja4w"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 6)
+"points": PackedVector2Array(0, 0, 0, 0, 4, 2, 0, 0, 0, 0, 1010, 2, 0, 0, 0, 0, 4, 2)
 }
 point_count = 3
 
@@ -30,28 +24,16 @@ script = ExtResource("1_8tyn0")
 canvas = NodePath("CanvasLayer")
 metadata/_edit_horizontal_guides_ = [-1195.0]
 
-[node name="Background" type="Node2D" parent="."]
-
-[node name="WoodFlooring" type="TextureRect" parent="Background"]
+[node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -521.0
-offset_top = -2632.0
+offset_top = -2612.0
 offset_right = 940.0
-offset_bottom = -1780.25
+offset_bottom = -1765.25
 scale = Vector2(4, 4)
 texture = ExtResource("8_dp8mp")
 stretch_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(1438, -971.5)
-scale = Vector2(61.59375, 13.421874)
-texture = SubResource("GradientTexture2D_oja4w")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Background"]
-position = Vector2(2571, -287.00006)
-scale = Vector2(26.203125, 13.421874)
-texture = SubResource("GradientTexture2D_oja4w")
-
-[node name="TileFlooring" type="TextureRect" parent="Background"]
+[node name="TextureRect2" type="TextureRect" parent="."]
 offset_left = 1931.497
 offset_top = -2633.0
 offset_right = 2383.2598
@@ -174,30 +156,10 @@ rotation = 1.5707964
 scale = Vector2(20, 1)
 
 [node name="Wall11" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
-position = Vector2(1464, -1426)
-scale = Vector2(62.64, 1)
-
-[node name="CollisionShape2D" parent="--- Walls ---/Wall11" index="1"]
-position = Vector2(-0.012809753, 0)
+position = Vector2(1475, -1426)
+scale = Vector2(62.24, 1)
 
 [node name="Wall12" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
 position = Vector2(3436, -617)
 rotation = 1.5707964
 scale = Vector2(25, 1)
-
-[node name="Bar" parent="." instance=ExtResource("10_oja4w")]
-position = Vector2(655, -2520)
-
-[node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(1503, -370)
-curve = SubResource("Curve2D_oja4w")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(0, 6)
-rotation = 1.5707964
-
-[node name="masterChief" parent="Path2D2/PathFollow2D" instance=ExtResource("2_hxfrn")]
-npc_data = ExtResource("11_fh8vl")
-dialogue_system = ExtResource("12_qxnwo")
-
-[editable path="--- Walls ---/Wall11"]
