@@ -1,37 +1,106 @@
-[gd_resource type="Resource" script_class="PlayerChoices" load_steps=10 format=3 uid="uid://dfbmrrhc54muc"]
+[gd_resource type="Resource" script_class="PlayerChoices" load_steps=24 format=3 uid="uid://dfbmrrhc54muc"]
 
 [ext_resource type="Script" uid="uid://cvs5pisxmvodb" path="res://Scripts/Dialogue System/response_option.gd" id="1_76i7a"]
 [ext_resource type="Script" uid="uid://jugj2lymdw2y" path="res://Scripts/Dialogue System/player_choices.gd" id="2_s2rf2"]
 
 [sub_resource type="Resource" id="Resource_76i7a"]
 script = ExtResource("1_76i7a")
-response = "Looking good"
-jealousy_value = 10
+response = "You look stunning!"
 metadata/_custom_type_script = "uid://cvs5pisxmvodb"
 
 [sub_resource type="Resource" id="Resource_a0p5r"]
 script = ExtResource("1_76i7a")
-response = "You look like you tip well"
+response = "I really like your vibes, broski!"
 metadata/_custom_type_script = "uid://cvs5pisxmvodb"
 
 [sub_resource type="Resource" id="Resource_xgifg"]
 script = ExtResource("1_76i7a")
-response = "Nice triangles"
+response = "Your smile really brightens the room!"
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_vj6r7"]
+script = ExtResource("1_76i7a")
+response = "You have a great sense of humor!"
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_d4jil"]
+script = ExtResource("1_76i7a")
+response = "You’re so brave and inspiring!"
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_r7fcp"]
+script = ExtResource("1_76i7a")
+response = "You have a great sense of style!"
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_3dhra"]
+script = ExtResource("1_76i7a")
+response = "Being around you makes everything better!"
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_ebdum"]
+script = ExtResource("1_76i7a")
+response = "It’s impressive how intelligent you are!"
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_0lpfr"]
+script = ExtResource("1_76i7a")
+response = "You’re breathtaking!"
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_bqoh6"]
+script = ExtResource("1_76i7a")
+response = "Your voice sounds incredible!"
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_t01ia"]
+script = ExtResource("1_76i7a")
+response = "On a scale from 1 to 10, you're an 11!"
 metadata/_custom_type_script = "uid://cvs5pisxmvodb"
 
 [sub_resource type="Resource" id="Resource_s2rf2"]
 script = ExtResource("1_76i7a")
-response = "You suck"
+response = "I hate you."
 metadata/_custom_type_script = "uid://cvs5pisxmvodb"
 
 [sub_resource type="Resource" id="Resource_jpckk"]
 script = ExtResource("1_76i7a")
-response = "Your shoes are untied"
+response = "Go cry in a corner and let me talk to someone else."
 metadata/_custom_type_script = "uid://cvs5pisxmvodb"
 
 [sub_resource type="Resource" id="Resource_awv3b"]
 script = ExtResource("1_76i7a")
-response = "Look, gullible is written on the ceiling"
+response = "I’m embarrassed even to be seen next to you."
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_61wfd"]
+script = ExtResource("1_76i7a")
+response = "You’re really sus, I think we’re gonna have to vote you out."
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_0fwig"]
+script = ExtResource("1_76i7a")
+response = "Everyone is talking trash about you behind your back."
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_0we1a"]
+script = ExtResource("1_76i7a")
+response = "Your style is super tacky and outdated."
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_vpevh"]
+script = ExtResource("1_76i7a")
+response = "I’d challenge you to a battle of wits, but I see you’re unarmed."
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_vywkp"]
+script = ExtResource("1_76i7a")
+response = "Your ego is so large, I can barely see past it."
+metadata/_custom_type_script = "uid://cvs5pisxmvodb"
+
+[sub_resource type="Resource" id="Resource_67snv"]
+script = ExtResource("1_76i7a")
+response = "Get out of my sight before I demolish you."
 metadata/_custom_type_script = "uid://cvs5pisxmvodb"
 
 [sub_resource type="Resource" id="Resource_48wfe"]
@@ -41,7 +110,7 @@ metadata/_custom_type_script = "uid://cvs5pisxmvodb"
 
 [resource]
 script = ExtResource("2_s2rf2")
-compliments = Array[ExtResource("1_76i7a")]([SubResource("Resource_76i7a"), SubResource("Resource_a0p5r"), SubResource("Resource_xgifg")])
+compliments = Array[ExtResource("1_76i7a")]([SubResource("Resource_76i7a"), SubResource("Resource_a0p5r"), SubResource("Resource_xgifg"), SubResource("Resource_vj6r7"), SubResource("Resource_d4jil"), SubResource("Resource_r7fcp"), SubResource("Resource_3dhra"), SubResource("Resource_ebdum"), SubResource("Resource_0lpfr"), SubResource("Resource_bqoh6"), SubResource("Resource_t01ia")])
 questions = Array[ExtResource("1_76i7a")]([SubResource("Resource_48wfe")])
-insults = Array[ExtResource("1_76i7a")]([SubResource("Resource_s2rf2"), SubResource("Resource_jpckk"), SubResource("Resource_awv3b")])
+insults = Array[ExtResource("1_76i7a")]([SubResource("Resource_s2rf2"), SubResource("Resource_jpckk"), SubResource("Resource_awv3b"), SubResource("Resource_61wfd"), SubResource("Resource_0fwig"), SubResource("Resource_0we1a"), SubResource("Resource_vpevh"), SubResource("Resource_vywkp"), SubResource("Resource_67snv")])
 metadata/_custom_type_script = "uid://jugj2lymdw2y"

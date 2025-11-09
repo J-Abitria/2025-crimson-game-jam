@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=18 format=3 uid="uid://b4tghootladns"]
+
+[ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="1_7fneo"]
+[ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="2_apaj6"]
+[ext_resource type="Script" uid="uid://behe0uh46otj5" path="res://Scripts/Dialogue System/dialogue_type.gd" id="3_cp5yf"]
+[ext_resource type="Script" uid="uid://c8wa8mk28h4ff" path="res://Scripts/Dialogue System/dialogue_system.gd" id="3_vi08l"]
+[ext_resource type="Script" uid="uid://cvs5pisxmvodb" path="res://Scripts/Dialogue System/response_option.gd" id="4_sak55"]
+[ext_resource type="Script" uid="uid://dk6ucly77kk0h" path="res://Scripts/Dialogue System/response_dialogue.gd" id="5_dugn6"]
+
+[sub_resource type="Resource" id="Resource_3jfvj"]
+script = ExtResource("1_7fneo")
+text = "I’m glad someone appreciates what I do around here!"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_ogamc"]
+script = ExtResource("5_dugn6")
+text = "Hey choom, time for therapy already?"
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_k4hi7"]
+script = ExtResource("2_apaj6")
+dialogue = Array[ExtResource("3_cp5yf")]([SubResource("Resource_ogamc")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_cp5yf"]
+script = ExtResource("5_dugn6")
+text = "Aw fuck, not you again. I thought I’d seen the last of your idiotic face."
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_sak55"]
+script = ExtResource("2_apaj6")
+dialogue = Array[ExtResource("3_cp5yf")]([SubResource("Resource_cp5yf")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_dugn6"]
+script = ExtResource("5_dugn6")
+text = "Good to see ya, V!"
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
+
+[sub_resource type="Resource" id="Resource_ts1tg"]
+script = ExtResource("2_apaj6")
+dialogue = Array[ExtResource("3_cp5yf")]([SubResource("Resource_dugn6")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_11wmv"]
+script = ExtResource("1_7fneo")
+text = "We just finished talking, go chat up some other gonk at the party for a bit."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_2gtpb"]
+script = ExtResource("2_apaj6")
+dialogue = Array[ExtResource("3_cp5yf")]([SubResource("Resource_11wmv")])
+metadata/_custom_type_script = "uid://byu3y2b647a13"
+
+[sub_resource type="Resource" id="Resource_qdxxy"]
+script = ExtResource("1_7fneo")
+text = "Go fuck yourself."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_eoykw"]
+script = ExtResource("1_7fneo")
+text = "Question response"
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[resource]
+script = ExtResource("3_vi08l")
+dialogue_states = Dictionary[int, ExtResource("2_apaj6")]({
+0: SubResource("Resource_sak55"),
+1: SubResource("Resource_k4hi7"),
+2: SubResource("Resource_ts1tg"),
+3: SubResource("Resource_2gtpb")
+})
+compliment_responses = Array[ExtResource("1_7fneo")]([SubResource("Resource_3jfvj")])
+question_responses = Array[ExtResource("1_7fneo")]([SubResource("Resource_eoykw")])
+insult_responses = Array[ExtResource("1_7fneo")]([SubResource("Resource_qdxxy")])
+current_state = 1
+metadata/_custom_type_script = "uid://c8wa8mk28h4ff"
