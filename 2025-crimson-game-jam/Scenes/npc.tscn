@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://on1ncpjvpnpi" path="res://Scripts/LineOfSight.gd" id="3_1ig1v"]
 [ext_resource type="SpriteFrames" uid="uid://duouljds3k6s" path="res://spriteframes/peppino_frames.tres" id="3_g6unj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxsvc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udgup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6unj"]
 
@@ -13,9 +13,9 @@ script = ExtResource("1_g6unj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.25, 3.25)
-shape = SubResource("RectangleShape2D_xxsvc")
+shape = SubResource("RectangleShape2D_udgup")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="LineOfSight" type="Area2D" parent="."]
 script = ExtResource("3_1ig1v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
