@@ -1,6 +1,6 @@
 class_name NPC extends CharacterBody2D
 
-@onready var pathData: PathFollow2D = get_node("../..")
+@onready var pathData: PathFollow2D = get_node("..")
 @onready var spriteData: Sprite2D = get_node("Sprite2D")
 enum NPC_MOOD {
 	HAPPY,
