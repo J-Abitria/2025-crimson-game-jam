@@ -1,6 +1,6 @@
 class_name NPC extends CharacterBody2D
 
-@onready var pathData: PathFollow2D = get_node("../..")
+@onready var pathData: PathFollow2D = get_node("..")
 @onready var spriteData: Sprite2D = get_node("Sprite2D")
 enum NPC_MOOD {
 	HAPPY,
@@ -14,6 +14,8 @@ enum NPC_MOOD {
 @export var dialogue_system: DialogueSystem
 var isInteracting: bool
 var loveMeter: int
+var is_on_cooldown: bool
+var current_mood: NPC_MOOD
 
 func _ready():
 	isInteracting = false
