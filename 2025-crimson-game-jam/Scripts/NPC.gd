@@ -10,7 +10,7 @@ enum NPC_MOOD {
 
 @export var npc_data: NPCData
 @onready var dialogueBox: DialogueBox = get_node("../../../CanvasLayer/Game UI/MarginContainer/DialogueBox")
-@export var npcSpeed: int = 100
+@export var npcSpeed: int = 200
 @export var dialogue_system: DialogueSystem
 var isInteracting: bool
 var loveMeter: int
@@ -28,13 +28,14 @@ func _ready():
 
 func _physics_process(delta):
 	if not isInteracting:
-		pathData.progress += npcSpeed * delta
+		var progressIncrement = (npcSpeed * (float(loveMeter) / 100)) * delta
+		pathData.progress += progressIncrement
 		
 		var movementStep = pathData.global_position - global_position
 		var collision = move_and_collide(movementStep)
 		
 		if collision:
-			pathData.progress -= npcSpeed * delta
+			pathData.progress -= progressIncrement
 			
 			var path = pathData.get_parent()
 			var attemptedProgress = lerp(pathData.progress, path.curve.get_closest_offset(to_local(global_position)), 0.2)

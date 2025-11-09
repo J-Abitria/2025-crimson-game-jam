@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=13 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="Script" path="res://party_room.gd" id="1_8tyn0"]
 [ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="1_uxlj3"]
@@ -9,6 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="5_8tyn0"]
 [ext_resource type="PackedScene" uid="uid://c8midatyvxw4j" path="res://Scenes/Wall.tscn" id="7_qfhhg"]
 [ext_resource type="Texture2D" uid="uid://buc3mwgolyn06" path="res://Assets/PixelArt/WoodFloor.png" id="8_dp8mp"]
+
+[sub_resource type="Gradient" id="Gradient_4pbey"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oja4w"]
+gradient = SubResource("Gradient_4pbey")
 
 [sub_resource type="Curve2D" id="Curve2D_udgup"]
 _data = {
@@ -21,7 +28,9 @@ script = ExtResource("1_8tyn0")
 canvas = NodePath("CanvasLayer")
 metadata/_edit_horizontal_guides_ = [-1195.0]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="Node2D" parent="."]
+
+[node name="WoodFlooring" type="TextureRect" parent="Background"]
 offset_left = -521.0
 offset_top = -2612.0
 offset_right = 940.0
@@ -30,7 +39,17 @@ scale = Vector2(4, 4)
 texture = ExtResource("8_dp8mp")
 stretch_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(1438, -971.5)
+scale = Vector2(61.59375, 13.421874)
+texture = SubResource("GradientTexture2D_oja4w")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(2571, -287.00006)
+scale = Vector2(26.203125, 13.421874)
+texture = SubResource("GradientTexture2D_oja4w")
+
+[node name="TileFlooring" type="TextureRect" parent="Background"]
 offset_left = 1931.497
 offset_top = -2633.0
 offset_right = 2383.2598
@@ -106,8 +125,8 @@ rotation = 1.5707964
 scale = Vector2(20, 1)
 
 [node name="Wall11" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
-position = Vector2(1475, -1426)
-scale = Vector2(62.24, 1)
+position = Vector2(1465, -1426)
+scale = Vector2(62.64, 1)
 
 [node name="Wall12" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
 position = Vector2(3436, -617)
