@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b28pd02fha6bk"]
+[gd_scene load_steps=6 format=3 uid="uid://b28pd02fha6bk"]
 
 [ext_resource type="Script" uid="uid://ct4rustx0mb5e" path="res://Scripts/DialogueDisplay/dialogue_box.gd" id="1_obhul"]
+[ext_resource type="Theme" uid="uid://drwt3mruulkvo" path="res://Scenes/UI/dialogue_theme.tres" id="2_obhul"]
 [ext_resource type="Script" uid="uid://gye0y8pycho8" path="res://Scripts/DialogueDisplay/typewriter.gd" id="4_1spsb"]
 [ext_resource type="FontFile" uid="uid://5yomvwki5k8u" path="res://Assets/Fonts/zelda.ttf" id="4_8610a"]
 
@@ -15,9 +16,10 @@ anchor_right = 1.0
 grow_horizontal = 2
 size_flags_vertical = 8
 script = ExtResource("1_obhul")
-dialogue_text_label = NodePath("HBoxContainer/VBoxContainer/PanelContainer/DialogueTextLabel")
+dialogue_theme = ExtResource("2_obhul")
+dialogue_text_label = NodePath("HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/DialogueTextLabel")
 portrait = NodePath("HBoxContainer/PanelContainer/Portrait")
-option_container = NodePath("HBoxContainer/VBoxContainer/PanelContainer/OptionContainer")
+option_container = NodePath("HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/OptionContainer")
 love_meter = NodePath("HBoxContainer/ProgressBar")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -56,8 +58,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_obhul")
 
-[node name="DialogueTextLabel" type="Label" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="DialogueTextLabel" type="Label" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -68,7 +78,8 @@ text = "Hello"
 autowrap_mode = 3
 script = ExtResource("4_1spsb")
 
-[node name="OptionContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+[node name="OptionContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_constants/separation = 30
 alignment = 1
