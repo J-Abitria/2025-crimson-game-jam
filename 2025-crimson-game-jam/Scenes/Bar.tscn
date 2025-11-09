@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bj6wic066iomy"]
+[gd_scene load_steps=2 format=3 uid="uid://bj6wic066iomy"]
+
+[ext_resource type="Script" uid="uid://bo8x2gccv54ig" path="res://Scripts/DrinkButton.gd" id="1_op7jc"]
 
 [node name="Bar" type="Node2D"]
 
@@ -39,6 +41,7 @@ offset_right = 274.0
 offset_bottom = 212.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 1"
+script = ExtResource("1_op7jc")
 
 [node name="DrinkButton2" type="Button" parent="CanvasLayer/Control/MarginContainer/DrinkButtons"]
 layout_mode = 0
@@ -48,6 +51,8 @@ offset_right = 274.0
 offset_bottom = 283.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 2"
+script = ExtResource("1_op7jc")
+drinkValue = 2
 
 [node name="DrinkButton3" type="Button" parent="CanvasLayer/Control/MarginContainer/DrinkButtons"]
 layout_mode = 0
@@ -57,6 +62,8 @@ offset_right = 274.0
 offset_bottom = 354.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 3"
+script = ExtResource("1_op7jc")
+drinkValue = 3
 
 [node name="DrinkButton4" type="Button" parent="CanvasLayer/Control/MarginContainer/DrinkButtons"]
 layout_mode = 0
@@ -66,6 +73,8 @@ offset_right = 274.0
 offset_bottom = 425.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 4"
+script = ExtResource("1_op7jc")
+drinkValue = 4
 
 [node name="DrinkButton5" type="Button" parent="CanvasLayer/Control/MarginContainer/DrinkButtons"]
 layout_mode = 0
@@ -75,3 +84,5 @@ offset_right = 274.0
 offset_bottom = 496.0
 theme_override_font_sizes/font_size = 32
 text = "Drink 5"
+script = ExtResource("1_op7jc")
+drinkValue = 5
