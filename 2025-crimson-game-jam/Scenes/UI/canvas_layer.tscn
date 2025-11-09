@@ -40,5 +40,14 @@ text = "5:00:00"
 script = ExtResource("1_w6mh2")
 time_alloted_minutes = 5
 
+[node name="ItemContainer" type="Control" parent="Game UI/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Game UI/MarginContainer/ItemContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="DialogueBox" parent="Game UI/MarginContainer" instance=ExtResource("2_fvidj")]
 layout_mode = 2
