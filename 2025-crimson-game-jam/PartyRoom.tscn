@@ -72,9 +72,11 @@ texture = SubResource("GradientTexture2D_uxlj3")
 shape = SubResource("CircleShape2D_in1t5")
 debug_color = Color(0.97437733, 0, 0.43065646, 0.41960785)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
 [node name="LongWall1" type="StaticBody2D" parent="."]
-position = Vector2(584, -34)
-scale = Vector2(18.359999, 1)
+position = Vector2(584.00006, -526)
+scale = Vector2(36, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="LongWall1"]
 texture = SubResource("GradientTexture2D_hxfrn")
@@ -84,8 +86,8 @@ scale = Vector2(3.203392, 3.28)
 shape = SubResource("RectangleShape2D_in1t5")
 
 [node name="LongWall2" type="StaticBody2D" parent="."]
-position = Vector2(584.00006, 683)
-scale = Vector2(18.359999, 1)
+position = Vector2(584, 1041)
+scale = Vector2(37.079998, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="LongWall2"]
 texture = SubResource("GradientTexture2D_hxfrn")
@@ -95,9 +97,9 @@ scale = Vector2(3.203392, 3.28)
 shape = SubResource("RectangleShape2D_in1t5")
 
 [node name="ShortWall1" type="StaticBody2D" parent="."]
-position = Vector2(-34.000004, 328.00003)
+position = Vector2(-575.99994, 333.00003)
 rotation = 1.5707964
-scale = Vector2(12.279999, 1)
+scale = Vector2(27.400002, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ShortWall1"]
 scale = Vector2(0.99999994, 0.99999994)
@@ -108,9 +110,9 @@ scale = Vector2(3.2033918, 3.2799997)
 shape = SubResource("RectangleShape2D_in1t5")
 
 [node name="ShortWall2" type="StaticBody2D" parent="."]
-position = Vector2(1187.9999, 328.00003)
+position = Vector2(1689, 319.00003)
 rotation = 1.5707964
-scale = Vector2(12.279999, 1)
+scale = Vector2(26.36, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ShortWall2"]
 scale = Vector2(0.99999994, 0.99999994)
