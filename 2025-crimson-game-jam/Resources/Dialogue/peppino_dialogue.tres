@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSystem" load_steps=20 format=3 uid="uid://dxstxl7qxe476"]
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=21 format=3 uid="uid://bqlcn8vtgu0dh"]
 
 [ext_resource type="Script" uid="uid://kxn1wk24aq4t" path="res://Scripts/Dialogue System/display_dialogue.gd" id="1_iw2ep"]
 [ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="2_a0iod"]
@@ -43,9 +43,9 @@ dialogue = Array[ExtResource("3_aqfuc")]([SubResource("Resource_w2nlw")])
 metadata/_custom_type_script = "uid://byu3y2b647a13"
 
 [sub_resource type="Resource" id="Resource_aqfuc"]
-script = ExtResource("1_iw2ep")
+script = ExtResource("5_jy8iq")
 text = "You haven’t-a seen-a Pizzaface around-a here, have you?"
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+metadata/_custom_type_script = "uid://dk6ucly77kk0h"
 
 [sub_resource type="Resource" id="Resource_rk536"]
 script = ExtResource("2_a0iod")
@@ -69,7 +69,12 @@ metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [sub_resource type="Resource" id="Resource_pgf1p"]
 script = ExtResource("1_iw2ep")
-text = "Question"
+text = "It’s-a not-a great. I think {npc} keeps-a glancin’ at me with an unpleasant look on their face. I would rather be alone I think."
+metadata/_custom_type_script = "uid://kxn1wk24aq4t"
+
+[sub_resource type="Resource" id="Resource_glqtk"]
+script = ExtResource("1_iw2ep")
+text = "My mind is on-a other things. I really hope I don’t-a lose my pizzeria. I’m-a behind on-a rent and that asshat Pizzaface keeps-a threatening to blow up-a my building."
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
 [resource]
@@ -82,7 +87,10 @@ dialogue_states = Dictionary[int, ExtResource("2_a0iod")]({
 4: SubResource("Resource_xpmdi")
 })
 compliment_responses = Array[ExtResource("1_iw2ep")]([SubResource("Resource_qpyvl")])
-question_responses = Array[ExtResource("1_iw2ep")]([SubResource("Resource_pgf1p")])
+question_responses = Dictionary[int, ExtResource("1_iw2ep")]({
+0: SubResource("Resource_pgf1p"),
+3: SubResource("Resource_glqtk")
+})
 insult_responses = Array[ExtResource("1_iw2ep")]([SubResource("Resource_cyun3")])
 current_state = 1
 metadata/_custom_type_script = "uid://c8wa8mk28h4ff"

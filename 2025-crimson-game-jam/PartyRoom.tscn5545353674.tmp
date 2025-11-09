@@ -1,27 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=11 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="Script" uid="uid://d0a622gq4ofuu" path="res://party_room.gd" id="1_8tyn0"]
 [ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="1_uxlj3"]
 [ext_resource type="PackedScene" uid="uid://dukyvndldjp0m" path="res://Scenes/npc.tscn" id="2_hxfrn"]
 [ext_resource type="Texture2D" uid="uid://bacdt3sao3ml0" path="res://Assets/PixelArt/TileFloor.png" id="3_4pbey"]
 [ext_resource type="Resource" uid="uid://d3jauypcolr11" path="res://Resources/NPCs/zelda.tres" id="4_8tyn0"]
-[ext_resource type="Resource" uid="uid://b1dmpdm7yibb5" path="res://Resources/NPCs/master_chief.tres" id="5_2o3f8"]
+[ext_resource type="Resource" uid="uid://tp82od0e6m2k" path="res://Resources/Dialogue/zelda_dialogue.tres" id="5_2o3f8"]
 [ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="5_8tyn0"]
 [ext_resource type="PackedScene" path="res://Scenes/Wall.tscn" id="7_qfhhg"]
 [ext_resource type="Texture2D" uid="uid://buc3mwgolyn06" path="res://Assets/PixelArt/WoodFloor.png" id="8_dp8mp"]
-[ext_resource type="Resource" uid="uid://y07bhxoq5jwi" path="res://Resources/NPCs/lara_croft.tres" id="8_oja4w"]
-[ext_resource type="Resource" uid="uid://bnliaqo4j5h4q" path="res://Resources/NPCs/johnny_silver.tres" id="9_5mcsa"]
-[ext_resource type="Resource" uid="uid://o0h0q774gxk1" path="res://Resources/NPCs/peppino.tres" id="10_fh8vl"]
 
 [sub_resource type="Curve2D" id="Curve2D_udgup"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 4, 2, 0, 0, 0, 0, 1700, 2, 0, 0, 0, 0, 4, 2)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_oja4w"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 6)
+"points": PackedVector2Array(0, 0, 0, 0, 4, 2, 0, 0, 0, 0, 1010, 2, 0, 0, 0, 0, 4, 2)
 }
 point_count = 3
 
@@ -30,28 +21,16 @@ script = ExtResource("1_8tyn0")
 canvas = NodePath("CanvasLayer")
 metadata/_edit_horizontal_guides_ = [-1195.0]
 
-[node name="Background" type="Node2D" parent="."]
-
-[node name="WoodFlooring" type="TextureRect" parent="Background"]
+[node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -521.0
-offset_top = -2632.0
+offset_top = -2612.0
 offset_right = 940.0
-offset_bottom = -1780.25
+offset_bottom = -1765.25
 scale = Vector2(4, 4)
 texture = ExtResource("8_dp8mp")
 stretch_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(1438, -971.5)
-scale = Vector2(61.59375, 13.421874)
-texture = SubResource("GradientTexture2D_oja4w")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Background"]
-position = Vector2(2571, -287.00006)
-scale = Vector2(26.203125, 13.421874)
-texture = SubResource("GradientTexture2D_oja4w")
-
-[node name="TileFlooring" type="TextureRect" parent="Background"]
+[node name="TextureRect2" type="TextureRect" parent="."]
 offset_left = 1931.497
 offset_top = -2633.0
 offset_right = 2383.2598
@@ -65,7 +44,7 @@ stretch_mode = 1
 position = Vector2(370, 405)
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(45, -144)
+position = Vector2(52, 299)
 curve = SubResource("Curve2D_udgup")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
@@ -75,54 +54,7 @@ rotates = false
 [node name="Zelda" parent="Path2D/PathFollow2D" instance=ExtResource("2_hxfrn")]
 position = Vector2(-4, -2)
 npc_data = ExtResource("4_8tyn0")
-
-[node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(-361, 564)
-curve = SubResource("Curve2D_udgup")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(4, 2)
-rotates = false
-
-[node name="Master Chief" parent="Path2D2/PathFollow2D" instance=ExtResource("2_hxfrn")]
-position = Vector2(-4, -2)
-npc_data = ExtResource("5_2o3f8")
-
-[node name="Path2D3" type="Path2D" parent="."]
-position = Vector2(78, 266)
-curve = SubResource("Curve2D_udgup")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
-position = Vector2(4, 2)
-rotates = false
-
-[node name="Lara Croft" parent="Path2D3/PathFollow2D" instance=ExtResource("2_hxfrn")]
-position = Vector2(-4, -2)
-npc_data = ExtResource("8_oja4w")
-
-[node name="Path2D4" type="Path2D" parent="."]
-position = Vector2(-260, 75)
-curve = SubResource("Curve2D_udgup")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
-position = Vector2(4, 2)
-rotates = false
-
-[node name="Johhny Silverhand" parent="Path2D4/PathFollow2D" instance=ExtResource("2_hxfrn")]
-position = Vector2(-4, -2)
-npc_data = ExtResource("9_5mcsa")
-
-[node name="Path2D5" type="Path2D" parent="."]
-position = Vector2(119, 428)
-curve = SubResource("Curve2D_udgup")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
-position = Vector2(4, 2)
-rotates = false
-
-[node name="Peppino" parent="Path2D5/PathFollow2D" instance=ExtResource("2_hxfrn")]
-position = Vector2(-4, -2)
-npc_data = ExtResource("10_fh8vl")
+dialogue_system = ExtResource("5_2o3f8")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_8tyn0")]
 visible = false
@@ -174,30 +106,10 @@ rotation = 1.5707964
 scale = Vector2(20, 1)
 
 [node name="Wall11" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
-position = Vector2(1464, -1426)
-scale = Vector2(62.64, 1)
-
-[node name="CollisionShape2D" parent="--- Walls ---/Wall11" index="1"]
-position = Vector2(-0.012809753, 0)
+position = Vector2(1475, -1426)
+scale = Vector2(62.24, 1)
 
 [node name="Wall12" parent="--- Walls ---" instance=ExtResource("7_qfhhg")]
 position = Vector2(3436, -617)
 rotation = 1.5707964
 scale = Vector2(25, 1)
-
-[node name="Bar" parent="." instance=ExtResource("10_oja4w")]
-position = Vector2(655, -2520)
-
-[node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(1503, -370)
-curve = SubResource("Curve2D_oja4w")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(0, 6)
-rotation = 1.5707964
-
-[node name="masterChief" parent="Path2D2/PathFollow2D" instance=ExtResource("2_hxfrn")]
-npc_data = ExtResource("11_fh8vl")
-dialogue_system = ExtResource("12_qxnwo")
-
-[editable path="--- Walls ---/Wall11"]
