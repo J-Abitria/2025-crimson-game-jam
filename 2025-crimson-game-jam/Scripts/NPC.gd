@@ -2,6 +2,7 @@ class_name NPC extends CharacterBody2D
 
 @onready var dialogueBox: DialogueBox = get_node("../../../../CanvasLayer/Game UI/MarginContainer/DialogueBox")
 @onready var pathData: PathFollow2D = get_node("../..")
+@onready var spriteData: Sprite2D = get_node("Sprite2D")
 @export var npcSpeed: int = 100
 @export var dialogue_system: DialogueSystem
 var isInteracting: bool
@@ -18,6 +19,21 @@ func _ready():
 func _physics_process(delta):
 	if not isInteracting:
 		pathData.progress += npcSpeed * delta
+		
+		var movementStep = pathData.global_position - global_position
+		var collision = move_and_collide(movementStep)
+		
+		if collision:
+			var path = pathData.get_parent()
+			var attemptedProgress = lerp(pathData.progress, path.curve.get_closest_offset(to_local(global_position)), 0.2)
+			
+			if attemptedProgress > pathData.progress:
+				pathData.progress = attemptedProgress
+		
+		if pathData.progress > 0.5:
+			spriteData.flip_h = true
+		else:
+			spriteData.flip_h = false
 
 func _on_prompted():
 	print("Interaction Received")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://yoieidt4msl4"]
+[gd_scene load_steps=9 format=3 uid="uid://yoieidt4msl4"]
 
 [ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="1_uxlj3"]
 [ext_resource type="PackedScene" uid="uid://2m5v5nv2qb5o" path="res://Scenes/NPC.tscn" id="2_hxfrn"]
+[ext_resource type="Resource" uid="uid://kt6jd8n1w1el" path="res://Resources/master_chief_dialogue.tres" id="3_uxlj3"]
 [ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="5_8tyn0"]
 
 [sub_resource type="Gradient" id="Gradient_udgup"]
@@ -19,17 +20,10 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_8tyn0"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2o3f8"]
-gradient = SubResource("Gradient_8tyn0")
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_uxlj3")]
-position = Vector2(227, 145)
+position = Vector2(370, 405)
 
 [node name="LongWall1" type="StaticBody2D" parent="."]
 position = Vector2(584.00006, -526)
@@ -85,10 +79,13 @@ curve = SubResource("Curve2D_udgup")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(4, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
-texture = SubResource("GradientTexture2D_2o3f8")
+rotates = false
 
 [node name="Npc" parent="Path2D/PathFollow2D" instance=ExtResource("2_hxfrn")]
 
+[node name="CharacterBody2D" parent="Path2D/PathFollow2D/Npc" index="0"]
+dialogue_system = ExtResource("3_uxlj3")
+
 [node name="CanvasLayer" parent="." instance=ExtResource("5_8tyn0")]
+
+[editable path="Path2D/PathFollow2D/Npc"]
