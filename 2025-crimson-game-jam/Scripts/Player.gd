@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @onready var dialogueBox: DialogueBox = get_node("../CanvasLayer/Game UI/MarginContainer/DialogueBox")
-@export var speed: int = 400
+@export var speed: int = 500
 var interactionHitbox: InteractionHitbox
 var heldDrink: String = ""
 var heldItem: String = ""
@@ -11,6 +11,7 @@ func _ready():
 	interactionHitbox = get_node("InteractionHitbox")
 	interactionHitbox.visible = false
 	isInteracting = false
+	CustomSignals.drinkRequested.connect(_on_receive_drink)
 	dialogueBox.completedDialogue.connect(_on_leave_interaction)
 
 func updateInteractionPosition():
@@ -55,8 +56,12 @@ func _physics_process(_delta):
 		
 		updateInteractionPosition()
 
-func _on_enter_interaction():
+func _on_enter_interaction(_npcName: String):
 	isInteracting = true
 
 func _on_leave_interaction():
 	isInteracting = false
+
+func _on_receive_drink(drinkType: int):
+	var drinkDictionary = load("res://Resources/DrinkDictionary.tres")
+	heldDrink = drinkDictionary.drinkList[drinkType]
