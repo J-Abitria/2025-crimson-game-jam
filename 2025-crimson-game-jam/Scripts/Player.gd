@@ -5,6 +5,7 @@ signal finished_interaction()
 @export var dialogueBox: DialogueBox
 @export var speed: int = 400
 @export var sprite: AnimatedSprite2D
+var finalScores: Array[int]
 var interactionHitbox: InteractionHitbox
 var heldDrink: String = ""
 var heldItem: String = ""
@@ -39,6 +40,9 @@ func _process(_delta):
 	if not isInteracting:
 		if Input.is_action_just_pressed("interact"):
 			promptInteraction()
+		if Input.is_action_just_pressed("quit"):
+			GameData.preserveFinalScores()
+			get_tree().change_scene_to_file("res://Scenes/Ending.tscn")
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
