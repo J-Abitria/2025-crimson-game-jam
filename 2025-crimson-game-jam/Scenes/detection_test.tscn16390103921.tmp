@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwym0tbk7nbod"]
+
+[ext_resource type="PackedScene" uid="uid://b5hy3pdjq8uuy" path="res://Scenes/npc.tscn" id="1_cmgq7"]
+[ext_resource type="Resource" uid="uid://bnliaqo4j5h4q" path="res://Resources/NPCs/johnny_silver.tres" id="2_lh2ea"]
+[ext_resource type="Resource" uid="uid://b1dmpdm7yibb5" path="res://Resources/NPCs/master_chief.tres" id="3_lbyt8"]
+[ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="4_lbyt8"]
+[ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="5_3lk14"]
+
+[sub_resource type="Curve2D" id="Curve2D_um31k"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 236, 6, 0, 0, 0, 0, 566, -51, 0, 0, 0, 0, 662, -147, 0, 0, 0, 0, 863, -224, 0, 0, 0, 0, 271, -237, 0, 0, 0, 0, 84, -79, 0, 0, 0, 0, 41, 41, 0, 0, 0, 0, 234, 6)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_lh2ea"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -98, -31, 0, 0, 0, 0, -47, -22, 0, 0, 0, 0, 52, -98, 0, 0, 0, 0, 109, -193, 0, 0, 0, 0, -56, -211, 0, 0, 0, 0, -224, -213, 0, 0, 0, 0, -364, -135, 0, 0, 0, 0, -433, 74, 0, 0, 0, 0, -371, 189, 0, 0, 0, 0, -266, 255, 0, 0, 0, 0, -226, 161, 0, 0, 0, 0, -51, -25)
+}
+point_count = 12
+
+[node name="DetectionTest" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("4_lbyt8")]
+position = Vector2(388, 124)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_um31k")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(236, 6)
+rotation = -0.17103963
+
+[node name="Npc" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("pathData") instance=ExtResource("1_cmgq7")]
+position = Vector2(178, 11)
+pathData = NodePath("..")
+npc_data = ExtResource("2_lh2ea")
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_lh2ea")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(-98, -31)
+rotation = 0.1746722
+
+[node name="Npc" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("pathData") instance=ExtResource("1_cmgq7")]
+pathData = NodePath("..")
+npc_data = ExtResource("3_lbyt8")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_3lk14")]
