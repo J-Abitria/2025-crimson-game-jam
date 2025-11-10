@@ -71,8 +71,9 @@ curve = SubResource("Curve2D_t4tmn")
 position = Vector2(0, 2)
 rotates = false
 
-[node name="Zelda" parent="Path2D/PathFollow2D" groups=["NPC"] instance=ExtResource("4_obj8w")]
+[node name="Zelda" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("4_obj8w")]
 position = Vector2(-4, -2)
+pathData = NodePath("..")
 npc_data = ExtResource("5_28io6")
 
 [node name="Path2D2" type="Path2D" parent="."]
@@ -83,8 +84,9 @@ curve = SubResource("Curve2D_sirxb")
 position = Vector2(0, 2)
 rotates = false
 
-[node name="Master Chief" parent="Path2D2/PathFollow2D" groups=["NPC"] instance=ExtResource("4_obj8w")]
+[node name="Master Chief" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("4_obj8w")]
 position = Vector2(-4, -2)
+pathData = NodePath("..")
 npc_data = ExtResource("7_sirxb")
 
 [node name="Path2D3" type="Path2D" parent="."]
@@ -95,8 +97,9 @@ curve = SubResource("Curve2D_t4tmn")
 position = Vector2(0, 2)
 rotates = false
 
-[node name="Lara Croft" parent="Path2D3/PathFollow2D" groups=["NPC"] instance=ExtResource("4_obj8w")]
+[node name="Lara Croft" parent="Path2D3/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("4_obj8w")]
 position = Vector2(-4, -2)
+pathData = NodePath("..")
 npc_data = ExtResource("8_55nvd")
 
 [node name="Path2D4" type="Path2D" parent="."]
@@ -107,8 +110,9 @@ curve = SubResource("Curve2D_t4tmn")
 position = Vector2(0, 2)
 rotates = false
 
-[node name="Johnny Silverhand" parent="Path2D4/PathFollow2D" groups=["NPC"] instance=ExtResource("4_obj8w")]
+[node name="Johnny Silverhand" parent="Path2D4/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("4_obj8w")]
 position = Vector2(-4, -2)
+pathData = NodePath("..")
 npc_data = ExtResource("9_nhb4f")
 
 [node name="Path2D5" type="Path2D" parent="."]
@@ -119,8 +123,9 @@ curve = SubResource("Curve2D_t4tmn")
 position = Vector2(0, 2)
 rotates = false
 
-[node name="Peppino" parent="Path2D5/PathFollow2D" groups=["NPC"] instance=ExtResource("4_obj8w")]
+[node name="Peppino" parent="Path2D5/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("4_obj8w")]
 position = Vector2(-4, -2)
+pathData = NodePath("..")
 npc_data = ExtResource("10_anytk")
 
 [node name="Player" parent="." node_paths=PackedStringArray("dialogueBox") instance=ExtResource("7_t4tmn")]

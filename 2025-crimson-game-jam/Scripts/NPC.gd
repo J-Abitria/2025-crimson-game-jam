@@ -103,6 +103,7 @@ func start_cooldown() -> void:
 func _on_interaction_complete():
 	isInteracting = false
 	miniPortraitBox.visible = false
+	miniPortraitBox.get_node("Plus").visible = false
 
 func change_love(amount: int) -> void:
 	self.loveMeter += amount
@@ -133,7 +134,9 @@ func update_dialogue_state() -> void:
 func enemy_insulted() -> void:
 	change_love(30)
 	miniPortraitBox.visible = true
-	miniPortraitBox.get_node("PanelContainer/EnemyNPCPortrait").texture = npc_data.get_neutral()
+	miniPortraitBox.get_node("PanelContainer/EnemyNPCPortrait").texture = npc_data.get_happy()
+	miniPortraitBox.get_node("Plus").visible = true
+	miniPortraitBox.get_node("Minus").visible = false
 
 func insult() -> void:
 	insulted.emit()
