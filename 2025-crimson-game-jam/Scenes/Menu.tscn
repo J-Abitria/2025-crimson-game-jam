@@ -85,7 +85,7 @@ date with you at the same time, on the same day, at the same place.
 See if you can keep them all happy!
 
 WASD to move, E to interact with NPCs. Left click to progress dialogue,
-hold left click to speed it up."
+hold left click to speed it up. Press SPACE to end the game!"
 horizontal_alignment = 1
 
 [node name="Buttons" type="Control" parent="CanvasLayer/Control/MarginContainer"]
