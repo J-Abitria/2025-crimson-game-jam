@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueSystem" load_steps=19 format=3 uid="uid://cqy4bxgattuyr"]
+[gd_resource type="Resource" script_class="DialogueSystem" load_steps=17 format=3 uid="uid://cqy4bxgattuyr"]
 
 [ext_resource type="Script" uid="uid://byu3y2b647a13" path="res://Scripts/Dialogue System/dialogue_state.gd" id="1_00s1u"]
 [ext_resource type="Script" uid="uid://behe0uh46otj5" path="res://Scripts/Dialogue System/dialogue_type.gd" id="2_bxduw"]
@@ -59,22 +59,11 @@ script = ExtResource("3_00s1u")
 text = "I'm calling your mom"
 metadata/_custom_type_script = "uid://kxn1wk24aq4t"
 
-[sub_resource type="Resource" id="Resource_00s1u"]
-script = ExtResource("3_00s1u")
-text = "I like soup."
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
-[sub_resource type="Resource" id="Resource_q8eja"]
-script = ExtResource("3_00s1u")
-text = "I think the Earth is flat too!"
-metadata/_custom_type_script = "uid://kxn1wk24aq4t"
-
 [resource]
 script = ExtResource("5_5kq7j")
 dialogue_states = Dictionary[int, ExtResource("1_00s1u")]({
 2: SubResource("Resource_ea4og")
 })
 compliment_responses = Array[ExtResource("3_00s1u")]([SubResource("Resource_pfta0"), SubResource("Resource_hphxb")])
-question_responses = Array[ExtResource("3_00s1u")]([SubResource("Resource_00s1u"), SubResource("Resource_q8eja")])
 insult_responses = Array[ExtResource("3_00s1u")]([SubResource("Resource_bxduw"), SubResource("Resource_m0tuq")])
 metadata/_custom_type_script = "uid://c8wa8mk28h4ff"

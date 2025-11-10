@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://b0ckcuyc63oi1"
+uid="uid://cnojf16r8hbp5"
 path="res://.godot/imported/zelda.ogg-abfee1415ecb388ba444bfd8e49f6b18.oggvorbisstr"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/zelda.ogg-abfee1415ecb388ba444bfd8e49f6b18.og
 [params]
 
 loop=false
-loop_offset=0.0
-bpm=0.0
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4

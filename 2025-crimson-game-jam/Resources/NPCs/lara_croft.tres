@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dsqhf7gwhnuo0" path="res://Assets/Portraits/Lara Croft/lara_croft_happy.png" id="2_2cyas"]
 [ext_resource type="Texture2D" uid="uid://b6urgd2umi61d" path="res://Assets/Portraits/Lara Croft/lara_croft_neutral.png" id="3_st1qq"]
 [ext_resource type="Texture2D" uid="uid://1v163g8irm65" path="res://Assets/Portraits/Lara Croft/lara_croft_angry.png" id="4_eup5u"]
-[ext_resource type="AudioStream" uid="uid://bw6806ge7abl5" path="res://Assets/Themes/lara_croft.ogg" id="6_2cyas"]
+[ext_resource type="AudioStream" uid="uid://c4keovuynl4oe" path="res://Assets/Themes/lara_croft.ogg" id="6_2cyas"]
 [ext_resource type="SpriteFrames" uid="uid://daqock3emlq15" path="res://spriteframes/lara_frames.tres" id="6_st1qq"]
 
 [resource]

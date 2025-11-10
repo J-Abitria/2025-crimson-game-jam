@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://drk3ucs6rffsd"]
+[gd_scene load_steps=8 format=3 uid="uid://drk3ucs6rffsd"]
 
 [ext_resource type="Script" uid="uid://bgbdi0ijres2e" path="res://Scripts/UI/timer_label.gd" id="1_w6mh2"]
 [ext_resource type="PackedScene" uid="uid://b28pd02fha6bk" path="res://Scenes/UI/dialogue_box.tscn" id="2_fvidj"]
 [ext_resource type="Texture2D" uid="uid://jdcmxm7gja0k" path="res://Assets/PixelArt/Plus.png" id="2_tnb6o"]
 [ext_resource type="Texture2D" uid="uid://8qn5tm4l4a70" path="res://Assets/PixelArt/Minus.png" id="3_v4obr"]
+[ext_resource type="Theme" uid="uid://xl0mhuva4vji" path="res://Scenes/UI/MuteMusic.tres" id="5_2m36k"]
+[ext_resource type="Script" uid="uid://bhlm0woptopf6" path="res://Scenes/UI/music_button.gd" id="5_v4obr"]
+[ext_resource type="Script" uid="uid://j4o2xvj54cp" path="res://Scenes/UI/sfx_button.gd" id="6_lfm0u"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -35,9 +38,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -55.0
-offset_bottom = 23.0
+offset_left = -79.0
+offset_top = -8.0
+offset_right = 6.0
+offset_bottom = 27.0
 grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 25
 text = "5:00:00"
 script = ExtResource("1_w6mh2")
 time_alloted_minutes = 5
@@ -75,3 +84,35 @@ stretch_mode = 5
 
 [node name="DialogueBox" parent="Game UI/MarginContainer" instance=ExtResource("2_fvidj")]
 layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Game UI"]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 53.0
+offset_right = 1142.0
+offset_bottom = 132.0
+columns = 2
+
+[node name="MusicButton" type="CheckButton" parent="Game UI/GridContainer"]
+layout_mode = 2
+theme = ExtResource("5_2m36k")
+script = ExtResource("5_v4obr")
+
+[node name="Label" type="Label" parent="Game UI/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "Mute Music"
+
+[node name="SFXButton" type="CheckButton" parent="Game UI/GridContainer"]
+layout_mode = 2
+theme = ExtResource("5_2m36k")
+script = ExtResource("6_lfm0u")
+
+[node name="Label2" type="Label" parent="Game UI/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "Mute SFX"

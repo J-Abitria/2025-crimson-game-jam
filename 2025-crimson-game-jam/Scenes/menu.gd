@@ -1,6 +1,5 @@
 extends Node2D
 
 func _ready():
-	var player = get_node("Music")
-	player.play()
+	AudioManager.play_track(3)
 	pass

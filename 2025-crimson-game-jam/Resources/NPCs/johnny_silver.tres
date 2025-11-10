@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://5l0kobmeylp0" path="res://Scripts/npc_data.gd" id="1_euxmm"]
 [ext_resource type="Resource" uid="uid://b4tghootladns" path="res://Resources/Dialogue/johhny_silver_dialogue.tres" id="1_l5asw"]
 [ext_resource type="Texture2D" uid="uid://bi78dg2r1us3" path="res://Assets/Portraits/Johnny Silver/johnny_silver_neutral.png" id="2_cbrr8"]
-[ext_resource type="AudioStream" uid="uid://bbkgsqa45b81n" path="res://Assets/Themes/johhny_silver.ogg" id="3_88m52"]
 [ext_resource type="Texture2D" uid="uid://2u8o5s0xulnx" path="res://Assets/Portraits/Johnny Silver/johnny_silver_happy.png" id="3_lreml"]
 [ext_resource type="Texture2D" uid="uid://6pi43noajl2l" path="res://Assets/Portraits/Johnny Silver/johnny_silver_angry.png" id="4_tdhi8"]
 [ext_resource type="SpriteFrames" uid="uid://2l5cg5kc4f28" path="res://spriteframes/johnny_frames.tres" id="6_tdhi8"]
+[ext_resource type="AudioStream" uid="uid://dgq35ekr0w360" path="res://Assets/Themes/Johnny_silver.ogg" id="7_tdhi8"]
 
 [resource]
 script = ExtResource("1_euxmm")
-theme = ExtResource("3_88m52")
+theme = ExtResource("7_tdhi8")
 mood_portraits = Dictionary[int, CompressedTexture2D]({
 0: ExtResource("3_lreml"),
 1: ExtResource("2_cbrr8"),

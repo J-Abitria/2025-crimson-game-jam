@@ -1,16 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2yxkvkbl85ci"]
+[gd_scene load_steps=8 format=3 uid="uid://doyohfe0kdcnc"]
 
 [ext_resource type="Script" uid="uid://b6m0csedxuwhc" path="res://Scripts/StartGame.gd" id="1_3kf3n"]
 [ext_resource type="Texture2D" uid="uid://d027bk6msqq6i" path="res://Assets/Environment/ElevatorTitle.jpg" id="1_6pedr"]
-[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_s2c3o"]
-[ext_resource type="AudioStream" uid="uid://hfhl5rq4tc2a" path="res://Assets/Music/dating_elevator.ogg" id="2_ma218"]
+[ext_resource type="Script" uid="uid://c8ofmp1e2qgi6" path="res://Scenes/menu.gd" id="1_s2c3o"]
 [ext_resource type="Script" path="res://Scripts/QuitGame.gd" id="3_syfuq"]
+[ext_resource type="Theme" uid="uid://xl0mhuva4vji" path="res://Scenes/UI/MuteMusic.tres" id="6_3jcrr"]
+[ext_resource type="Script" uid="uid://bhlm0woptopf6" path="res://Scenes/UI/music_button.gd" id="7_aobxe"]
+[ext_resource type="Script" uid="uid://j4o2xvj54cp" path="res://Scenes/UI/sfx_button.gd" id="8_ab40c"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_s2c3o")
-
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_ma218")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -110,3 +109,34 @@ offset_bottom = 634.0
 theme_override_font_sizes/font_size = 48
 text = "Bail out"
 script = ExtResource("3_syfuq")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+offset_left = 1002.0
+offset_top = 213.0
+offset_right = 1140.0
+offset_bottom = 292.0
+columns = 2
+
+[node name="MusicButton" type="CheckButton" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("6_3jcrr")
+script = ExtResource("7_aobxe")
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "Mute Music"
+
+[node name="SFXButton" type="CheckButton" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("6_3jcrr")
+script = ExtResource("8_ab40c")
+
+[node name="Label2" type="Label" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "Mute SFX"
