@@ -71,6 +71,7 @@ func _physics_process(_delta):
 				Vector2.UP:
 					sprite.play("idle_up")
 		move_and_slide()
+		
 		updateInteractionPosition()
 
 func _on_enter_interaction():
