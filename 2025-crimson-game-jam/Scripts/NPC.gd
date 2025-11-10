@@ -9,7 +9,7 @@ enum NPC_MOOD {
 signal insulted()
 signal direction_change(direction : Vector2i)
 
-@onready var pathData: PathFollow2D = get_node("..")
+@export var pathData: PathFollow2D
 @export var sprite: AnimatedSprite2D
 var enemy: NPC
 
@@ -57,7 +57,7 @@ func _physics_process(delta):
 			if attemptedProgress > pathData.progress:
 				pathData.progress = attemptedProgress
 		
-		if abs(global_position.x - previous_position.x) >= (global_position.y - previous_position.y):
+		if abs(global_position.x - previous_position.x) >= abs(global_position.y - previous_position.y):
 			#moving r/l
 			direction.y = 0
 			if global_position.x > previous_position.x:

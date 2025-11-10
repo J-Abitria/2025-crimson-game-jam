@@ -11,15 +11,16 @@ config_version=5
 [application]
 
 config/name="2025-CrimsonGameJam"
-run/main_scene="uid://yoieidt4msl4"
+run/main_scene="uid://b5hy3pdjq8uuy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://Scripts/Autoloads/audio_manager.gd"
 EventTrigger="*res://Scripts/Autoloads/event_trigger.gd"
+CustomSignals="*res://Scripts/GlobalSignals.gd"
 PlayerData="*res://Scripts/Autoloads/player_data.gd"
+AudioManager="*res://Scripts/Autoloads/audio_manager.gd"
 GameData="*res://Scripts/Autoloads/game_data.gd"
 
 [debug]
