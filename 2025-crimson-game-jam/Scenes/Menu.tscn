@@ -1,4 +1,8 @@
-[gd_scene load_steps=0 format=3 uid="uid://doyohfe0kdcnc"]
+[gd_scene load_steps=4 format=3 uid="uid://doyohfe0kdcnc"]
+
+[ext_resource type="Script" uid="uid://b6m0csedxuwhc" path="res://Scripts/StartGame.gd" id="1_3kf3n"]
+[ext_resource type="Texture2D" uid="uid://d027bk6msqq6i" path="res://Assets/Environment/ElevatorTitle.jpg" id="1_6pedr"]
+[ext_resource type="Script" uid="uid://cc3h1d7q7n74f" path="res://Scripts/QuitGame.gd" id="3_syfuq"]
 
 [node name="Menu" type="Node2D"]
 
@@ -17,15 +21,65 @@ anchor_right = 1.0
 offset_bottom = 648.0
 grow_horizontal = 2
 
+[node name="BackgroundImage" type="Control" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/BackgroundImage"]
+layout_mode = 0
+offset_right = 1147.2332
+offset_bottom = 684.0
+texture = ExtResource("1_6pedr")
+expand_mode = 1
+
 [node name="TitleText" type="Control" parent="CanvasLayer/Control/MarginContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/TitleText"]
-layout_mode = 1
-offset_right = 1152.0
-offset_bottom = 200.0
-theme_override_font_sizes/normal_font_size = 128
-text = "All Or Nothing"
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer/TitleText"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 148.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/TitleText/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "That Time I Dated Everyone at a Halloween Party at the Same Time and No One Found Out"
+horizontal_alignment = 1
+
+[node name="CreditsText" type="Control" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer/CreditsText"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 173.0
+offset_right = 758.0
+offset_bottom = 222.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/CreditsText/PanelContainer"]
+layout_mode = 2
+text = "Submission for the 2025 Crimson Game Jam!
+Created by Carsyn, Evan, James, Keegan, and Logan"
+horizontal_alignment = 1
+
+[node name="HelpText" type="Control" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer/HelpText"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 376.0
+offset_right = 833.0
+offset_bottom = 555.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/HelpText/PanelContainer"]
+layout_mode = 2
+text = "It's a date at your college's frat party with your romantic partner!
+Well, romantic PARTNERS. You somehow convinced 5 people to go on a
+date with you at the same time, on the same day, at the same place.
+See if you can keep them all happy!
+
+WASD to move, E to interact with NPCs. Left click to progress dialogue,
+hold left click to speed it up."
 horizontal_alignment = 1
 
 [node name="Buttons" type="Control" parent="CanvasLayer/Control/MarginContainer"]
@@ -34,26 +88,19 @@ layout_mode = 2
 [node name="PlayButton" type="Button" parent="CanvasLayer/Control/MarginContainer/Buttons"]
 layout_mode = 0
 offset_left = 416.0
-offset_top = 193.0
+offset_top = 244.0
 offset_right = 672.0
-offset_bottom = 289.0
+offset_bottom = 340.0
 theme_override_font_sizes/font_size = 48
 text = "Begin"
+script = ExtResource("1_3kf3n")
 
-[node name="CreditsButton" type="Button" parent="CanvasLayer/Control/MarginContainer/Buttons"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control/MarginContainer/Buttons"]
 layout_mode = 0
-offset_left = 416.0
-offset_top = 300.0
-offset_right = 672.0
-offset_bottom = 396.0
+offset_left = 414.0
+offset_top = 572.0
+offset_right = 670.0
+offset_bottom = 668.0
 theme_override_font_sizes/font_size = 48
-text = "Credits"
-
-[node name="AboutButton" type="Button" parent="CanvasLayer/Control/MarginContainer/Buttons"]
-layout_mode = 0
-offset_left = 416.0
-offset_top = 407.0
-offset_right = 672.0
-offset_bottom = 503.0
-theme_override_font_sizes/font_size = 48
-text = "Help"
+text = "Bail out"
+script = ExtResource("3_syfuq")

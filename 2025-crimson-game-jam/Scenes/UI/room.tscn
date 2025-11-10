@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://3g1m6bj2teld"]
+[gd_scene load_steps=15 format=3 uid="uid://3g1m6bj2teld"]
 
 [ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="1_28io6"]
+[ext_resource type="Script" uid="uid://b7kxhl5w212l3" path="res://Scenes/UI/play_music.gd" id="1_55nvd"]
 [ext_resource type="Texture2D" uid="uid://cevkqi455ioak" path="res://Assets/Environment/FloorTile.png" id="1_pbwdf"]
 [ext_resource type="Texture2D" uid="uid://bqq6hci4y2qsm" path="res://Assets/Environment/TopWall.png" id="2_sg8lr"]
 [ext_resource type="Texture2D" uid="uid://rbl2nw7jdrbl" path="res://Assets/Environment/BottomWall.png" id="3_qr16g"]
@@ -25,14 +26,18 @@ _data = {
 point_count = 3
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_55nvd")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_28io6")]
+
+[node name="DialogueBox" parent="CanvasLayer/Game UI/MarginContainer" index="3"]
+visible = false
 
 [node name="Floor1" type="TextureRect" parent="."]
 offset_left = 8.0
 offset_top = 32.0
 offset_right = 584.0
-offset_bottom = 300.0
+offset_bottom = 296.0
 texture = ExtResource("1_pbwdf")
 stretch_mode = 1
 
@@ -46,7 +51,7 @@ stretch_mode = 1
 
 [node name="TopWall3" type="TextureRect" parent="."]
 offset_left = 8.0
-offset_right = 308.0
+offset_right = 304.30032
 offset_bottom = 8.0
 rotation = 1.5707964
 size_flags_horizontal = 4

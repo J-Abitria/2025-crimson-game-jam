@@ -71,9 +71,21 @@ func _physics_process(_delta):
 				Vector2.UP:
 					sprite.play("idle_up")
 		move_and_slide()
+		
 		updateInteractionPosition()
 
 func _on_enter_interaction():
+	match last_direction:
+		Vector2.RIGHT:
+			sprite.play("idle_left")
+			sprite.flip_h = true
+		Vector2.LEFT:
+			sprite.play("idle_left")
+			sprite.flip_h = false
+		Vector2.DOWN:
+			sprite.play("idle_down")
+		Vector2.UP:
+			sprite.play("idle_up")
 	isInteracting = true
 
 func _on_leave_interaction():

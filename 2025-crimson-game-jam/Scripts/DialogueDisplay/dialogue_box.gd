@@ -10,6 +10,7 @@ var npc: NPC
 @export var option_container: Control
 @export var love_meter: ProgressBar
 signal completedDialogue()
+@export var favor_indicator: FavorIndicator
 
 func _ready() -> void:
 	self.visible = false
@@ -101,6 +102,9 @@ func update_mood_display() -> void:
 		NPC.NPC_MOOD.ANGRY:
 			portrait.texture = npc.npc_data.get_angry()
 			love_meter.modulate = Color.DARK_RED
+
+func show_portrait(caller: NPC, mood: NPC.NPC_MOOD) -> void:
+	favor_indicator.show_portrait(caller, mood)
 
 func exit_dialogue_box() -> void:
 	self.visible = false

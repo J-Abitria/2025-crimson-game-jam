@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwbqxmhd5c6u" path="res://Scripts/NPC.gd" id="1_g6unj"]
 [ext_resource type="Script" uid="uid://on1ncpjvpnpi" path="res://Scripts/LineOfSight.gd" id="3_1ig1v"]
-[ext_resource type="SpriteFrames" uid="uid://duouljds3k6s" path="res://spriteframes/peppino_frames.tres" id="3_g6unj"]
+[ext_resource type="SpriteFrames" uid="uid://2l5cg5kc4f28" path="res://spriteframes/johnny_frames.tres" id="3_g6unj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udgup"]
 size = Vector2(4.923077, 6.1538463)
@@ -28,16 +28,16 @@ npc = NodePath("..")
 position = Vector2(-2, 11)
 scale = Vector2(1.076208, 1.0465542)
 color = Color(0.9607843, 0.07058824, 0.20392157, 0.24705882)
-polygon = PackedVector2Array(-52.034554, -94.59615, -36.23835, -133.77234, 1.8583769, -153.83818, 42.74267, -137.5944, 56.680492, -92.68512, 1.8583769, -4.777584)
+polygon = PackedVector2Array(-35.309162, -70.70824, -26.017275, -90.774086, 1.8583769, -103.1958, 25.088089, -92.68512, 38.096725, -73.57478, 1.8583769, -4.777584)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LineOfSight"]
 position = Vector2(4, -137)
 scale = Vector2(0.8670172, 0.91266024)
-polygon = PackedVector2Array(-65.742645, 54.784897, -4.6135187, 151.20633, 55.362225, 55.8806, 39.21491, 14.24408, -4.6135187, -5.478485, -47.288567, 15.339767)
+polygon = PackedVector2Array(-46.135185, 81.08165, -4.6135187, 151.20633, 36.90815, 78.89026, 21.914215, 61.359085, -4.6135187, 48.21071, -35.75477, 61.359085)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_g6unj")
-animation = &"walk_left"
+animation = &"all_frames"
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -46,3 +46,4 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_h1ryf")
 
 [connection signal="direction_change" from="." to="LineOfSight" method="_on_npc_direction_change"]
+[connection signal="body_entered" from="LineOfSight" to="LineOfSight" method="_on_body_entered"]

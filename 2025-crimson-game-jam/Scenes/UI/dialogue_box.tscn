@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b28pd02fha6bk"]
+[gd_scene load_steps=7 format=3 uid="uid://b28pd02fha6bk"]
 
 [ext_resource type="Script" uid="uid://ct4rustx0mb5e" path="res://Scripts/DialogueDisplay/dialogue_box.gd" id="1_obhul"]
-[ext_resource type="Theme" uid="uid://drwt3mruulkvo" path="res://Scenes/UI/dialogue_theme.tres" id="2_obhul"]
+[ext_resource type="Theme" uid="uid://2fjof8xker5n" path="res://Scenes/UI/dialogue_theme.tres" id="2_obhul"]
 [ext_resource type="Script" uid="uid://gye0y8pycho8" path="res://Scripts/DialogueDisplay/typewriter.gd" id="4_1spsb"]
 [ext_resource type="FontFile" uid="uid://5yomvwki5k8u" path="res://Assets/Fonts/zelda.ttf" id="4_8610a"]
+[ext_resource type="PackedScene" uid="uid://dy04rh8vm8t65" path="res://Scenes/UI/favor_indicator.tscn" id="5_8610a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c67c5"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="DialogueBox" type="Control" node_paths=PackedStringArray("dialogue_text_label", "portrait", "option_container", "love_meter")]
-visible = false
+[node name="DialogueBox" type="Control" node_paths=PackedStringArray("dialogue_text_label", "portrait", "option_container", "love_meter", "favor_indicator")]
 custom_minimum_size = Vector2(800, 200)
 layout_mode = 3
 anchors_preset = 10
@@ -22,6 +22,7 @@ dialogue_text_label = NodePath("HBoxContainer/VBoxContainer/PanelContainer/Margi
 portrait = NodePath("HBoxContainer/PanelContainer/Portrait")
 option_container = NodePath("HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/OptionContainer")
 love_meter = NodePath("HBoxContainer/ProgressBar")
+favor_indicator = NodePath("FavorIndicator")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -84,3 +85,10 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 30
 alignment = 1
+
+[node name="FavorIndicator" parent="." instance=ExtResource("5_8610a")]
+layout_mode = 0
+offset_left = 56.000008
+offset_top = -123.000015
+offset_right = 96.00001
+offset_bottom = -83.000015

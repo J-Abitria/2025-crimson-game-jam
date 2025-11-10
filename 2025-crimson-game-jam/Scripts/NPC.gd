@@ -22,6 +22,7 @@ var loveMeter: int
 var is_on_cooldown: bool
 var current_mood: NPC_MOOD
 var direction : Vector2i
+var prev_direction: Vector2i
 
 func _ready():
 	GameData.register_npc(self)
@@ -39,7 +40,7 @@ func _ready():
 
 func _physics_process(delta):
 	if not isInteracting:
-		var prev_direction = direction
+		prev_direction = direction
 		var previous_position = global_position
 		#var prev_path_progress = pathData.progress_ratio
 		
@@ -88,6 +89,19 @@ func _physics_process(delta):
 
 func interact() -> void:
 	isInteracting = true
+	print(prev_direction)
+	match prev_direction:
+		Vector2i.UP:
+			sprite.play("idle_up")
+		Vector2i.DOWN:
+			sprite.play("idle_down")
+		Vector2i.LEFT:
+			sprite.play("idle_left")
+			sprite.flip_h = false
+		Vector2i.RIGHT:
+			sprite.play("idle_left")
+			sprite.flip_h = true
+	
 	AudioManager.play_theme(npc_data.theme)
 	
 	dialogueBox.start_dialogue(self)
@@ -133,10 +147,7 @@ func update_dialogue_state() -> void:
 
 func enemy_insulted() -> void:
 	change_love(30)
-	miniPortraitBox.visible = true
-	miniPortraitBox.get_node("PanelContainer/EnemyNPCPortrait").texture = npc_data.get_happy()
-	miniPortraitBox.get_node("Plus").visible = true
-	miniPortraitBox.get_node("Minus").visible = false
+	dialogueBox.show_portrait(self, NPC_MOOD.HAPPY)
 
 func insult() -> void:
 	insulted.emit()
