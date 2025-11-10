@@ -2,42 +2,16 @@ class_name LineOfSight extends Area2D
 
 const max_timer = 5.0
 
+@export var ray: RayCast2D
 @export var npc: NPC
 var timer = max_timer
+var jealousy_cooldown: int = 10
+var can_be_jealous: bool = true
 
 func _ready():
 	npc.direction_change.connect(Callable(self, "detect_change"))
 
-func _process(_delta):
-	var overlappingBodies = get_overlapping_bodies()
-	
-	if timer >= max_timer:
-		for body in overlappingBodies:
-			if body is Player:
-				if body.heldDrink != "":
-					print("The player is currently holding a %s" % [body.heldDrink])
-				if body.heldItem != "":
-					print("The player is currently holding a %s" % [body.heldItem])
-				if !npc.isInteracting and body.isInteracting:
-					npc.change_love(-20)
-					AudioManager.play_choice_effect("angry")
-					npc.miniPortraitBox.get_node("Minus").visible = true
-					for target: NPC in GameData.NPCs.values():
-						print("State 2")
-						if target.isInteracting:
-							npc.miniPortraitBox.visible = true
-							npc.miniPortraitBox.get_node("PanelContainer/EnemyNPCPortrait").texture = target.npc_data.get_angry()
-					timer -= 1	
-			break
-	else:
-		if (timer <= 0):
-			timer = max_timer
-			npc.miniPortraitBox.get_node("Minus").visible = false
-			npc.miniPortraitBox.visible = false
-		else:
-			timer -= _delta
-
-func detect_change(direction : Vector2i) :
+func detect_change(direction : Vector2i):
 	if (direction.x == 1):
 		rotation = PI/2
 	elif (direction.x == -1):
@@ -46,3 +20,16 @@ func detect_change(direction : Vector2i) :
 		rotation = PI
 	elif(direction.y == 1):
 		rotation = 0
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		if body.isInteracting and !npc.isInteracting and can_be_jealous:
+			AudioManager.play_choice_effect("angry")
+			npc.change_love(-10)
+			start_cooldown()
+			body.dialogueBox.show_portrait(npc, NPC.NPC_MOOD.ANGRY)
+
+func start_cooldown() -> void:
+	can_be_jealous = false
+	await get_tree().create_timer(jealousy_cooldown).timeout
+	can_be_jealous = true

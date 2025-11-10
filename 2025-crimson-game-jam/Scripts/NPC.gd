@@ -133,10 +133,6 @@ func update_dialogue_state() -> void:
 
 func enemy_insulted() -> void:
 	change_love(30)
-	miniPortraitBox.visible = true
-	miniPortraitBox.get_node("PanelContainer/EnemyNPCPortrait").texture = npc_data.get_happy()
-	miniPortraitBox.get_node("Plus").visible = true
-	miniPortraitBox.get_node("Minus").visible = false
 
 func insult() -> void:
 	insulted.emit()
