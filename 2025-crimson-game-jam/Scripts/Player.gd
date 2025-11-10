@@ -9,6 +9,7 @@ var interactionHitbox: InteractionHitbox
 var heldDrink: String = ""
 var heldItem: String = ""
 var isInteracting: bool
+var last_direction: Vector2
 
 func _ready():
 	interactionHitbox = get_node("InteractionHitbox")
@@ -40,28 +41,36 @@ func _process(_delta):
 			promptInteraction()
 
 func _physics_process(_delta):
-	velocity = Vector2.ZERO
+	var direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
 	
 	if not isInteracting:
-		if Input.is_action_pressed("moveRight"):
-			velocity.x += 1
-			sprite.play("walk_left")
-			sprite.flip_h = true
-		if Input.is_action_pressed("moveLeft"):
-			velocity.x -= 1
-			sprite.play("walk_left")
-			sprite.flip_h = false
-		if Input.is_action_pressed("moveDown"):
-			velocity.y += 1
-			sprite.play("walk_down")
-		if Input.is_action_pressed("moveUp"):
-			velocity.y -= 1
-			sprite.play("walk_up")
-
-		if velocity.length() > 0:
-			velocity = velocity.normalized() * speed
-			move_and_slide()
-		
+		if direction != Vector2.ZERO:
+			velocity = velocity.move_toward(direction * speed, speed / 3)
+			last_direction = direction
+			if direction.x > 0:
+				sprite.play("walk_left")
+				sprite.flip_h = true
+			elif direction.x < 0:
+				sprite.play("walk_left")
+				sprite.flip_h = false
+			elif direction.y > 0:
+				sprite.play("walk_down")
+			elif direction.y < 0:
+				sprite.play("walk_up")
+		else:
+			velocity = velocity.move_toward(Vector2.ZERO, speed / 5)
+			match last_direction:
+				Vector2.RIGHT:
+					sprite.play("idle_left")
+					sprite.flip_h = true
+				Vector2.LEFT:
+					sprite.play("idle_left")
+					sprite.flip_h = false
+				Vector2.DOWN:
+					sprite.play("idle_down")
+				Vector2.UP:
+					sprite.play("idle_up")
+		move_and_slide()
 		updateInteractionPosition()
 
 func _on_enter_interaction():
