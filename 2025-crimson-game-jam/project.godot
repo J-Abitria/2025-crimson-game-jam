@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="2025-CrimsonGameJam"
-run/main_scene="uid://b5hy3pdjq8uuy"
+run/main_scene="uid://don52el6nq3v6"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
