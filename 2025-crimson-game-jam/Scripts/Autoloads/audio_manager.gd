@@ -23,7 +23,7 @@ func _ready() -> void:
 	self.add_child(theme_player)
 	self.add_child(effect_player)
 	#theme_player.volume_db = -10
-	music_player.volume_db = -40
+	music_player.volume_db = -20
 
 func play_track(track_index: int) -> void:
 	if tracks.has(track_index):
@@ -40,7 +40,7 @@ func play_theme(theme: AudioStreamOggVorbis) -> void:
 	await theme_player.finished
 	# turn up music
 	tween = create_tween()
-	tween.tween_property(music_player, "volume_db", 0, 1)
+	tween.tween_property(music_player, "volume_db", -20, 1)
 
 func play_choice_effect(effect: String) -> void:
 	var tween := create_tween()
@@ -50,7 +50,7 @@ func play_choice_effect(effect: String) -> void:
 		effect_player.play()
 		await effect_player.finished
 	tween = create_tween()
-	tween.tween_property(music_player, "volume_db", 0, 1)
+	tween.tween_property(music_player, "volume_db", -20, 1)
 
 func pause_track() -> void:
 	self.stream_paused = true

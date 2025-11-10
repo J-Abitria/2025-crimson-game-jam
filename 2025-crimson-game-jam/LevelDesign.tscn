@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://don52el6nq3v6"]
+[gd_scene load_steps=30 format=3 uid="uid://2l7621xpy8d8"]
 
+[ext_resource type="Script" uid="uid://b7kxhl5w212l3" path="res://Scenes/UI/play_music.gd" id="1_0jfye"]
 [ext_resource type="Texture2D" uid="uid://bqq6hci4y2qsm" path="res://Assets/Environment/TopWall.png" id="1_xlta1"]
 [ext_resource type="Texture2D" uid="uid://rbl2nw7jdrbl" path="res://Assets/Environment/BottomWall.png" id="2_3n0fg"]
 [ext_resource type="Texture2D" uid="uid://cevkqi455ioak" path="res://Assets/Environment/FloorTile.png" id="3_2xed4"]
@@ -9,6 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://wnodscby81vt" path="res://Assets/Environment/BeerPong.png" id="6_gabq6"]
 [ext_resource type="Texture2D" uid="uid://u40cotxpxy08" path="res://Assets/Environment/EmptyTable.png" id="7_sw4p6"]
 [ext_resource type="Texture2D" uid="uid://cp41s27ngn5je" path="res://Assets/Environment/EmptyChair.png" id="8_gc3t3"]
+[ext_resource type="PackedScene" uid="uid://bhb15negspr3l" path="res://Scenes/npc.tscn" id="10_5hopc"]
+[ext_resource type="Resource" uid="uid://d3jauypcolr11" path="res://Resources/NPCs/zelda.tres" id="11_s8oxa"]
+[ext_resource type="Resource" uid="uid://b1dmpdm7yibb5" path="res://Resources/NPCs/master_chief.tres" id="12_0jfye"]
+[ext_resource type="Resource" uid="uid://y07bhxoq5jwi" path="res://Resources/NPCs/lara_croft.tres" id="13_1iuqv"]
+[ext_resource type="Resource" uid="uid://bnliaqo4j5h4q" path="res://Resources/NPCs/johnny_silver.tres" id="14_0ldjn"]
+[ext_resource type="Resource" uid="uid://o0h0q774gxk1" path="res://Resources/NPCs/peppino.tres" id="15_8l7hg"]
+[ext_resource type="PackedScene" uid="uid://drk3ucs6rffsd" path="res://Scenes/UI/canvas_layer.tscn" id="16_s8oxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlta1"]
 size = Vector2(193, 5.000004)
@@ -34,7 +42,32 @@ size = Vector2(42, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2an0"]
 size = Vector2(9, 12)
 
+[sub_resource type="Curve2D" id="Curve2D_nulti"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 178, 2, 0, 0, 0, 0, 4, 2)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_gcvn6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 123, 0, 0, 0, 0, 0, 2)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_5hopc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, -112, 0, 0, 0, 0, 0, 1)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_s8oxa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 2)
+}
+point_count = 3
+
 [node name="Level" type="Node2D"]
+script = ExtResource("1_0jfye")
 
 [node name="TopWall2" type="TextureRect" parent="."]
 offset_left = -8.0
@@ -258,6 +291,90 @@ stretch_mode = 2
 position = Vector2(5.5, 6)
 shape = SubResource("RectangleShape2D_j2an0")
 
-[node name="Player" parent="." instance=ExtResource("4_gabq6")]
+[node name="Player" parent="." node_paths=PackedStringArray("dialogueBox") instance=ExtResource("4_gabq6")]
 position = Vector2(156, 109)
+dialogueBox = NodePath("../CanvasLayer/Game UI/MarginContainer/DialogueBox")
 speed = 100
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(99, 42)
+curve = SubResource("Curve2D_nulti")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, 2)
+rotates = false
+
+[node name="Zelda" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("10_5hopc")]
+position = Vector2(-4, -2)
+pathData = NodePath("..")
+npc_data = ExtResource("11_s8oxa")
+npcSpeed = 50
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(24, 44)
+curve = SubResource("Curve2D_gcvn6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(0, 2)
+rotates = false
+
+[node name="Master Chief" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("10_5hopc")]
+position = Vector2(-4, -2)
+pathData = NodePath("..")
+npc_data = ExtResource("12_0jfye")
+npcSpeed = 25
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2(51, 155)
+curve = SubResource("Curve2D_nulti")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(0, 2)
+rotates = false
+
+[node name="Lara Croft" parent="Path2D3/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("10_5hopc")]
+position = Vector2(-4, -2)
+pathData = NodePath("..")
+npc_data = ExtResource("13_1iuqv")
+npcSpeed = 35
+
+[node name="Path2D4" type="Path2D" parent="."]
+position = Vector2(194, 153)
+scale = Vector2(0.75, 1)
+curve = SubResource("Curve2D_5hopc")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(0, 2)
+rotates = false
+
+[node name="Johnny Silverhand" parent="Path2D4/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("10_5hopc")]
+position = Vector2(-4, -2)
+pathData = NodePath("..")
+npc_data = ExtResource("14_0ldjn")
+npcSpeed = 15
+
+[node name="AnimatedSprite2D" parent="Path2D4/PathFollow2D/Johnny Silverhand" index="2"]
+position = Vector2(1.3333359, 0)
+scale = Vector2(1.25, 1)
+
+[node name="Path2D5" type="Path2D" parent="."]
+position = Vector2(115, 81)
+curve = SubResource("Curve2D_s8oxa")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
+position = Vector2(0, 2)
+rotates = false
+
+[node name="Peppino" parent="Path2D5/PathFollow2D" node_paths=PackedStringArray("pathData") groups=["NPC"] instance=ExtResource("10_5hopc")]
+position = Vector2(-4, -2)
+pathData = NodePath("..")
+npc_data = ExtResource("15_8l7hg")
+npcSpeed = 10
+
+[node name="CanvasLayer" parent="." instance=ExtResource("16_s8oxa")]
+
+[node name="DialogueBox" parent="CanvasLayer/Game UI/MarginContainer" index="3"]
+visible = false
+
+[editable path="Path2D4/PathFollow2D/Johnny Silverhand"]
+[editable path="CanvasLayer"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://doyohfe0kdcnc"]
+[gd_scene load_steps=6 format=3 uid="uid://d2yxkvkbl85ci"]
 
-[ext_resource type="Script" path="res://Scripts/StartGame.gd" id="1_3kf3n"]
+[ext_resource type="Script" uid="uid://b6m0csedxuwhc" path="res://Scripts/StartGame.gd" id="1_3kf3n"]
 [ext_resource type="Texture2D" uid="uid://d027bk6msqq6i" path="res://Assets/Environment/ElevatorTitle.jpg" id="1_6pedr"]
-[ext_resource type="Script" uid="uid://c8ofmp1e2qgi6" path="res://Scenes/menu.gd" id="1_s2c3o"]
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_s2c3o"]
 [ext_resource type="AudioStream" uid="uid://hfhl5rq4tc2a" path="res://Assets/Music/dating_elevator.ogg" id="2_ma218"]
 [ext_resource type="Script" path="res://Scripts/QuitGame.gd" id="3_syfuq"]
 
