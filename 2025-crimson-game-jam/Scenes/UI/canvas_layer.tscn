@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://drk3ucs6rffsd"]
+[gd_scene load_steps=5 format=3 uid="uid://drk3ucs6rffsd"]
 
 [ext_resource type="Script" uid="uid://bgbdi0ijres2e" path="res://Scripts/UI/timer_label.gd" id="1_w6mh2"]
 [ext_resource type="PackedScene" uid="uid://b28pd02fha6bk" path="res://Scenes/UI/dialogue_box.tscn" id="2_fvidj"]
+[ext_resource type="Texture2D" uid="uid://jdcmxm7gja0k" path="res://Assets/PixelArt/Plus.png" id="2_tnb6o"]
+[ext_resource type="Texture2D" uid="uid://8qn5tm4l4a70" path="res://Assets/PixelArt/Minus.png" id="3_v4obr"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -63,6 +65,25 @@ scale = Vector2(2.3676043, 2.3676043)
 [node name="EnemyNPCPortrait" type="TextureRect" parent="Game UI/MarginContainer/MiniPortraitBox/PanelContainer"]
 layout_mode = 2
 expand_mode = 2
+
+[node name="Plus" type="TextureRect" parent="Game UI/MarginContainer/MiniPortraitBox"]
+visible = false
+layout_mode = 0
+offset_left = 140.0
+offset_top = 287.0
+offset_right = 180.0
+offset_bottom = 327.0
+texture = ExtResource("2_tnb6o")
+
+[node name="Minus" type="TextureRect" parent="Game UI/MarginContainer/MiniPortraitBox"]
+visible = false
+layout_mode = 0
+offset_left = 140.0
+offset_top = 287.0
+offset_right = 180.0
+offset_bottom = 327.0
+texture = ExtResource("3_v4obr")
+stretch_mode = 5
 
 [node name="DialogueBox" parent="Game UI/MarginContainer" instance=ExtResource("2_fvidj")]
 layout_mode = 2
