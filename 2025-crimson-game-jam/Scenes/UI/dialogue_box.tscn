@@ -9,6 +9,7 @@
 bg_color = Color(1, 1, 1, 1)
 
 [node name="DialogueBox" type="Control" node_paths=PackedStringArray("dialogue_text_label", "portrait", "option_container", "love_meter")]
+visible = false
 custom_minimum_size = Vector2(800, 200)
 layout_mode = 3
 anchors_preset = 10
