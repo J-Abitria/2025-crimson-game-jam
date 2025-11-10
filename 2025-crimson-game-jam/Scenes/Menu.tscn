@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://doyohfe0kdcnc"]
+[gd_scene load_steps=4 format=3 uid="uid://doyohfe0kdcnc"]
 
 [ext_resource type="Script" uid="uid://b6m0csedxuwhc" path="res://Scripts/StartGame.gd" id="1_3kf3n"]
 [ext_resource type="Texture2D" uid="uid://d027bk6msqq6i" path="res://Assets/Environment/ElevatorTitle.jpg" id="1_6pedr"]
+[ext_resource type="Script" uid="uid://cc3h1d7q7n74f" path="res://Scripts/QuitGame.gd" id="3_syfuq"]
 
 [node name="Menu" type="Node2D"]
 
@@ -60,6 +61,27 @@ text = "Submission for the 2025 Crimson Game Jam!
 Created by Carsyn, Evan, James, Keegan, and Logan"
 horizontal_alignment = 1
 
+[node name="HelpText" type="Control" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer/HelpText"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 376.0
+offset_right = 833.0
+offset_bottom = 555.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/HelpText/PanelContainer"]
+layout_mode = 2
+text = "It's a date at your college's frat party with your romantic partner!
+Well, romantic PARTNERS. You somehow convinced 5 people to go on a
+date with you at the same time, on the same day, at the same place.
+See if you can keep them all happy!
+
+WASD to move, E to interact with NPCs. Left click to progress dialogue,
+hold left click to speed it up."
+horizontal_alignment = 1
+
 [node name="Buttons" type="Control" parent="CanvasLayer/Control/MarginContainer"]
 layout_mode = 2
 
@@ -73,11 +95,12 @@ theme_override_font_sizes/font_size = 48
 text = "Begin"
 script = ExtResource("1_3kf3n")
 
-[node name="AboutButton" type="Button" parent="CanvasLayer/Control/MarginContainer/Buttons"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control/MarginContainer/Buttons"]
 layout_mode = 0
-offset_left = 416.0
-offset_top = 407.0
-offset_right = 672.0
-offset_bottom = 503.0
+offset_left = 414.0
+offset_top = 572.0
+offset_right = 670.0
+offset_bottom = 668.0
 theme_override_font_sizes/font_size = 48
-text = "Help"
+text = "Bail out"
+script = ExtResource("3_syfuq")
