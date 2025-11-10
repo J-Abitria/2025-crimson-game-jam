@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwbqxmhd5c6u" path="res://Scripts/NPC.gd" id="1_g6unj"]
 [ext_resource type="Script" uid="uid://on1ncpjvpnpi" path="res://Scripts/LineOfSight.gd" id="3_1ig1v"]
-[ext_resource type="SpriteFrames" uid="uid://duouljds3k6s" path="res://spriteframes/peppino_frames.tres" id="3_g6unj"]
+[ext_resource type="SpriteFrames" uid="uid://2l5cg5kc4f28" path="res://spriteframes/johnny_frames.tres" id="3_g6unj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udgup"]
 size = Vector2(4.923077, 6.1538463)
@@ -37,7 +37,7 @@ polygon = PackedVector2Array(-65.742645, 54.784897, -4.6135187, 151.20633, 55.36
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_g6unj")
-animation = &"walk_left"
+animation = &"all_frames"
 
 [node name="Area2D" type="Area2D" parent="."]
 
