@@ -1,0 +1,263 @@
+[gd_scene load_steps=18 format=3 uid="uid://don52el6nq3v6"]
+
+[ext_resource type="Texture2D" uid="uid://bqq6hci4y2qsm" path="res://Assets/Environment/TopWall.png" id="1_xlta1"]
+[ext_resource type="Texture2D" uid="uid://rbl2nw7jdrbl" path="res://Assets/Environment/BottomWall.png" id="2_3n0fg"]
+[ext_resource type="Texture2D" uid="uid://cevkqi455ioak" path="res://Assets/Environment/FloorTile.png" id="3_2xed4"]
+[ext_resource type="PackedScene" uid="uid://cwl3rthtndnms" path="res://Scenes/player.tscn" id="4_gabq6"]
+[ext_resource type="Texture2D" uid="uid://5ix4oijfbeuk" path="res://Assets/Environment/Fridge.png" id="5_2xed4"]
+[ext_resource type="Texture2D" uid="uid://c4xpk1w32xvtj" path="res://Assets/Environment/DeskObject.png" id="5_3n0fg"]
+[ext_resource type="Texture2D" uid="uid://wnodscby81vt" path="res://Assets/Environment/BeerPong.png" id="6_gabq6"]
+[ext_resource type="Texture2D" uid="uid://u40cotxpxy08" path="res://Assets/Environment/EmptyTable.png" id="7_sw4p6"]
+[ext_resource type="Texture2D" uid="uid://cp41s27ngn5je" path="res://Assets/Environment/EmptyChair.png" id="8_gc3t3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlta1"]
+size = Vector2(193, 5.000004)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oau46"]
+size = Vector2(315, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n0fg"]
+size = Vector2(129.5, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xed4"]
+size = Vector2(33, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gabq6"]
+size = Vector2(17, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw4p6"]
+size = Vector2(42, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx5o2"]
+size = Vector2(42, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2an0"]
+size = Vector2(9, 12)
+
+[node name="Level" type="Node2D"]
+
+[node name="TopWall2" type="TextureRect" parent="."]
+offset_left = -8.0
+offset_top = 177.0
+offset_right = 184.63168
+offset_bottom = 184.84958
+rotation = -1.5707964
+texture = ExtResource("1_xlta1")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TopWall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall2/StaticBody2D"]
+position = Vector2(96.5, 2.5000024)
+shape = SubResource("RectangleShape2D_xlta1")
+
+[node name="TopWall" type="TextureRect" parent="."]
+offset_top = -16.0
+offset_right = 312.0
+texture = ExtResource("1_xlta1")
+stretch_mode = 1
+
+[node name="TopWall3" type="TextureRect" parent="."]
+offset_left = 312.0
+offset_top = 177.0
+offset_right = 504.63168
+offset_bottom = 184.84958
+rotation = -1.5707964
+texture = ExtResource("1_xlta1")
+expand_mode = 1
+stretch_mode = 1
+flip_v = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TopWall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall3/StaticBody2D"]
+position = Vector2(96.5, 2.5000024)
+shape = SubResource("RectangleShape2D_xlta1")
+
+[node name="BottomWall" type="TextureRect" parent="."]
+offset_right = 312.0
+offset_bottom = 16.0
+texture = ExtResource("2_3n0fg")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BottomWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall/StaticBody2D"]
+position = Vector2(154.5, -6.5)
+shape = SubResource("RectangleShape2D_oau46")
+
+[node name="Flooring" type="TextureRect" parent="."]
+offset_top = 16.0
+offset_right = 312.0
+offset_bottom = 177.0
+texture = ExtResource("3_2xed4")
+stretch_mode = 1
+
+[node name="Flooring" type="TextureRect" parent="Flooring"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 160.0
+offset_right = 187.9014
+offset_bottom = 177.0
+texture = ExtResource("3_2xed4")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Flooring/Flooring"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flooring/Flooring/StaticBody2D"]
+position = Vector2(-66.75, 11.5)
+shape = SubResource("RectangleShape2D_3n0fg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Flooring/Flooring/StaticBody2D"]
+position = Vector2(127.5, 11)
+shape = SubResource("RectangleShape2D_3n0fg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Flooring/Flooring/StaticBody2D"]
+position = Vector2(32, 27)
+shape = SubResource("RectangleShape2D_3n0fg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 269.0
+offset_top = -8.0
+offset_right = 309.0
+offset_bottom = 32.0
+
+[node name="Desk" type="TextureRect" parent="."]
+offset_left = 41.0
+offset_top = -7.0
+offset_right = 77.0
+offset_bottom = 29.0
+texture = ExtResource("5_3n0fg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Desk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/StaticBody2D"]
+position = Vector2(18.5, 19)
+shape = SubResource("RectangleShape2D_2xed4")
+
+[node name="Desk2" type="TextureRect" parent="."]
+offset_left = 269.0
+offset_top = -8.0
+offset_right = 305.0
+offset_bottom = 28.0
+texture = ExtResource("5_3n0fg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Desk2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk2/StaticBody2D"]
+position = Vector2(18.5, 19)
+shape = SubResource("RectangleShape2D_2xed4")
+
+[node name="Fridge" type="TextureRect" parent="."]
+offset_left = 7.0
+offset_top = -6.0
+offset_right = 26.0
+offset_bottom = 26.0
+texture = ExtResource("5_2xed4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fridge"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fridge/StaticBody2D"]
+position = Vector2(9.5, 10.5)
+shape = SubResource("RectangleShape2D_gabq6")
+
+[node name="Beerpong" type="TextureRect" parent="."]
+offset_left = 35.0
+offset_top = 55.0
+offset_right = 81.0
+offset_bottom = 80.0
+texture = ExtResource("6_gabq6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Beerpong"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beerpong/StaticBody2D"]
+position = Vector2(23, 8.5)
+shape = SubResource("RectangleShape2D_sw4p6")
+
+[node name="Beerpong2" type="TextureRect" parent="."]
+offset_left = 36.0
+offset_top = 104.0
+offset_right = 82.0
+offset_bottom = 129.0
+texture = ExtResource("6_gabq6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Beerpong2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beerpong2/StaticBody2D"]
+position = Vector2(23, 8.5)
+shape = SubResource("RectangleShape2D_sw4p6")
+
+[node name="Table" type="TextureRect" parent="."]
+offset_left = 232.0
+offset_top = 127.0
+offset_right = 278.0
+offset_bottom = 152.0
+texture = ExtResource("7_sw4p6")
+stretch_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/StaticBody2D"]
+position = Vector2(23, 8.5)
+shape = SubResource("RectangleShape2D_xx5o2")
+
+[node name="Table2" type="TextureRect" parent="."]
+offset_left = 230.0
+offset_top = 80.0
+offset_right = 276.0
+offset_bottom = 105.0
+texture = ExtResource("7_sw4p6")
+stretch_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Table2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table2/StaticBody2D"]
+position = Vector2(23, 8.5)
+shape = SubResource("RectangleShape2D_xx5o2")
+
+[node name="Chair" type="TextureRect" parent="."]
+offset_left = 276.0
+offset_top = 84.0
+offset_right = 288.0
+offset_bottom = 101.0
+texture = ExtResource("8_gc3t3")
+stretch_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Chair"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/StaticBody2D"]
+position = Vector2(5.5, 6)
+shape = SubResource("RectangleShape2D_j2an0")
+
+[node name="Chair2" type="TextureRect" parent="."]
+offset_left = 299.0
+offset_top = 104.0
+offset_right = 311.0
+offset_bottom = 121.0
+texture = ExtResource("8_gc3t3")
+stretch_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Chair2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair2/StaticBody2D"]
+position = Vector2(5.5, 6)
+shape = SubResource("RectangleShape2D_j2an0")
+
+[node name="Chair3" type="TextureRect" parent="."]
+offset_left = 299.0
+offset_top = 118.0
+offset_right = 311.0
+offset_bottom = 135.0
+texture = ExtResource("8_gc3t3")
+stretch_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Chair3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair3/StaticBody2D"]
+position = Vector2(5.5, 6)
+shape = SubResource("RectangleShape2D_j2an0")
+
+[node name="Player" parent="." instance=ExtResource("4_gabq6")]
+position = Vector2(156, 109)
+speed = 100
