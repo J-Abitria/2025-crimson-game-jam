@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv7t645m7qb0q"]
+
+[ext_resource type="Script" path="res://Scenes/UI/favor_indicator.gd" id="1_kehr3"]
+[ext_resource type="Texture2D" uid="uid://jdcmxm7gja0k" path="res://Assets/PixelArt/Plus.png" id="2_51kfe"]
+[ext_resource type="Texture2D" uid="uid://8qn5tm4l4a70" path="res://Assets/PixelArt/Minus.png" id="3_ihidf"]
+
+[node name="FavorIndicator" type="PanelContainer" node_paths=PackedStringArray("portrait", "plus", "minus")]
+offset_left = 49.0
+offset_top = -137.0
+offset_right = 89.0
+offset_bottom = -97.0
+scale = Vector2(2.3676043, 2.3676043)
+script = ExtResource("1_kehr3")
+portrait = NodePath("EnemyNPCPortrait")
+plus = NodePath("Plus")
+minus = NodePath("Minus")
+
+[node name="EnemyNPCPortrait" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Plus" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_51kfe")
+
+[node name="Minus" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_ihidf")

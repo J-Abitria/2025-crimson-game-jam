@@ -32,7 +32,7 @@ point_count = 3
 offset_left = 8.0
 offset_top = 32.0
 offset_right = 584.0
-offset_bottom = 300.0
+offset_bottom = 296.0
 texture = ExtResource("1_pbwdf")
 stretch_mode = 1
 
@@ -46,7 +46,7 @@ stretch_mode = 1
 
 [node name="TopWall3" type="TextureRect" parent="."]
 offset_left = 8.0
-offset_right = 308.0
+offset_right = 304.30032
 offset_bottom = 8.0
 rotation = 1.5707964
 size_flags_horizontal = 4
