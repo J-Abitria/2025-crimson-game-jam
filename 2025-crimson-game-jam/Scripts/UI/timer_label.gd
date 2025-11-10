@@ -11,6 +11,7 @@ func _physics_process(_delta: float) -> void:
 	var time_remaining = time_alloted_minutes * 60000 - time_elapsed
 	
 	if time_remaining <= 0:
+		GameData.preserveFinalScores()
 		get_tree().change_scene_to_file("res://Scenes/Ending.tscn")
 	
 	if (time_remaining / 1000) % 60 < 10:

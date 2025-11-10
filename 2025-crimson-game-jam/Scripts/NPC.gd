@@ -125,7 +125,7 @@ func change_love(amount: int) -> void:
 
 func loveDecay():
 	while loveMeter != 0:
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(1.5).timeout
 		change_love(-1)
 
 func update_mood() -> void:
@@ -146,7 +146,7 @@ func update_dialogue_state() -> void:
 			npc_data.dialogue.current_state = DialogueSystem.NPC_STATES.HATED
 
 func enemy_insulted() -> void:
-	change_love(50)
+	change_love(40)
 	dialogueBox.show_portrait(self, NPC_MOOD.HAPPY)
 
 func insult() -> void:

@@ -68,7 +68,7 @@ func select_response(choice: ResponseDialogue.RESPONSE_TYPES) -> void:
 	match choice:
 		ResponseDialogue.RESPONSE_TYPES.COMPLIMENTED:
 			run_display_dialogue(dialogue.compliment_responses.pick_random())
-			npc.change_love(30)
+			npc.change_love(25)
 			AudioManager.play_choice_effect("happy")
 			portrait.texture = npc.npc_data.get_happy()
 			npc.start_cooldown()
@@ -83,7 +83,7 @@ func select_response(choice: ResponseDialogue.RESPONSE_TYPES) -> void:
 			# when question is answered, get signal to subscribe npc to
 		ResponseDialogue.RESPONSE_TYPES.INSULTED:
 			run_display_dialogue(dialogue.insult_responses.pick_random())
-			npc.change_love(-30)
+			npc.change_love(-25)
 			AudioManager.play_choice_effect("angry")
 			portrait.texture = npc.npc_data.get_angry()
 			npc.start_cooldown()
