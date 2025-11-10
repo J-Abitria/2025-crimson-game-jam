@@ -1,8 +1,8 @@
 extends Button
 
 func _ready():
-	self.button_down.connect(leave)
-	pass
+	self.button_up.connect(leave)
 
 func leave():
-	get_tree().change_scene_to_file("res://Scenes/UI/room.tscn")
+	print("Clicked!")
+	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
