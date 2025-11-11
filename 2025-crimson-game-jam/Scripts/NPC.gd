@@ -89,7 +89,6 @@ func _physics_process(delta):
 
 func interact() -> void:
 	isInteracting = true
-	print(prev_direction)
 	match prev_direction:
 		Vector2i.UP:
 			sprite.play("idle_up")
@@ -121,6 +120,7 @@ func _on_interaction_complete():
 
 func change_love(amount: int) -> void:
 	self.loveMeter += amount
+	self.loveMeter = clampi(self.loveMeter, 0, 100)
 	update_mood()
 
 func loveDecay():

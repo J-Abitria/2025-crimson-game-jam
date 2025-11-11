@@ -373,8 +373,12 @@ npcSpeed = 10
 
 [node name="CanvasLayer" parent="." instance=ExtResource("16_s8oxa")]
 
-[node name="DialogueBox" parent="CanvasLayer/Game UI/MarginContainer" index="3"]
+[node name="DialogueBox" parent="CanvasLayer/Game UI/MarginContainer" index="2"]
 visible = false
+
+[node name="MarginContainer" parent="CanvasLayer/Game UI/MarginContainer" index="3"]
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [editable path="Path2D4/PathFollow2D/Johnny Silverhand"]
 [editable path="CanvasLayer"]

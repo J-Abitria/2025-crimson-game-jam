@@ -49,16 +49,7 @@ theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 25
 text = "5:00:00"
 script = ExtResource("1_w6mh2")
-time_alloted_minutes = 5
-
-[node name="ItemContainer" type="Control" parent="Game UI/MarginContainer"]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Game UI/MarginContainer/ItemContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+time_alloted_minutes = 2
 
 [node name="MiniPortraitBox" type="Control" parent="Game UI/MarginContainer"]
 layout_mode = 2
@@ -85,32 +76,34 @@ stretch_mode = 5
 [node name="DialogueBox" parent="Game UI/MarginContainer" instance=ExtResource("2_fvidj")]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="Game UI"]
-layout_mode = 0
-offset_left = 1004.0
-offset_top = 53.0
-offset_right = 1142.0
-offset_bottom = 132.0
+[node name="MarginContainer" type="MarginContainer" parent="Game UI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="GridContainer" type="GridContainer" parent="Game UI/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 columns = 2
 
-[node name="MusicButton" type="CheckButton" parent="Game UI/GridContainer"]
+[node name="MusicButton" type="CheckButton" parent="Game UI/MarginContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("5_2m36k")
 script = ExtResource("5_v4obr")
 
-[node name="Label" type="Label" parent="Game UI/GridContainer"]
+[node name="Label" type="Label" parent="Game UI/MarginContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 text = "Mute Music"
 
-[node name="SFXButton" type="CheckButton" parent="Game UI/GridContainer"]
+[node name="SFXButton" type="CheckButton" parent="Game UI/MarginContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("5_2m36k")
 script = ExtResource("6_lfm0u")
 
-[node name="Label2" type="Label" parent="Game UI/GridContainer"]
+[node name="Label2" type="Label" parent="Game UI/MarginContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1

@@ -37,6 +37,7 @@ func promptInteraction():
 	interactionHitbox.disable()
 
 func _process(_delta):
+	isInteracting = dialogueBox.visible
 	if not isInteracting:
 		if Input.is_action_just_pressed("interact"):
 			promptInteraction()
